@@ -4,6 +4,5 @@
 # import frappe
 from frappe.tests.utils import FrappeTestCase
 
-
 class TestShedule(FrappeTestCase):
 	pass

@@ -8,7 +8,6 @@ frappe.ui.form.on("Doctor", {
     last_name: function(frm) {
         update_full_name(frm);
     },
-
 	refresh(frm) {
         
 
