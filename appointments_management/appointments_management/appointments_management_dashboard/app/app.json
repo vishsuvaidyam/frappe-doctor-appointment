@@ -1,0 +1,25 @@
+{
+ "cards": [
+  {
+   "card": "Appointment by Submit"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "gggg",
+   "width": "Half"
+  }
+ ],
+ "creation": "2024-06-26 16:30:21.843504",
+ "dashboard_name": "App",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 1,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2024-06-28 16:21:46.575704",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "App",
+ "owner": "Administrator"
+}
