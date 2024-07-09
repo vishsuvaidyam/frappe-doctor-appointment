@@ -52,14 +52,14 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "+91-",
    "fieldname": "contact_number",
-   "fieldtype": "Data",
+   "fieldtype": "Phone",
    "in_list_view": 1,
    "label": "Contact Number",
    "reqd": 1
   },
   {
-   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -82,13 +82,14 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-29 10:28:43.215287",
+ "modified": "2024-07-09 10:48:01.357309",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",
