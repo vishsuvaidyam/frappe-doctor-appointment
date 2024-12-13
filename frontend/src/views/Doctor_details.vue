@@ -49,7 +49,7 @@
                     <button class="px-8 py-2 border rounded-full">10:30 am</button>
                     <button class="px-8 py-2 border rounded-full">10:30 am</button>
                 </div>
-                <button class="px-10 py-2 border rounded-3xl mt-4 bg-blue-600 text-white text-sm font-normal">Book an
+                <button class="px-10 py-3 border rounded-3xl mt-4 bg-blue-600 text-white text-sm font-normal">Book an
                     appointment</button>
             </div>
         </div>

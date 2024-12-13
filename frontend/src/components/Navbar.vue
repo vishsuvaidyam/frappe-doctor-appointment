@@ -23,10 +23,8 @@
       </router-link>
       <a href="#" class="border rounded-3xl py-1 px-4">Admin Panel</a>
     </div>
-
-    <!-- Buttons Section -->
     <div class="flex justify-end items-center space-x-4">
-      <button class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block">
+      <button class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block"  @click="goToRegister">
         Create account
       </button>
       <!-- Hamburger Menu for Mobile -->
@@ -60,7 +58,14 @@
 <script setup>
 import { ref } from "vue";
 
-// State to manage dropdown menu visibility
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function goToRegister() {
+  router.push('/register');  
+}
+ 
 const menuOpen = ref(false);
 
 // Toggle menu visibility

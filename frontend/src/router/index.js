@@ -5,8 +5,13 @@ import Doctors from "../views/Doctors.vue";
 import About from "../views/About.vue";
 import Contact from "../views/Contact.vue";
 import Doctor_details from "../views/Doctor_details.vue";
+// import LoginPage from '@/views/LoginPage.vue';
+import RegisterPage from '@/views/Rigister.vue';
+
 
 const routes = [
+  // { path: '/login', component: LoginPage },
+  { path: '/register', component: RegisterPage },
   {
     path: "/",
     name: "Home",
