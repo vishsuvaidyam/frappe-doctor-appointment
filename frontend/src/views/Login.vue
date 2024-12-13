@@ -38,7 +38,7 @@ export default {
 	  if (this.email && this.password) {
 		let res = await this.$auth.login(this.email, this.password);
 		if (res) {
-		  this.$router.push({ name: "Home" });
+		  this.$router.push({ name: "Navbar" });
 		}
 	  }
 	},

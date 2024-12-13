@@ -128,6 +128,12 @@ app_license = "mit"
 #     }
 # }
 
+doc_events = {
+    "User": {
+        "on_update": "appointments_management.api.register_user"
+    }
+}
+
 # Scheduled Tasks
 # ---------------
 
