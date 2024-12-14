@@ -43,7 +43,7 @@
         <All_doctors />
       </div>
       <div class="flex justify-center items-center pt-5">
-        <router-link to="/doctors" class=" px-10 py-2 rounded-3xl border">
+        <router-link to="/doctors" class=" px-10 py-2 rounded-3xl border  bg-gray-50">
           More
         </router-link>
       </div>

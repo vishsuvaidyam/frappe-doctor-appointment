@@ -48,3 +48,23 @@
     </div>
 
 </template>
+
+<script setup>
+    import { ref, onMounted } from 'vue';
+const doctors = ref([]);
+const fetchDoctorsData = async () => {
+    try {
+        const response = await fetch('api/method/appointments_management.controllers.api.spaclist');
+        const data = await response.json();
+        if (data.message.length) {
+            doctors.value = data.message;
+        } else {
+            console.error("Expected an array, but got:", data);
+        }
+    } catch (error) {
+        console.error('Error fetching doctors data:', error);
+    }
+};
+onMounted(fetchDoctorsData);
+
+</script>

@@ -1,5 +1,8 @@
 <template>
-    <div class="flex flex-col md:flex-row gap-4 p-6 bg-gray-50 mx-20 h-auto">
+        <div class="px-20">
+            <p>Browse through the doctors specialist.</p>
+        </div>
+    <div class="flex flex-col md:flex-row gap-4 px-6 bg-gray-50 mx-20 h-auto">
         <!-- Sidebar (Categories) -->
         <div class="flex flex-col w-full md:w-1/4 space-y-4">
             <button
