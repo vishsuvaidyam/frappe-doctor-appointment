@@ -981,7 +981,7 @@ fraction.js@^4.3.7:
   resolved "https://registry.npmjs.org/fraction.js/-/fraction.js-4.3.7.tgz"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
-frappe-ui@^0.1.91:
+frappe-ui@^0.1.72:
   version "0.1.91"
   resolved "https://registry.npmjs.org/frappe-ui/-/frappe-ui-0.1.91.tgz"
   integrity sha512-FcV+WJuYrFaAQf6U8rsajmS6DC8jL04TBj20mPqzsNFmopeuRwWklYb6AH5HZv2ghYybyZ811+j1R33ZvQ1X6Q==
