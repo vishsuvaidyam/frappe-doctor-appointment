@@ -1,8 +1,10 @@
 <template>
     <div v-for="(doctor, index) in doctors" :key="index"
         class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-center">
-        <img class="w-24 h-24 mx-auto rounded-full border-2 border-blue-500 " :src="doctor.doctor_image"
+        <div>
+            <img class="w-full h-54 mx-auto " :src="doctor.doctor_image"
             :alt="`${doctor.full_name[0]}`">
+        </div>
         <div class="mt-4">
             <span :class="{
                 'text-green-500': doctor.status === 'Available',
