@@ -66,12 +66,13 @@
   {
    "fieldname": "doctor_image",
    "fieldtype": "Attach Image",
-   "label": "Doctor Image"
+   "label": "Doctor Image",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-14 11:43:49.718423",
+ "modified": "2024-12-14 15:37:57.456323",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
