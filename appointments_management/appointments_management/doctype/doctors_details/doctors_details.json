@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:doctor_name",
+ "creation": "2024-12-14 11:30:51.708153",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "doctor_name",
+  "experience",
+  "booking_slots",
+  "doctor_fee",
+  "column_break_mvmc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctor_name",
+   "fieldtype": "Link",
+   "label": "Doctor Name",
+   "options": "Doctor",
+   "unique": 1
+  },
+  {
+   "fieldname": "experience",
+   "fieldtype": "Data",
+   "label": "Experience"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "doctor_fee",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Doctor Fee"
+  },
+  {
+   "fieldname": "booking_slots",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Available Date"
+  },
+  {
+   "fieldname": "column_break_mvmc",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-14 11:52:26.379822",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "Doctors_details",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "doctor_name"
+}

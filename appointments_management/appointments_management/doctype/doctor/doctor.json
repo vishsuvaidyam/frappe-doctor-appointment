@@ -6,12 +6,14 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_mhpl",
+  "doctor_image",
   "first_name",
   "full_name",
-  "speciality",
+  "specialist",
   "column_break_boab",
   "last_name",
-  "qulifications"
+  "qulifications",
+  "status"
  ],
  "fields": [
   {
@@ -40,24 +42,36 @@
    "label": "Qulifications"
   },
   {
-   "fieldname": "speciality",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Speciality",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_boab",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "section_break_mhpl",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "specialist",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Specialist",
+   "options": "Specialist"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nAvailable\nNot Available"
+  },
+  {
+   "fieldname": "doctor_image",
+   "fieldtype": "Attach Image",
+   "label": "Doctor Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-22 18:28:42.212345",
+ "modified": "2024-12-14 11:43:49.718423",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

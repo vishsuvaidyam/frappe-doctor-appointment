@@ -34,8 +34,19 @@
     <div>
       <Speciality />
     </div>
-    <div class="">
-      <Doctors />
+    <div class="mx-20 pt-10">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-gray-800">Top Doctors to Book</h2>
+        <p class="text-gray-800 mt-2">Simply browse through our extensive list of trusted doctors.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10">
+        <All_doctors />
+      </div>
+      <div class="flex justify-center items-center pt-5">
+        <router-link to="/doctors" class=" px-10 py-2 rounded-3xl border">
+          More
+        </router-link>
+      </div>
     </div>
 
     <div class="bg-blue-500  h-96 flex items-center rounded-lg mt-10 mx-20 ">
@@ -52,12 +63,11 @@
         <img class="w-auto max-w-md lg:max-w-full h-80" src="../assets/appointment_female.png" alt="Doctors" />
       </div>
     </div>
-    
-  </div>
 
+  </div>
 </template>
 
 <script setup>
 import Speciality from './Speciality.vue';
-import Doctors from './Doctors.vue';
+import All_doctors from './All_doctors.vue';
 </script>
