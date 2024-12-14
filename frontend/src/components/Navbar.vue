@@ -9,22 +9,27 @@
     </div>
     <!-- Links Section -->
     <div class="hidden lg:flex justify-center space-x-8 text-sm font-medium">
-      <router-link to="/" class="text-sm font-medium">
+      <router-link to="/" class="text-sm font-medium "
+        :class="{ 'border-b-2 border-blue-500 text-center' : isActive('/') }">
         HOME
       </router-link>
-      <router-link to="/doctors">
+      <router-link to="/doctors" class="text-sm font-medium "
+        :class="{ 'border-b-2 border-blue-500': isActive('/doctors') }">
         ALL DOCTORS
       </router-link>
-      <router-link to="/about">
+      <router-link to="/about" class="text-sm font-medium "
+        :class="{ 'border-b-2 border-blue-500': isActive('/about') }">
         ABOUT
       </router-link>
-      <router-link to="/contact">
+      <router-link to="/contact" class="text-sm font-medium "
+        :class="{ 'border-b-2 border-blue-500': isActive('/contact') }">
         CONTACT
       </router-link>
       <a href="#" class="border rounded-3xl py-1 px-4">Admin Panel</a>
     </div>
     <div class="flex justify-end items-center space-x-4">
-      <button class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block"  @click="goToRegister">
+      <button class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block"
+        @click="goToRegister">
         Create account
       </button>
       <!-- Hamburger Menu for Mobile -->
@@ -59,17 +64,29 @@
 import { ref } from "vue";
 
 import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 const router = useRouter();
 
 function goToRegister() {
-  router.push('/register');  
+  router.push('/register');
 }
- 
+
 const menuOpen = ref(false);
 
 // Toggle menu visibility
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
+
+const isActive = (path) => {
+  return route.path === path;
+};
 </script>
+<style>
+    nav a {
+      transition: border-color 0.2s, color 0.2s;
+    }
+</style>

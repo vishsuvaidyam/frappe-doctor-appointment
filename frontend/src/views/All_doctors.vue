@@ -18,12 +18,13 @@
 </template>
 
 <script setup>
+import axios from 'axios';
 import { ref, onMounted } from 'vue';
 const doctors = ref([]);
 const fetchDoctorsData = async () => {
     try {
-        const response = await fetch('api/method/appointments_management.controllers.api.doctors_data');
-        const data = await response.json();
+        const response = await axios.get('api/method/appointments_management.controllers.api.doctors_data');
+        const data = await response.data;
         if (data.message.length) {
             doctors.value = data.message;
         } else {

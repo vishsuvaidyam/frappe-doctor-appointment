@@ -1,6 +1,7 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "allow_rename": 1,
+ "autoname": "field:full_name",
  "creation": "2024-06-22 14:54:43.767971",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -72,11 +73,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-14 15:37:57.456323",
+ "modified": "2024-12-14 20:08:45.217263",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
- "naming_rule": "Autoincrement",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
