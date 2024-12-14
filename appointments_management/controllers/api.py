@@ -27,6 +27,18 @@ def doctors_data():
 @frappe.whitelist(allow_guest=True)
 def spaclist():
     spaclist=frappe.get_all("Specialist",fields=["*"])
-    # print(spaclist,"===================================")
     return spaclist
  
+@frappe.whitelist(allow_guest=True)
+def doctors_filter(specialist=None):
+    filters = {}
+    if specialist:
+        filters["specialist"] = specialist
+    
+    doctors = frappe.get_all(
+        "Doctor",
+        fields=["full_name", "specialist", "status", "doctor_image"],
+        filters=filters
+    )
+    
+    return doctors

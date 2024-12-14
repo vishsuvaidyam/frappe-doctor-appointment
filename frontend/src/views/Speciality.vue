@@ -2,61 +2,39 @@
     <div class="w-full h-auto">
         <section class="text-center py-12">
             <h2 class="text-2xl font-bold text-gray-800">Find by Speciality</h2>
-            <p class="text-gray-500 mt-2">Simply browse through our extensive list of trusted doctors, schedule your
-                appointment hassle-free.</p>
+            <p class="text-gray-500 mt-2">
+                Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
+            </p>
 
-            <div class="mt-8 flex flex-wrap justify-center gap-6">
-                <!-- Speciality Cards -->
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="../assets/gen_ph.svg" alt="General physician icon">
+            <div v-if="doctors.length" class="mt-8 flex flex-wrap justify-center gap-6 cursor-pointer">
+                <div v-for="doctor in doctors" :key="doctor.id" @click="handleClick(doctor.id)">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                            <img :src="doctor.image" alt="Doctor Image" />
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">{{ doctor.name }}</p>
                     </div>
-                    <p class="mt-2 text-sm text-gray-700">General physician</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="../assets/Gynecologist-Av1zZu4d.svg" alt="Gynecologist icon">
-                    </div>
-                    <p class="mt-2 text-sm text-gray-700">Gynecologist</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="../assets/dram.svg" alt="Dermatologist icon">
-                    </div>
-                    <p class="mt-2 text-sm text-gray-700">Dermatologist</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="../assets/Pediatricians-C6nmx5n8.svg" alt="Pediatricians icon">
-                    </div>
-                    <p class="mt-2 text-sm text-gray-700">Pediatricians</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="../assets/Neurologist-CuaLxNpX.svg" alt="Neurologist icon">
-                    </div>
-                    <p class="mt-2 text-sm text-gray-700">Neurologist</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                        <img src="../assets/Gastroenterologist-CTgzRFeY.svg" alt="Gastroenterologist icon">
-                    </div>
-                    <p class="mt-2 text-sm text-gray-700">Gastroenterologist</p>
                 </div>
             </div>
         </section>
     </div>
-
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+
 const doctors = ref([]);
+const apiResponse = ref(null);
+
+const router = useRouter();  
+
 const fetchDoctorsData = async () => {
     try {
-        const response = await fetch('api/method/appointments_management.controllers.api.spaclist');
-        const data = await response.json();
-        if (data.message.length) {
+        const response = await axios.get('api/method/appointments_management.controllers.api.spaclist');
+        const data = response.data;
+        if (data.message) {
             doctors.value = data.message;
         } else {
             console.error("Expected an array, but got:", data);
@@ -65,6 +43,36 @@ const fetchDoctorsData = async () => {
         console.error('Error fetching doctors data:', error);
     }
 };
-onMounted(fetchDoctorsData);
 
+const handleClick = async (doctorFullName) => {
+    try {
+        console.log('Clicked doctor full_name:', doctorFullName); // Debugging: Log full_name
+
+        const responses = await axios.get(
+            `api/method/appointments_management.controllers.api.doctors_filter?full_name=${encodeURIComponent(doctorFullName)}`
+        );
+        console.log('API Response:', responses); // Debugging: Log the entire response
+
+        const data = responses.data;
+        if (!data || !data.message) {
+            throw new Error('API call failed or returned invalid data');
+        }
+        apiResponse.value = data.message;
+        console.log('API response (filtered doctors):', apiResponse.value);
+
+        // Navigate to the Doctors route
+        router.push({
+            name: 'Doctors',
+        });
+    } catch (error) {
+        console.error('Error during API call:', error);
+    }
+};
+
+
+onMounted(fetchDoctorsData);
 </script>
+
+<style>
+/* Add your custom styles here */
+</style>
