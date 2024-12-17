@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-auto">
         <section class="text-center py-12">
-            <h2 class="text-2xl font-bold text-gray-800">Find by Speciality</h2>
+            <h1 class="text-3xl font-bold">Find by Speciality</h1>
             <p class="text-gray-500 mt-2">
                 Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
             </p>
