@@ -10,6 +10,9 @@
   "experience",
   "booking_slots",
   "doctor_fee",
+  "spacelist",
+  "qulification",
+  "image_doctor",
   "column_break_mvmc",
   "description"
  ],
@@ -46,11 +49,34 @@
   {
    "fieldname": "column_break_mvmc",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "doctor_name.doctor_image",
+   "fieldname": "image_doctor",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Doctor Image",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "doctor_name.specialist",
+   "fieldname": "spacelist",
+   "fieldtype": "Data",
+   "label": "Spacelist",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "doctor_name.qulifications",
+   "fieldname": "qulification",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Qulification",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-14 11:52:26.379822",
+ "modified": "2024-12-17 12:36:26.287822",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctors_details",

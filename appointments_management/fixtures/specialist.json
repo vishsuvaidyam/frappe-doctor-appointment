@@ -1,0 +1,50 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/Pediatricians-C6nmx5n8.svg",
+  "modified": "2024-12-14 20:44:16.070512",
+  "name": "Pediatricians",
+  "name1": "Pediatricians"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/Neurologist-CuaLxNpX.svg",
+  "modified": "2024-12-14 20:43:17.095531",
+  "name": "Neurologist",
+  "name1": "Neurologist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/Gastroenterologist-CTgzRFeY (1).svg",
+  "modified": "2024-12-14 20:48:21.026290",
+  "name": "Gastroenterologist",
+  "name1": "Gastroenterologist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/Gynecologist-Av1zZu4d.svg",
+  "modified": "2024-12-14 20:49:16.157818",
+  "name": "Gynecologist",
+  "name1": "Gynecologist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/dram.svg",
+  "modified": "2024-12-14 20:48:35.805449",
+  "name": "Dermatologist",
+  "name1": "Dermatologist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/download (2).svg",
+  "modified": "2024-12-14 20:47:26.342912",
+  "name": "General physician",
+  "name1": "General physician"
+ }
+]

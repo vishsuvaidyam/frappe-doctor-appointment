@@ -7,7 +7,7 @@
             </p>
 
             <div v-if="doctors.length" class="mt-8 flex flex-wrap justify-center gap-6 cursor-pointer">
-                <div v-for="doctor in doctors" :key="doctor.id" @click="handleClick(doctor.id)">
+                <div v-for="doctor in doctors" :key="doctor.name1" @click="handleClick(doctor.name1)">
                     <div class="flex flex-col items-center">
                         <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
                             <img :src="doctor.image" alt="Doctor Image" />
@@ -27,8 +27,8 @@ import { useRouter } from 'vue-router';
 
 const doctors = ref([]);
 const apiResponse = ref(null);
-
-const router = useRouter();  
+const skipFetchDoctorsData = ref(false);
+const router = useRouter();
 
 const fetchDoctorsData = async () => {
     try {
@@ -44,14 +44,13 @@ const fetchDoctorsData = async () => {
     }
 };
 
-const handleClick = async (doctorFullName) => {
+const handleClick = async (id) => {
+    
     try {
-        console.log('Clicked doctor full_name:', doctorFullName); // Debugging: Log full_name
-
         const responses = await axios.get(
-            `api/method/appointments_management.controllers.api.doctors_filter?full_name=${encodeURIComponent(doctorFullName)}`
+            `/api/method/appointments_management.controllers.api.doctors_filter?id=${encodeURIComponent(id)}`
         );
-        console.log('API Response:', responses); // Debugging: Log the entire response
+        console.log('API Response:', responses);
 
         const data = responses.data;
         if (!data || !data.message) {
@@ -60,7 +59,7 @@ const handleClick = async (doctorFullName) => {
         apiResponse.value = data.message;
         console.log('API response (filtered doctors):', apiResponse.value);
 
-        // Navigate to the Doctors route
+        skipFetchDoctorsData.value = true;
         router.push({
             name: 'Doctors',
         });
@@ -72,7 +71,3 @@ const handleClick = async (doctorFullName) => {
 
 onMounted(fetchDoctorsData);
 </script>
-
-<style>
-/* Add your custom styles here */
-</style>

@@ -3,27 +3,29 @@
         <div class="flex gap-10 w-full h-auto">
             <div class="w-1/6  ">
                 <div class="border rounded-lg bg-blue-600">
-                    <img class="h-64 flex justify-center" src="../assets/doc13.png" />
+                    <img class="h-64 flex justify-center" :src="doctors.image_doctor" />
                 </div>
             </div>
             <div class="w-4/5 border border-gray-300 rounded-lg">
+
                 <div class=" px-8 py-8 ">
-                    <h1 class="text-3xl text-gray-700 font-bold py-1 flex items-center gap-2 "> Dr. Chloe Evans 
-                        <img class="w-4 h-4" src="../assets/download (1).svg" alt="" srcset=""></h1>
-                    <p class="text-md text-gray-700 font-normal py-1">MBBS - General physician <span class="border px-4 py-1 rounded-3xl">2 Year</span></p>
+                    <h1 class="text-3xl text-gray-700 font-bold py-1 flex items-center gap-2">
+                        {{ doctors.name }}
+                        <img class="w-4 h-4" src="../assets/download (1).svg" alt="" srcset="">
+                    </h1>
+                    <p class="text-md text-gray-700 font-normal py-1">{{doctors.qulification}}-{{ doctors.spacelist }} <span
+                            class="border px-4 py-1 rounded-3xl">{{doctors.experience}}</span></p>
                     <p class="flex gap-2 items-center text-md font-semibold py-2">About
                         <span class="">
                             <img src="../assets/download.svg" alt="" srcset="">
                         </span>
                     </p>
                     <div class="w-3/5">
-                        <p class="text-sm font-normal text-gray-600 ">Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on
-                        preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong
-                        commitment to delivering comprehensive medical care, focusing on preventive medicine, early
-                        diagnosis, and effective treatment strategies.
-                    </p>
+                        <p class="text-sm font-normal text-gray-600 "> {{ doctors.description }}
+                        </p>
                     </div>
-                    <p class="text-md font-semibold pt-4 text-gray-500">Apointment fee:<span class="text-md font-semibold px-2 text-gray-800">$30</span></p>
+                    <p class="text-md font-semibold pt-4 text-gray-500">Apointment fee:<span
+                            class="text-md font-semibold px-2 text-gray-800">${{doctors.doctor_fee}}</span></p>
                 </div>
             </div>
         </div>
@@ -59,5 +61,27 @@
     </div>
 </template>
 <script setup>
+import axios from 'axios';
 import Realated_doctors from './Realated_doctors.vue';
+import { onMounted, ref } from 'vue';
+
+const doctors = ref([])
+
+console.log(doctors);
+
+const Doctordatails = async () => {
+    try {
+        const response = await axios.get('api/method/appointments_management.controllers.api.doctor_details');
+        const data = response.data;
+        if (data && data.message) {
+            doctors.value = data.message[0];
+            console.log(doctors.value);
+        } else {
+            console.error("error", data);
+        }
+    } catch (error) {
+        console.error('Error fetching doctorsdetails data:', error);
+    }
+};
+onMounted(Doctordatails)
 </script>

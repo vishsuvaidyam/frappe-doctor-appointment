@@ -14,7 +14,8 @@
   "column_break_boab",
   "last_name",
   "qulifications",
-  "status"
+  "status",
+  "details"
  ],
  "fields": [
   {
@@ -69,11 +70,18 @@
    "fieldtype": "Attach Image",
    "label": "Doctor Image",
    "reqd": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "details",
+   "options": "Doctors_details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-14 20:08:45.217263",
+ "modified": "2024-12-16 13:54:37.123356",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

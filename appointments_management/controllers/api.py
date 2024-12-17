@@ -40,5 +40,10 @@ def doctors_filter(specialist=None):
         fields=["full_name", "specialist", "status", "doctor_image"],
         filters=filters
     )
-    
     return doctors
+
+@frappe.whitelist(allow_guest=True)
+def doctor_details():
+    details=frappe.get_all("Doctors_details",fields=["name","description","doctor_fee","booking_slots","experience","image_doctor","spacelist","qulification"])
+    # print(details,"====================================================================")
+    return details

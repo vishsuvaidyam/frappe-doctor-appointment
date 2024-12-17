@@ -1,0 +1,16 @@
+[
+ {
+  "booking_slots": "2024-12-18",
+  "description": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+  "docstatus": 0,
+  "doctor_fee": 600.0,
+  "doctor_name": "Dr. Emily  Larson",
+  "doctype": "Doctors_details",
+  "experience": "3 Years",
+  "image_doctor": "/private/files/doc2.png",
+  "modified": "2024-12-17 12:40:28.110722",
+  "name": "Dr. Emily  Larson",
+  "qulification": "MBBS",
+  "spacelist": "Gynecologist"
+ }
+]

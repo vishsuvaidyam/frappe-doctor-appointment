@@ -1,7 +1,7 @@
 <template>
     <div v-for="(doctor, index) in doctors" :key="index"
-        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-center">
-        <div>
+        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer">
+        <div class="">
             <img class="w-full h-54 mx-auto " :src="doctor.doctor_image"
             :alt="`${doctor.full_name[0]}`">
         </div>
@@ -34,6 +34,15 @@ const fetchDoctorsData = async () => {
         console.error('Error fetching doctors data:', error);
     }
 };
+
+const details_doctors=async ()=> {
+    // try{
+
+    // }catch(){
+
+    // }
+}
+
 onMounted(fetchDoctorsData);
 
 </script>

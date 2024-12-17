@@ -134,6 +134,12 @@ doc_events = {
     }
 }
 
+fixtures=[
+    'Doctor',
+    'Specialist',
+    'General physician',
+    'Doctors_details',
+    ]
 # Scheduled Tasks
 # ---------------
 
