@@ -11,9 +11,9 @@
             </button>
         </div>
         <!-- Doctor Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5   gap-6 w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full">
             <div v-for="(doctor, index) in doctors" :key="index"
-                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6   hover:transition-transform duration-300  ">
+                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 hover:transition-transform duration-300">
                 <div>
                     <img class="w-full h-54 mx-auto" :src="doctor.doctor_image" :alt="`${doctor.full_name[0]}`" />
                 </div>
