@@ -11,7 +11,7 @@
                     <p class="pb-6 text-sm text-gray-500 font-normal text-justify">Welcome to Prescripto, your trusted partner in managing your healthcare needs conveniently and
                         efficiently. At Prescripto, we understand the challenges individuals face when it comes to
                         scheduling doctor appointments and managing their health records.</p>
-                    <p class="pb-6 text-sm text-gray-500 font-normal text-justify" >Prescripto is committed to excellence in healthcare technology. We continuously strive to enhance
+                    <p class="pb-6 text-sm text-gray-500 font-normal text-justify">Prescripto is committed to excellence in healthcare technology. We continuously strive to enhance
                         our
                         platform, integrating the latest advancements to improve user experience and deliver superior
                         service. Whether you're booking your first appointment or managing ongoing care, Prescripto is
@@ -40,7 +40,7 @@
                         <p class="text-sm font-normal text-gray-600"> Access to a network of trusted healthcare professionals in your area.</p>
                     </div>
                 </div>
-                <div class="w-1/3 h-56 border flex items-center justify-center">
+                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
                     <div class="px-20">
                         <h1 class="text-md font-bold text-slate-500 pb-6">PERSONALIZATION:</h1>
                         <p class="text-sm font-normal text-gray-600"> Tailored recommendations and reminders to help you stay on top of your health</p>

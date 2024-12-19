@@ -9,7 +9,7 @@
             <span :class="{
                 'text-green-500': doctor.status === 'Available',
                 'text-red-500': doctor.status !== 'Available',
-            }" class="text-sm font-medium">● {{ doctor.status }}</span>
+            }" class="text-lg font-bold">● {{ doctor.status }}</span>
             <h3 class="text-lg font-semibold text-gray-800 mt-2">{{ doctor.full_name }}</h3>
             <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
         </div>

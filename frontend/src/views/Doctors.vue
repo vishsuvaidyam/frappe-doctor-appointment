@@ -11,9 +11,9 @@
             </button>
         </div>
         <!-- Doctor Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5   gap-6 w-full">
+        <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full ">
             <div v-for="(doctor, index) in doctors" :key="index"
-                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6   hover:transition-transform duration-300  ">
+                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 hover:transition-transform duration-300  ">
                 <div>
                     <img class="w-full h-54 mx-auto" :src="doctor.doctor_image" :alt="`${doctor.full_name[0]}`" />
                 </div>
@@ -28,7 +28,67 @@
                     <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
                 </div>
             </div>
+        </div> -->
+        <!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pt-5 w-full">
+    <div v-for="(doctor, index) in doctors" :key="index"
+        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 transform transition-transform cursor-pointer hover:shadow-lg hover:translate-y-[-10px]">
+        <div>
+            <img class="w-full h-54 mx-auto" :src="doctor.doctor_image" :alt="`${doctor.full_name[0]}`" />
         </div>
+        <div class="mt-4">
+            <span :class="{
+                'text-green-500': doctor.status === 'Available',
+                'text-red-500': doctor.status !== 'Available',
+            }" class="text-sm font-medium">
+                ● {{ doctor.status }}
+            </span>
+            <h3 class="text-lg font-semibold text-gray-800 mt-2">{{ doctor.full_name }}</h3>
+            <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
+        </div>
+    </div>
+</div> -->
+
+<div class=" px-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6  w-full">
+        <div v-for="(doctor, index) in doctors" 
+            :key="index"
+            class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 transform transition-transform cursor-pointer hover:shadow-lg hover:translate-y-2 ">
+            <!-- Doctor Image -->
+            <div class="overflow-hidden rounded-md">
+                <img 
+                    class="w-full h-54 object-cover" 
+                    :src="doctor.doctor_image" 
+                    :alt="`${doctor.full_name[0]}`" 
+                />
+            </div>
+
+            <!-- Doctor Details -->
+            <div class="mt-4">
+                <!-- Status Indicator -->
+                <span 
+                    :class="{
+                        'text-green-500': doctor.status === 'Available',
+                        'text-red-500': doctor.status !== 'Available',
+                    }" 
+                    class="text-sm font-medium">
+                    ● {{ doctor.status }}
+                </span>
+
+                <!-- Name -->
+                <h3 class="text-lg font-semibold text-gray-800 mt-2">
+                    {{ doctor.full_name }}
+                </h3>
+
+                <!-- Specialist -->
+                <p class="text-sm text-gray-600">
+                    {{ doctor.specialist }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     </div>
 </template>
 

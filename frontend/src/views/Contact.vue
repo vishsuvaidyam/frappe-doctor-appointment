@@ -20,7 +20,7 @@
                     <p class="text-sm font-normal text-gray-500 pb-6">Email: greatstackdev@gmail.com</p>
                     <h1 class="text-md text-gray-600 font-semibold pb-6">CAREERS AT PRESCRIPTO</h1>
                     <p class="text-sm font-normal text-gray-500 pb-6">Learn more about our teams and job openings.</p>
-                    <button class="py-3 px-8 text-sm font-normal transition-all border-black border hover:bg-black hover:text-white">Explore Jobs</button>
+                    <button class="py-4 px-8 text-sm transition-all border-black border hover:bg-black hover:text-white">Explore Jobs</button>
                 </div>
             </div>
         </div>
