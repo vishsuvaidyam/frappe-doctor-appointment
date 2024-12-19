@@ -11,11 +11,15 @@
   "first_name",
   "full_name",
   "specialist",
+  "experience",
   "column_break_boab",
   "last_name",
   "qulifications",
   "status",
-  "details"
+  "doctor_fee",
+  "avilable",
+  "section_break_hjom",
+  "description"
  ],
  "fields": [
   {
@@ -72,16 +76,36 @@
    "reqd": 1
   },
   {
-   "fieldname": "details",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "details",
-   "options": "Doctors_details"
+   "fetch_from": "details.experience",
+   "fieldname": "experience",
+   "fieldtype": "Data",
+   "label": "Experience"
+  },
+  {
+   "fetch_from": "details.booking_slots",
+   "fieldname": "avilable",
+   "fieldtype": "Date",
+   "label": "Doctor_Avilable_date "
+  },
+  {
+   "fetch_from": "details.description",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "doctor_fee",
+   "fieldtype": "Currency",
+   "label": "Doctor Fee"
+  },
+  {
+   "fieldname": "section_break_hjom",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-16 13:54:37.123356",
+ "modified": "2024-12-19 14:22:56.853925",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

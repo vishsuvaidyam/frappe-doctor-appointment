@@ -42,8 +42,19 @@ def doctors_filter(specialist=None):
     )
     return doctors
 
+# @frappe.whitelist(allow_guest=True)
+# def doctor_details():
+#     details=frappe.get_all("Doctors_details",fields=["name","description","doctor_fee","booking_slots","experience","image_doctor","spacelist","qulification"])
+#     # print(details,"====================================================================")
+#     return details
+
 @frappe.whitelist(allow_guest=True)
-def doctor_details():
-    details=frappe.get_all("Doctors_details",fields=["name","description","doctor_fee","booking_slots","experience","image_doctor","spacelist","qulification"])
-    # print(details,"====================================================================")
-    return details
+def doctor_details(full_name):
+    if not full_name:
+        return {"message": "No full name provided"}
+    
+    doctor = frappe.db.get_value("Doctor", {"full_name": full_name}, "*", as_dict=True)
+    if not doctor:
+        return {"message": "Doctor not found"}
+    
+    return {"message": doctor}

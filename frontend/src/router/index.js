@@ -34,7 +34,7 @@ const routes = [
     component: Contact,
   },
   {
-    path: "/doctor-details",
+    path: "/doctor-details/:full_name",
     name: "Doctor_details",
     component: Doctor_details,
   },
