@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="w-full h-auto">
         <section class="text-center py-12">
             <h1 class="text-3xl font-bold">Find by Speciality</h1>
@@ -17,6 +17,7 @@
                 </div>
             </div>
         </section>
+       
     </div>
 </template>
 
@@ -27,8 +28,8 @@ import { useRouter } from 'vue-router';
 
 const doctors = ref([]);
 const apiResponse = ref(null);
-const skipFetchDoctorsData = ref(false);
 const router = useRouter();
+const id="name1"
 
 const fetchDoctorsData = async () => {
     try {
@@ -59,10 +60,9 @@ const handleClick = async (id) => {
         apiResponse.value = data.message;
         console.log('API response (filtered doctors):', apiResponse.value);
 
-        skipFetchDoctorsData.value = true;
-        router.push({
-            name: 'Doctors',
-        });
+        // router.push({
+        //     name: 'Doctors',
+        // });
     } catch (error) {
         console.error('Error during API call:', error);
     }
@@ -71,3 +71,35 @@ const handleClick = async (id) => {
 
 onMounted(fetchDoctorsData);
 </script>
+  -->
+  <template>
+    <div class="relative inline-block text-left">
+        <!-- Button to toggle the popover -->
+        <button
+            @click="isOpen = !isOpen"
+            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+        >
+            Click me
+        </button>
+
+        <!-- Popover content -->
+        <div
+            v-if="isOpen"
+            class="absolute right-0 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+        >
+            <div class="p-4 text-gray-700">
+                Popover content
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const isOpen = ref(false);
+</script>
+
+<style scoped>
+/* Add custom styles if needed */
+</style>

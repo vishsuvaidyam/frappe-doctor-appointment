@@ -21,6 +21,7 @@ const routes = [
     path: "/doctors",
     name: "Doctors",
     component: Doctors,
+    props: true
   },
   {
     path: "/about",

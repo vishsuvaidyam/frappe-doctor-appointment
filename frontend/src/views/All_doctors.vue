@@ -1,6 +1,6 @@
 <template>
     <div v-for="(doctor, index) in doctors" :key="index"
-        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer">
+        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer" @click="details_doctors(full_name)">
         <div class="">
             <img class="w-full h-54 mx-auto " :src="doctor.doctor_image"
             :alt="`${doctor.full_name[0]}`">
@@ -35,14 +35,21 @@ const fetchDoctorsData = async () => {
     }
 };
 
-const details_doctors=async ()=> {
-    // try{
-
-    // }catch(){
-
-    // }
+const details_doctors=async (full_name)=> {
+    try{
+        const a=await axios.get(`/api/method/appointments_management.controllers.api.doctor_details?full_name=${encodeURIComponent(full_name)}`);
+        const d=await a.message;
+        if(d){
+            console.log(d);
+            s.value=d.message
+        }
+    }catch(error){
+        console.log('error');
+        
+    }
 }
 
 onMounted(fetchDoctorsData);
 
 </script>
+ 
