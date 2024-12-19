@@ -1,21 +1,45 @@
 <template>
-  <div class="min-h-screen bg-white flex">
-	<div class="mx-auto w-full max-w-sm lg:w-96">
-	  <form @submit.prevent="login" class="space-y-6">
-		<label for="email"> Username: </label>
-		<input type="text" v-model="email" />
-		<br />
-		<label for="password"> Password: </label>
-		<input type="password" v-model="password" />
+ <div class="min-h-full bg-gray-100 flex items-center justify-center px-4">
+    <!-- Login Card -->
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-sm w-full">
+      <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Welcome Back</h2>
+      <form @submit.prevent="handleLogin">
+        <!-- Email Input -->
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input
+            type="email"
+            id="email"
+            v-model="email"
+            class="mt-1 block w-full border-gray-300 rounded-2 px-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
 
-		<button
-		  class="bg-blue-500 block text-white p-2 hover:bg-blue-700"
-		  type="submit"
-		>
-		  Sign in
-		</button>
-	  </form>
-	</div>
+        <!-- Password Input -->
+        <div class="mb-4">
+          <label for="password" class="block text-sm  font-medium text-gray-700">Password</label>
+          <input
+            type="password"
+            id="password"
+            v-model="password"
+            class="mt-1 block w-full border-gray-300 rounded-2 px-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <!-- Login Button -->
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition"
+        >
+          Login
+        </button>
+      </form>
+      
+    </div>
   </div>
 </template>
 <script>

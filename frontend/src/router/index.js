@@ -5,8 +5,10 @@ import Doctors from "../views/Doctors.vue";
 import About from "../views/About.vue";
 import Contact from "../views/Contact.vue";
 import Doctor_details from "../views/Doctor_details.vue";
-// import LoginPage from '@/views/LoginPage.vue';
 import RegisterPage from '@/views/Rigister.vue';
+import Profile from "../components/Profile.vue";
+import LoginPage from '../components/Login.vue';
+ 
 
 
 const routes = [
@@ -38,6 +40,18 @@ const routes = [
     name: "Doctor_details",
     component: Doctor_details,
   },
+
+  {
+    path:"/profile",
+    name:"Profile",
+    component:Profile,
+  },
+  {
+    path:"/loginPage",
+    name:"LoginPage",
+    component:LoginPage,
+  },
+
   ...authRoutes,
 ];
 
