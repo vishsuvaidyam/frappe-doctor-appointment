@@ -11,8 +11,22 @@
             </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10">
-            <All_doctors />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full">
+            <div v-for="(doctor, index) in doctors" :key="index"
+        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer">
+        <div class="">
+            <img class="w-full h-54 mx-auto " :src="doctor.doctor_image"
+            :alt="`${doctor.full_name[0]}`">
+        </div>
+        <div class="mt-4">
+            <span :class="{
+                'text-green-500': doctor.status === 'Available',
+                'text-red-500': doctor.status !== 'Available',
+            }" class="text-sm font-medium">● {{ doctor.status }}</span>
+            <h3 class="text-lg font-semibold text-gray-800 mt-2">{{ doctor.full_name }}</h3>
+            <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
+        </div>
+    </div>
         </div>
  
 

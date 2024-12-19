@@ -1,9 +1,12 @@
 [
  {
-  "details": null,
+  "avilable": null,
+  "description": null,
   "docstatus": 0,
+  "doctor_fee": 0.0,
   "doctor_image": "/private/files/doc1.png",
   "doctype": "Doctor",
+  "experience": null,
   "first_name": "Dr. Richard ",
   "full_name": "Dr. Richard  James",
   "last_name": "James",
@@ -14,10 +17,13 @@
   "status": "Available"
  },
  {
-  "details": null,
+  "avilable": null,
+  "description": null,
   "docstatus": 0,
+  "doctor_fee": 0.0,
   "doctor_image": "/private/files/doc2.png",
   "doctype": "Doctor",
+  "experience": null,
   "first_name": "Dr. Emily",
   "full_name": "Dr. Emily  Larson",
   "last_name": " Larson",
@@ -28,10 +34,13 @@
   "status": "Available"
  },
  {
-  "details": null,
+  "avilable": null,
+  "description": null,
   "docstatus": 0,
+  "doctor_fee": 0.0,
   "doctor_image": "/private/files/doc3.png",
   "doctype": "Doctor",
+  "experience": null,
   "first_name": " Dr. Sarah Patel",
   "full_name": "Dr. Sarah Patel James",
   "last_name": " ",
@@ -42,10 +51,13 @@
   "status": "Available"
  },
  {
-  "details": null,
+  "avilable": null,
+  "description": null,
   "docstatus": 0,
+  "doctor_fee": 0.0,
   "doctor_image": "/private/files/doc9.png",
   "doctype": "Doctor",
+  "experience": null,
   "first_name": " Dr. Christopher Lee",
   "full_name": "Dr. Christopher Lee",
   "last_name": " ",
@@ -56,10 +68,13 @@
   "status": "Available"
  },
  {
-  "details": null,
+  "avilable": null,
+  "description": null,
   "docstatus": 0,
+  "doctor_fee": 0.0,
   "doctor_image": "/private/files/doc8.png",
   "doctype": "Doctor",
+  "experience": null,
   "first_name": " Dr. Ava Mitchell",
   "full_name": "Dr. Ava Mitchell",
   "last_name": " ",
@@ -70,10 +85,13 @@
   "status": "Not Available"
  },
  {
-  "details": null,
+  "avilable": null,
+  "description": null,
   "docstatus": 0,
+  "doctor_fee": 0.0,
   "doctor_image": "/private/files/doc13.png",
   "doctype": "Doctor",
+  "experience": null,
   "first_name": " Dr. Jennifer Garcia",
   "full_name": "Dr. Jennifer Garcia",
   "last_name": null,
@@ -84,14 +102,17 @@
   "status": "Not Available"
  },
  {
-  "details": null,
+  "avilable": "2024-12-20",
+  "description": "luylkyy p'iop",
   "docstatus": 0,
+  "doctor_fee": 500.0,
   "doctor_image": "/private/files/doc10.png",
   "doctype": "Doctor",
+  "experience": "4 years",
   "first_name": "Dr. Timothy White",
   "full_name": "Dr. Timothy White",
   "last_name": " ",
-  "modified": "2024-12-14 20:53:55.166313",
+  "modified": "2024-12-19 15:56:48.344308",
   "name": "Dr. Timothy White",
   "qulifications": "MBBS",
   "specialist": "Pediatricians",

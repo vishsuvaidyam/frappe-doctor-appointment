@@ -12,5 +12,19 @@
   "name": "Dr. Emily  Larson",
   "qulification": "MBBS",
   "spacelist": "Gynecologist"
+ },
+ {
+  "booking_slots": "2024-12-20",
+  "description": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+  "docstatus": 0,
+  "doctor_fee": 700.0,
+  "doctor_name": "Dr. Christopher Lee",
+  "doctype": "Doctors_details",
+  "experience": "4 years",
+  "image_doctor": "/private/files/doc9.png",
+  "modified": "2024-12-17 15:12:35.550938",
+  "name": "Dr. Christopher Lee",
+  "qulification": "MBBS",
+  "spacelist": "Pediatricians"
  }
 ]
