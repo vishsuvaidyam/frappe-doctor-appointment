@@ -6,7 +6,7 @@
                 Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
             </p>
 
-            <div v-if="doctors.length" class="mt-8 flex flex-wrap justify-center gap-6 cursor-pointer">
+            <div v-if="doctors.length" class="mt-8 flex flex-wrap justify-center gap-6 cursor-pointer ">
                 <div v-for="doctor in doctors" :key="doctor.name1" @click="handleClick(doctor.name1)">
                     <div class="flex flex-col items-center">
                         <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
