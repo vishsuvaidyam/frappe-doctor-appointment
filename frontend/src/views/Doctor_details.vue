@@ -13,8 +13,8 @@
                         {{ doctors.name }}
                         <img class="w-4 h-4" src="../assets/download (1).svg" alt="" srcset="">
                     </h1>
-                    <p class="text-md text-gray-700 font-normal py-1">{{doctors.qulification}}-{{ doctors.spacelist }} <span
-                            class="border px-4 py-1 rounded-3xl">{{doctors.experience}}</span></p>
+                    <p class="text-md text-gray-700 font-normal py-1">{{doctors.qulification}}-{{ doctors.spacelist }} 
+                        <span class="border px-4 py-1 rounded-3xl">{{doctors.experience}}</span></p>
                     <p class="flex gap-2 items-center text-md font-semibold py-2">About
                         <span class="">
                             <img src="../assets/download.svg" alt="" srcset="">
@@ -66,9 +66,6 @@ import Realated_doctors from './Realated_doctors.vue';
 import { onMounted, ref } from 'vue';
 
 const doctors = ref([])
-
-console.log(doctors);
-
 const Doctordatails = async () => {
     try {
         const response = await axios.get('api/method/appointments_management.controllers.api.doctor_details');

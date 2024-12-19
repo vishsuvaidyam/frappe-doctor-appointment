@@ -10,6 +10,7 @@
     "copy-html-entry": "cp ../appointments_management/public/frontend/index.html ../appointments_management/www/frontend.html"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
     "axios": "^1.7.9",
     "frappe-ui": "^0.1.72",
     "socket.io-client": "^4.5.1",
