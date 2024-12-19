@@ -1,4 +1,10 @@
 <template>
+fesrfdg
+</template>
+<script setup></script>
+
+
+<!-- <template>
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         <div class="bg-white p-6 rounded shadow-md max-w-sm w-full">
             <h1 class="text-2xl font-bold mb-4">Login</h1>
@@ -27,9 +33,9 @@
             </button>
         </Modal>
     </div>
-</template>
+</template> -->
 
-<script>
+<!-- <script>
 import Modal from './Modal.vue';
 
 export default {
@@ -55,4 +61,4 @@ export default {
         },
     },
 };
-</script>
+</script> -->
