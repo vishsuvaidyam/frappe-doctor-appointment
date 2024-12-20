@@ -3,7 +3,7 @@
         <div class="flex gap-10 w-full h-auto">
             <div class="w-1/6  ">
                 <div class="border rounded-lg bg-blue-600">
-                    <img class="h-64 flex justify-center" :src="doctor.image_doctor" />
+                    <img class="h-64 flex justify-center" :src="doctor.doctor_image" />
                 </div>
             </div>
             <div class="w-4/5 border border-gray-300 rounded-lg">
@@ -14,7 +14,7 @@
                         <img class="w-4 h-4" src="../assets/download (1).svg" alt="" srcset="">
                     </h1>
                     <p class="text-md text-gray-700 font-normal py-1">{{ doctor.qulifications }}-{{ doctor.specialist }}
-                        <span class="border px-4 py-1 rounded-3xl">{{ doctor.experience }}</span>
+                        <span class="border px-4 py-1  rounded-3xl">{{ doctor.experience }}</span>
                     </p>
                     <p class="flex gap-2 items-center text-md font-semibold py-2">About
                         <span class="">
@@ -57,9 +57,11 @@
                     appointment</button>
             </div>
         </div>
+
         <div class="pt-10">
-            <Realated_doctorDetails />
+            <Realated_doctorDetails :relatedDoctors="relatedDoctors" />
         </div>
+
     </div>
 </template>
 <script setup>

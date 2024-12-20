@@ -1,34 +1,53 @@
 <template>
-    <div class="pt-20">
-        <h1 class="text-center text-2xl font-semibold text-black">Related Doctors </h1>
-        <p class="text-center text-md text-gray-500 font-normal font-serif pt-4">Simply browse through our extensive list of trusted doctors.</p>
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 px-4 sm:px-8">
-            <div class="bg-[#e9efff] shadow-lg rounded-lg border-blue-500 border-t border-b p-4 text-center">
-                <img class="w-24 h-24 mx-auto rounded-full" src="../assets/doc2.png" alt="Doctor image">
-                <div class="mt-4">
-                    <span class="text-green-500 text-sm font-medium">● Available</span>
-                    <h3 class="text-lg font-semibold text-gray-800 mt-2">Dr. Richard James</h3>
-                    <p class="text-sm text-gray-600">General physician</p>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg border-blue-500 border-t border-b  p-4 text-center">
-                <img class="w-24 h-24 mx-auto rounded-full" src="../assets/doc1.png" alt="Doctor image">
-                <div class="mt-4">
-                    <span class="text-green-500 text-sm font-medium">● Available</span>
-                    <h3 class="text-lg font-semibold text-gray-800 mt-2">Dr. Emily Larson</h3>
-                    <p class="text-sm text-gray-600">Gynecologist</p>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg border-blue-500 border-t border-b  p-4 text-center">
-                <img class="w-24 h-24 mx-auto rounded-full" src="../assets/doc2.png" alt="Doctor image">
-                <div class="mt-4">
-                    <span class="text-green-500 text-sm font-medium">● Available</span>
-                    <h3 class="text-lg font-semibold text-gray-800 mt-2">Dr. Sarah Patel</h3>
-                    <p class="text-sm text-gray-600">Dermatologist</p>
-                </div>
+    <div>
+        <h2 class="text-lg font-semibold pt-4">Related Doctors</h2>
+        <div class="grid grid-cols-3 gap-6 mt-4">
+            <div v-for="doctor in relatedDoctors" :key="doctor.name" class="border p-4 rounded-lg">
+                <img class="w-full h-40 object-cover rounded-md" :src="doctor.doctor_image" alt="Doctor Image" />
+                <h3 class="mt-2 text-lg font-semibold">{{ doctor.name }}</h3>
+                <p class="text-sm text-gray-600">{{ doctor.qulifications }} - {{ doctor.specialist }}</p>
+                <p class="text-sm text-gray-600">Experience: {{ doctor.experience }}</p>
+                <p class="text-sm text-gray-600">Fee: ${{ doctor.doctor_fee }}</p>
             </div>
         </div>
     </div>
 </template>
+
+<!-- <script setup>
+defineProps(['relatedDoctors']);
+</script> -->
 <script setup>
+import axios from 'axios';
+import { ref, onMounted } from 'vue';
+
+const relatedDoctors = ref([]);
+
+const fetchRelatedDoctors = async (specialist) => {
+    try {
+        const response = await axios.get(
+            `/api/method/appointments_management.controllers.api.related_doctors`,
+            { params: { specialist } } // Pass `specialist` as a query parameter
+        );
+        if (response.data.message) {
+            relatedDoctors.value = response.data.message;
+            console.log("Related Doctors:", relatedDoctors.value);
+        } else {
+            console.error("No related doctors found.");
+        }
+    } catch (error) {
+        console.error('Error fetching related doctors:', error);
+    }
+};
+
+
+// Fetch related doctors when doctorDetails is updated
+const doctorDetails = ref([]);
+const Doctordatails = async () => {
+    // ... existing code to fetch doctor details
+    if (doctorDetails.value[0]?.specialist) {
+        fetchRelatedDoctors(doctorDetails.value[0].specialist);
+    }
+};
+
+onMounted(Doctordatails);
 </script>
