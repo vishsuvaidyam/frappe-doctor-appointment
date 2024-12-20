@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-40">
+    <div class="w-full px-40 pt-10">
             <h1 class="text-2xl font-bold text-center text-gray-400">ABOUT <span class="text-md text-black">US</span>
             </h1>
         <div class="w-full flex justify-center pt-10">

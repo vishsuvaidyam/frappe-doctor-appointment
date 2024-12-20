@@ -2,7 +2,7 @@
     <div
         v-for="(doctor, index) in doctors"
         :key="index"
-        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
         @click="goToDoctorDetails(doctor.full_name)"
     >
         <div>
