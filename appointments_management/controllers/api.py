@@ -58,3 +58,21 @@ def doctor_details(full_name):
         return {"message": "Doctor not found"}
     
     return {"message": doctor}
+
+@frappe.whitelist(allow_guest=True)
+def related_doctors(specialist=None):
+    if not specialist:
+        frappe.throw("Specialist is required")
+
+    try:
+        doctors = frappe.db.get_all(
+            "Doctor",  
+            filters={"specialist": specialist},
+            
+            fields=["name", "doctor_image", "qulifications", "specialist", "experience", "doctor_fee"],
+            limit=5  # Optional: limit the number of results
+        )
+        return {"message": doctors}
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Related Doctors Fetch Error")
+        return {"error": str(e)}

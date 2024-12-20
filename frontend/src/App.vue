@@ -1,9 +1,9 @@
 <template>
-  <div class="h-screen flex flex-col">
+  <div class=" ">
     <div class="pt-20">
       <Navbar />
     </div>
-    <div class="pt-10 mx-auto max-w-[1700px] h-full overflow-auto">
+    <div class="pt-10 mx-auto max-w-[1700px] h-full ">
       <router-view />
       <div class="mt-20">
         <Footer/>

@@ -20,11 +20,11 @@ const routes = [
     component: Home,
   },
   {
-    path: "/doctors",
+    path: "/doctors",  
     name: "Doctors",
-    component: Doctors,
-    props: true
-  },
+    component: Doctors,   
+    props: true   
+  },  
   {
     path: "/about",
     name: "About",

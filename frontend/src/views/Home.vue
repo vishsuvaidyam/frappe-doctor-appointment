@@ -1,7 +1,7 @@
 <template>
   <div class="w-full ">
     <div class="bg-blue-500  h-auto flex items-center rounded-lg mt-10 mx-20">
-      <div class="container mx-auto px-6 md:px-12 lg:px-16">
+      <div class="container mx-auto px-6 md:px-12 lg:px-16 md:py-6">
         <div class="flex flex-col lg:flex-row items-center">
           <div class="lg:w-1/2 text-center lg:text-left pb-8 lg:pb-0">
             <h1 class="text-4xl md:text-5xl font-bold text-white pb-4">
@@ -39,7 +39,7 @@
         <h2 class="text-2xl font-bold text-gray-800">Top Doctors to Book</h2>
         <p class="text-gray-800 mt-2">Simply browse through our extensive list of trusted doctors.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10 ">
         <All_doctors />
       </div>
       <div class="flex justify-center items-center pt-5">
