@@ -8,6 +8,7 @@ import Doctor_details from "../views/Doctor_details.vue";
 import RegisterPage from '@/views/Rigister.vue';
 import Profile from "../components/Profile.vue";
 import LoginPage from '../components/Login.vue';
+import Test from "../views/test.vue";
  
 
 
@@ -45,6 +46,11 @@ const routes = [
     path:"/profile",
     name:"Profile",
     component:Profile,
+  },
+  {
+    path:"/test",
+    name:"Test",
+    component:Test,
   },
   {
     path:"/loginPage",

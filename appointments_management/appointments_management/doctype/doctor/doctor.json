@@ -12,12 +12,13 @@
   "full_name",
   "specialist",
   "experience",
+  "start_date",
   "column_break_boab",
   "last_name",
   "qulifications",
   "status",
   "doctor_fee",
-  "avilable",
+  "end_date",
   "section_break_hjom",
   "description"
  ],
@@ -82,12 +83,6 @@
    "label": "Experience"
   },
   {
-   "fetch_from": "details.booking_slots",
-   "fieldname": "avilable",
-   "fieldtype": "Date",
-   "label": "Doctor_Avilable_date "
-  },
-  {
    "fetch_from": "details.description",
    "fieldname": "description",
    "fieldtype": "Small Text",
@@ -101,11 +96,21 @@
   {
    "fieldname": "section_break_hjom",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-19 14:22:56.853925",
+ "modified": "2024-12-20 12:23:14.446154",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full  px-20 " v-for=" doctor in doctorDetails">
+    <div class="w-full  px-20 " v-for=" doctor in doctorDetails" @click="goToDoctorDetails(doctor.specialist)">
         <div class="flex gap-10 w-full h-auto">
             <div class="w-1/6  ">
                 <div class="border rounded-lg bg-blue-600">
@@ -70,7 +70,7 @@ import Realated_doctorDetails from './Realated_doctors.vue';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
-
+const router=useRoute()
 const route = useRoute();
 const doctorDetails = ref([]);
 const Doctordatails = async () => {
@@ -92,5 +92,11 @@ const Doctordatails = async () => {
         console.error('Error fetching doctor details:', error);
     }
 };
+const goToDoctorDetails=({ specialist: 'specialist' });
+console.log(goToDoctorDetails);
+
+
 onMounted(Doctordatails)
 </script>
+
+
