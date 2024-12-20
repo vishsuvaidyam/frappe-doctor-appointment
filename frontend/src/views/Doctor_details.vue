@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full  px-20 " v-for=" doctor in doctorDetails" @click="goToDoctorDetails(doctor.specialist)">
+    <div class="w-full  px-20 pt-10 " v-for=" doctor in doctorDetails" @click="goToDoctorDetails(doctor.specialist)">
         <div class="flex gap-10 w-full h-auto">
             <div class="w-1/6  ">
                 <div class="border rounded-lg bg-blue-600">
