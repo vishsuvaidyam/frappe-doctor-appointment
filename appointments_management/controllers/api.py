@@ -63,7 +63,6 @@ def doctor_details(full_name):
 def related_doctors(specialist=None):
     if not specialist:
         frappe.throw("Specialist is required")
-
     try:
         doctors = frappe.db.get_all(
             "Doctor",  

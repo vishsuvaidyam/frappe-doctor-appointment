@@ -1,6 +1,6 @@
 <template>
     <div v-for="(doctor, index) in doctors" :key="index"
-        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer "
+        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer"
         @click="goToDoctorDetails(doctor.full_name)">
         <div class="">
             <img class="w-full h-54 mx-auto " :src="doctor.doctor_image" :alt="`${doctor.full_name[0]}`">
@@ -40,6 +40,7 @@ const fetchDoctorsData = async () => {
 
 const goToDoctorDetails = (full_name) => {
     router.push({ name: 'Doctor_details', params: { full_name: full_name } });
+    
 };
 onMounted(fetchDoctorsData);
 

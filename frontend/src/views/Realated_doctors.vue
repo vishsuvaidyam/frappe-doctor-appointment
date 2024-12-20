@@ -1,53 +1,40 @@
 <template>
     <div>
-        <h2 class="text-lg font-semibold pt-4">Related Doctors</h2>
-        <div class="grid grid-cols-3 gap-6 mt-4">
-            <div v-for="doctor in relatedDoctors" :key="doctor.name" class="border p-4 rounded-lg">
-                <img class="w-full h-40 object-cover rounded-md" :src="doctor.doctor_image" alt="Doctor Image" />
-                <h3 class="mt-2 text-lg font-semibold">{{ doctor.name }}</h3>
-                <p class="text-sm text-gray-600">{{ doctor.qulifications }} - {{ doctor.specialist }}</p>
-                <p class="text-sm text-gray-600">Experience: {{ doctor.experience }}</p>
-                <p class="text-sm text-gray-600">Fee: ${{ doctor.doctor_fee }}</p>
+        <!-- Check if there are doctors -->
+        <div v-if="doctors && doctors.length > 0" 
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full">
+            <div v-for="doctor in doctors" :key="doctor.full_name" 
+                @click="$emit('doctorClicked', doctor)" 
+                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer">
+                <div>
+                    <img class="w-full h-54 mx-auto" :src="doctor.doctor_image" :alt="doctor.full_name" />
+                </div>
+                <div class="mt-4">
+                    <span :class="doctor.status === 'Available' ? 'text-green-500' : 'text-red-500'"
+                        class="text-sm font-medium">
+                        ● {{ doctor.status }}
+                    </span>
+                    <h3 class="text-lg font-semibold text-gray-800 mt-2">
+                        {{ doctor.full_name }}
+                    </h3>
+                    <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
+                </div>
             </div>
+        </div>
+        <!-- Fallback message if no doctors are available -->
+        <div v-else class="text-gray-500 text-center">
+            No related doctors found.
         </div>
     </div>
 </template>
 
-<!-- <script setup>
-defineProps(['relatedDoctors']);
-</script> -->
-<script setup>
-import axios from 'axios';
-import { ref, onMounted } from 'vue';
-
-const relatedDoctors = ref([]);
-
-const fetchRelatedDoctors = async (specialist) => {
-    try {
-        const response = await axios.get(
-            `/api/method/appointments_management.controllers.api.related_doctors`,
-            { params: { specialist } } // Pass `specialist` as a query parameter
-        );
-        if (response.data.message) {
-            relatedDoctors.value = response.data.message;
-            console.log("Related Doctors:", relatedDoctors.value);
-        } else {
-            console.error("No related doctors found.");
-        }
-    } catch (error) {
-        console.error('Error fetching related doctors:', error);
-    }
+<script>
+export default {
+    props: {
+        doctors: {
+            type: Array,
+            required: true,
+        },
+    },
 };
-
-
-// Fetch related doctors when doctorDetails is updated
-const doctorDetails = ref([]);
-const Doctordatails = async () => {
-    // ... existing code to fetch doctor details
-    if (doctorDetails.value[0]?.specialist) {
-        fetchRelatedDoctors(doctorDetails.value[0].specialist);
-    }
-};
-
-onMounted(Doctordatails);
 </script>
