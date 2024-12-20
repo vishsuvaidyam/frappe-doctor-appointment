@@ -39,7 +39,7 @@
         <h2 class="text-2xl font-bold text-gray-800">Top Doctors to Book</h2>
         <p class="text-gray-800 mt-2">Simply browse through our extensive list of trusted doctors.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10 ">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10  ">
         <All_doctors />
       </div>
       <div class="flex justify-center items-center pt-5">

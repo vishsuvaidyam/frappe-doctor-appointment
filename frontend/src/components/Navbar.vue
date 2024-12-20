@@ -33,7 +33,7 @@
         @click="goToRegister">
         Create account
       </button> -->
-      <router-link to="/login" class="w-full text-left px-2 py-1 text-black bg-blue-500 text-white px-4 rounded-md hover:bg-blue-600 transition">
+      <router-link to="/login" class="w-full text-left px-4 py-2 text-white font-semibold bg-blue-500 text-black px-4 rounded-md hover:bg-blue-600 transition">
                           Login
                         </router-link>
       <!-- <div class="relative inline-block text-left">

@@ -1,8 +1,8 @@
 <template>
- <div class="min-h-full bg-gray-100 flex items-center justify-center px-4">
+ <div class="h-screen bg-gray-100 flex items-center justify-center px-4">
     <!-- Login Card -->
     <div class="bg-white shadow-md rounded-lg p-8 max-w-sm w-full">
-      <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Welcome Back</h2>
+      <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Login</h2>
       <form @submit.prevent="handleLogin">
         <!-- Email Input -->
         <div class="mb-4">
@@ -11,7 +11,7 @@
             type="email"
             id="email"
             v-model="email"
-            class="mt-1 block w-full border-gray-300 rounded-2 px-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            class="mt-1 block w-full border-gray-300 rounded-2 px-4 py-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter your email"
             required
           />
@@ -24,7 +24,7 @@
             type="password"
             id="password"
             v-model="password"
-            class="mt-1 block w-full border-gray-300 rounded-2 px-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            class="mt-1 block w-full border-gray-300 rounded-2 px-4 py-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter your password"
             required
           />
@@ -33,8 +33,7 @@
         <!-- Login Button -->
         <button
           type="submit"
-          class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition"
-        >
+          class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition">
           Login
         </button>
       </form>

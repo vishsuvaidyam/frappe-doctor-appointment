@@ -1,13 +1,13 @@
 <template>
-    <div class="w-full h-auto">
+    <div class="w-full h-auto ">
         <section class="text-center py-12">
             <h1 class="text-3xl font-bold">Find by Speciality</h1>
             <p class="text-gray-500 mt-2">
                 Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.
             </p>
-            <div v-if="doctors.length" class="mt-8 flex flex-wrap justify-center gap-6 cursor-pointer ">
+            <div v-if="doctors.length" class="mt-8 flex flex-wrap justify-center gap-6  ">
                 <div v-for="doctor in doctors" :key="doctor.name1" @click="doctorspacelist(doctor.name1)">
-                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105 ">
                         <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
                             <img :src="doctor.image" alt="Doctor Image" />
                         </div>

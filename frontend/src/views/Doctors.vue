@@ -1,5 +1,5 @@
 <template>
-    <p class="mx-32 text-[16px] text-gray-600 font-medium">
+    <p class="mx-32 text-[16px] text-gray-600 font-medium pt-10">
         Browse through the doctor's specialties.
     </p>
     <div class="flex flex-col md:flex-row gap-4 p-6 mx-20 h-auto">
@@ -23,7 +23,7 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full">
             <div v-for="doctor in doctors" :key="doctor.full_name" @click="goToDoctorDetails(doctor.full_name)"
-                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer">
+                class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg">
                 <div>
                     <img class="w-full h-54 mx-auto" :src="doctor.doctor_image" :alt="doctor.full_name[0]" />
                 </div>
