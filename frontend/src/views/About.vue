@@ -31,19 +31,19 @@
                 <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
                     <div class="px-20">
                         <h1 class="text-md font-bold text-slate-500 pb-6">EFFICIENCY:</h1>
-                        <h5 class="text-sm font-normal text-gray-600">Streamlined appointment scheduling that fits into your busy lifestyle.</h5>
+                        <h5 class="text-sm font-normal text-slate-500">Streamlined appointment scheduling that fits into your busy lifestyle.</h5>
                     </div>
                 </div>
                 <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
                     <div class="px-20">
                         <h1 class="text-md font-bold text-slate-500 pb-6">CONVENIENCE:</h1>
-                        <p class="text-sm font-normal text-gray-600"> Access to a network of trusted healthcare professionals in your area.</p>
+                        <p class="text-sm font-normal text-slate-500"> Access to a network of trusted healthcare professionals in your area.</p>
                     </div>
                 </div>
                 <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
                     <div class="px-20">
                         <h1 class="text-md font-bold text-slate-500 pb-6">PERSONALIZATION:</h1>
-                        <p class="text-sm font-normal text-gray-600"> Tailored recommendations and reminders to help you stay on top of your health</p>
+                        <p class="text-sm font-normal text-slate-500"> Tailored recommendations and reminders to help you stay on top of your health</p>
                     </div>
                 </div>
                  

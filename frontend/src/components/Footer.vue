@@ -1,18 +1,18 @@
 <template>
-    <div class="h-64 w-full">
+    <div class="h-64 w-full px-40">
         <div class="w-full flex justify-center gap-10 px-20">
             <div class=" w-1/2">
                 <div class="flex">
                     <img class="h-10 w-auto" src="../assets/logo-BNCDj_dh.svg" alt="Logo" />
                 </div>
                 <div class="w-">
-                    <p class="text-sm font-normal text-gray-700 pt-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.</p>
+                    <p class="text-sm font-normal text-gray-700 pt-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>Lorem Ipsum has been the
+                    industry's standard dummy text ever since the <br> 1500s, when an unknown printer took a galley of type
+                    and scrambled it to <br> make a type specimen book.</p>
                 </div>
             </div>
-            <div class=" w-1/2 h-auto flex justify-between px-40 ">
-                <div>
+            <div class="w-full md:w-1/2 flex flex-wrap justify-between">
+                <div class="w-1/2 md:w-auto px-4 md:px-0">
                     <h1 class="text-lg font-semibold text-black">COMPANY</h1>
                     <p class="text-sm font-normal text-gray-700 pt-4">Home</p>
                     <p class="text-sm font-normal text-gray-700 pt-2">About us</p>
