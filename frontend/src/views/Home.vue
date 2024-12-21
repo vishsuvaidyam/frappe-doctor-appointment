@@ -21,8 +21,8 @@
               </div>
             </div>
             <a href="#"
-              class="bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl shadow-lg hover:bg-blue-100 transition">
-              Book appointment →
+              class="bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl shadow-lg  transition">
+              Book appointment 
             </a>
           </div>
           <div class="lg:w-1/2 flex justify-center">
@@ -39,7 +39,7 @@
         <h2 class="text-2xl font-bold text-gray-800">Top Doctors to Book</h2>
         <p class="text-gray-800 mt-2">Simply browse through our extensive list of trusted doctors.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-full pt-10  ">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full pt-10  ">
         <All_doctors />
       </div>
       <div class="flex justify-center items-center pt-5">
@@ -55,9 +55,10 @@
           Book Appointment <br>
           With 100+ Trusted Doctors
         </h1>
-        <a href="#" class="bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl shadow-lg ">
+        <router-link to="/register"
+          class="cursor-pointer bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl ">
           Create Account
-        </a>
+        </router-link>
       </div>
       <div class="lg:w-1/2   flex justify-center  ">
         <img class="w-auto max-w-md lg:max-w-full h-80" src="../assets/appointment_female.png" alt="Doctors" />

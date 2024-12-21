@@ -1,27 +1,20 @@
 <template>
-    <div
-        v-for="(doctor, index) in doctors"
-        :key="index"
-        class="bg-white shadow-md rounded-lg border-t-4 border-blue-500 p-6 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-        @click="goToDoctorDetails(doctor.full_name)"
-    >
-        <div>
-            <img class="w-full h-54 mx-auto rounded" :src="doctor.doctor_image" :alt="`${doctor.full_name[0]}`" />
+        <div v-for="doctor in doctors" :key="doctor.full_name" @click="goToDoctorDetails(doctor.full_name)"
+            class="bg-white shadow-md rounded-xl border border-indigo-200 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-4   duration-300">
+            <div class="bg-[#e1e5ff] p-6 rounded-t-xl">
+                <img class="w-full h-54 " :src="doctor.doctor_image" :alt="doctor.full_name[0]" />
+            </div>
+            <div class="  p-6">
+                <span :class="doctor.status === 'Available' ? 'text-green-500' : 'text-red-500'"
+                    class="text-sm font-medium">
+                    ● {{ doctor.status }}
+                </span>
+                <h3 class="text-lg font-semibold text-gray-800 mt-2">
+                    {{ doctor.full_name }}
+                </h3>
+                <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
+            </div>
         </div>
-        <div class="mt-4">
-            <span
-                :class="{
-                    'text-green-500': doctor.status === 'Available',
-                    'text-red-500': doctor.status !== 'Available',
-                }"
-                class="text-lg font-bold"
-            >
-                ● {{ doctor.status }}
-            </span>
-            <h3 class="text-lg font-semibold text-gray-800 mt-2">{{ doctor.full_name }}</h3>
-            <p class="text-sm text-gray-600">{{ doctor.specialist }}</p>
-        </div>
-    </div>
 </template>
 
 
@@ -48,7 +41,7 @@ const fetchDoctorsData = async () => {
 
 const goToDoctorDetails = (full_name) => {
     router.push({ name: 'Doctor_details', params: { full_name: full_name } });
-    
+
 };
 onMounted(fetchDoctorsData);
 
