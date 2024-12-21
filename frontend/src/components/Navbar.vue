@@ -10,7 +10,7 @@
     <!-- Links Section -->
     <div class="hidden lg:flex justify-center space-x-8 text-sm font-medium">
       <router-link to="/" class="text-sm font-medium "
-        :class="{ 'border-b-2 border-blue-500 text-center' : isActive('/') }">
+        :class="{ 'border-b-2 border-blue-500 text-center': isActive('/') }">
         HOME
       </router-link>
       <router-link to="/doctors" class="text-sm font-medium "
@@ -26,16 +26,17 @@
         CONTACT
       </router-link>
       <a href="#" class="border rounded-3xl py-1 px-4">Admin Panel</a>
-    
+
     </div>
     <div class="flex justify-end items-center space-x-4">
-      <!-- <button class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block"
+      <button class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block"
         @click="goToRegister">
         Create account
-      </button> -->
-      <router-link to="/login" class="w-full text-left px-4 py-2 text-white font-semibold bg-blue-500 text-black px-4 rounded-md hover:bg-blue-600 transition">
-                          Login
-                        </router-link>
+      </button>
+      <!-- <router-link to="/login"
+        class="w-full text-center px-6 py-2 text-black font-semibold border border-blue-100  hover:bg-blue-600 transition hover:text-white">
+        Login
+      </router-link> -->
       <!-- <div class="relative inline-block text-left">
                 <button @click="isOpen = !isOpen"
                     class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-semibold text-white bg-blue-600">
@@ -95,7 +96,7 @@ import { ref } from "vue";
 import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
 
-const isOpen=ref(false)
+const isOpen = ref(false)
 const route = useRoute();
 
 const router = useRouter();
@@ -116,7 +117,7 @@ const isActive = (path) => {
 };
 </script>
 <style>
-    nav a {
-      transition: border-color 0.2s, color 0.2s;
-    }
+nav a {
+  transition: border-color 0.2s, color 0.2s;
+}
 </style>

@@ -5,7 +5,7 @@ import Doctors from "../views/Doctors.vue";
 import About from "../views/About.vue";
 import Contact from "../views/Contact.vue";
 import Doctor_details from "../views/Doctor_details.vue";
-import RegisterPage from '@/views/Rigister.vue';
+import RegisterPage from '@/views/Register.vue';
 import Profile from "../components/Profile.vue";
 import LoginPage from '../components/Login.vue';
 import Test from "../views/test.vue";
