@@ -7,7 +7,7 @@
                 <img src="../assets/about_image-MG9zrc7b.png" />
             </div>
             <div class="w-[80%] flex items-center justify-center">
-                <div class="w-[20%]  px-20 ">
+                <div class="   px-20 ">
                     <p class="pb-6 text-sm text-gray-500 font-normal text-justify">Welcome to Prescripto, your trusted partner in managing your healthcare needs conveniently and
                         efficiently. At Prescripto, we understand the challenges individuals face when it comes to
                         scheduling doctor appointments and managing their health records.</p>

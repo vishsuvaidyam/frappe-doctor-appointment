@@ -14,7 +14,7 @@ def register_user(email, password, first_name):
         "user_type": "Website User"
     })
     user.insert(ignore_permissions=True)
-    user.save()
+    # user.save()
     user.set_password(password)
     return {"status": "success", "message": "User registered successfully"}
 
@@ -69,7 +69,7 @@ def related_doctors(specialist=None):
             filters={"specialist": specialist},
             
             fields=["name", "doctor_image", "qulifications", "specialist", "experience", "doctor_fee"],
-            limit=5  # Optional: limit the number of results
+            limit=5   
         )
         return {"message": doctors}
     except Exception as e:
