@@ -49,21 +49,26 @@
       </div>
     </div>
 
-    <div class="bg-blue-500  h-96 flex items-center rounded-lg mt-10 mx-20 ">
-      <div class="container mx-auto px-6 md:px-12 lg:px-16 ">
-        <h1 class="text-4xl md:text-5xl font-bold text-white pb-4">
-          Book Appointment <br>
-          With 100+ Trusted Doctors
-        </h1>
-        <router-link to="/register"
-          class="cursor-pointer bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl ">
-          Create Account
-        </router-link>
-      </div>
-      <div class="lg:w-1/2   flex justify-center  ">
-        <img class="w-auto max-w-md lg:max-w-full h-80" src="../assets/appointment_female.png" alt="Doctors" />
-      </div>
-    </div>
+    <div class="bg-blue-500 h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 lg:mx-20 p-6">
+  <!-- Text Section -->
+  <div class="lg:w-1/2 text-center lg:text-left mb-6 lg:mb-0">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white pb-4">
+      Book Appointment <br>
+      With 100+ Trusted Doctors
+    </h1>
+    <router-link to="/register"
+      class="inline-block cursor-pointer bg-white text-gray-500 text-sm font-semibold py-3 px-6 rounded-3xl">
+      Create Account
+    </router-link>
+  </div>
+
+  <!-- Image Section -->
+  <div class="lg:w-1/2 flex justify-center">
+    <img class="w-full max-w-xs md:max-w-md lg:max-w-lg h-auto" 
+         src="../assets/appointment_female.png" alt="Doctors" />
+  </div>
+</div>
+
 
   </div>
 </template>
