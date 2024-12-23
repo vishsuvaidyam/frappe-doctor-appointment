@@ -133,6 +133,11 @@ app_license = "mit"
 #         "on_update": "appointments_management.api.register_user"
 #     }
 # }
+api_methods = [
+    "appointments_management.controllers.api.register_user"
+]
+
+
 
 fixtures=[
     'Doctor',

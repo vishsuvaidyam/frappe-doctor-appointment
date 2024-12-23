@@ -7,6 +7,18 @@ import resourceManager from "../../../doppio/libs/resourceManager";
 import call from "../../../doppio/libs/controllers/call";
 import socket from "../../../doppio/libs/controllers/socket";
 import Auth from "../../../doppio/libs/controllers/auth";
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
+
+const options = {
+  position: "top-right",
+  timeout: 3000,
+  closeOnClick: true,
+  pauseOnFocusLoss: true,
+  pauseOnHover: true,
+  draggable: true,
+  draggablePercent: 0.6,
+};
 
 const app = createApp(App);
 const auth = reactive(new Auth());
@@ -38,5 +50,5 @@ app.provide("$socket", socket);
 // 		}
 // 	}
 // });
-
+app.use(Toast, options);
 app.mount("#app");

@@ -22,7 +22,7 @@
             </div>
             <a href="#"
               class="bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl shadow-lg  transition">
-              Book appointment 
+              Book appointment
             </a>
           </div>
           <div class="lg:w-1/2 flex justify-center">
@@ -50,30 +50,33 @@
     </div>
 
     <div class="bg-blue-500 h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 lg:mx-20 p-6">
-  <!-- Text Section -->
-  <div class="lg:w-1/2 text-center lg:text-left mb-6 lg:mb-0">
-    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white pb-4">
-      Book Appointment <br>
-      With 100+ Trusted Doctors
-    </h1>
-    <router-link to="/register"
-      class="inline-block cursor-pointer bg-white text-gray-500 text-sm font-semibold py-3 px-6 rounded-3xl">
-      Create Account
-    </router-link>
-  </div>
+      <!-- Text Section -->
+      <div class="lg:w-1/2 text-center lg:text-left mb-6 lg:mb-0">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white pb-4">
+          Book Appointment <br>
+          With 100+ Trusted Doctors
+        </h1>
+        <router-link to="/register"
+          class="inline-block cursor-pointer bg-white text-gray-500 text-sm font-semibold py-3 px-6 rounded-3xl">
+          Create Account
+        </router-link>
+      </div>
 
-  <!-- Image Section -->
-  <div class="lg:w-1/2 flex justify-center">
-    <img class="w-full max-w-xs md:max-w-md lg:max-w-lg h-auto" 
-         src="../assets/appointment_female.png" alt="Doctors" />
-  </div>
-</div>
+      <!-- Image Section -->
+      <div class="lg:w-1/2 flex justify-center">
+        <img class="w-full max-w-xs md:max-w-md lg:max-w-lg h-auto" src="../assets/appointment_female.png"
+          alt="Doctors" />
+      </div>
+    </div>
 
-
+    <div class="mt-20">
+      <Footer />
+    </div>
   </div>
 </template>
 
 <script setup>
 import Speciality from './Speciality.vue';
 import All_doctors from './All_doctors.vue';
+import Footer from '../components/Footer.vue';
 </script>
