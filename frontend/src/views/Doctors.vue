@@ -7,7 +7,7 @@
             <button v-for="specialist in specialists" :key="specialist.id" @click="fetchDoctors(specialist)" :class="[
                 'w-full pr-10 py-2 border border-gray-300 rounded-sm shadow-sm text-sm font-medium',
                 activeSpecialist === specialist
-                    ? 'bg-indigo-200 border-black text-white font-semibold'
+                    ? 'bg-indigo-200 text-white font-semibold'
                     : 'bg-white hover:bg-gray-100 text-gray-600',
             ]">
                 {{ specialist.name1 }}
@@ -24,7 +24,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             <div v-for="doctor in doctors" :key="doctor.full_name" @click="goToDoctorDetails(doctor.full_name)"
                 class="bg-white shadow-md rounded-xl border border-indigo-200 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-4   duration-300">
-                <div class="bg-[#e1e5ff] p-6 rounded-t-xl">
+                <div class="bg-[#e1e5ff]  p-6 rounded-t-xl">
                     <img class="w-full h-54 " :src="doctor.doctor_image" :alt="doctor.full_name[0]" />
                 </div>
                 <div class="  p-6">
@@ -40,9 +40,13 @@
             </div>
         </div>
     </div>
+    <div class="mt-20">
+        <Footer/>
+      </div>
 </template>
 
 <script setup>
+import Footer from "../components/Footer.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";

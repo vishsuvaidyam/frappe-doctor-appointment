@@ -1,6 +1,7 @@
 <template>
     <div class="w-full pt-10">
-        <h1 class="text-2xl font-normal text-center text-gray-400">CONTACT <span class="text-md text-gray-700 font-extrabold">US</span>
+        <h1 class="text-2xl font-normal text-center text-gray-400">CONTACT <span
+                class="text-md text-gray-700 font-extrabold">US</span>
         </h1>
         <div class="flex justify-center w-full pt-10 gap-10 ">
             <div class="w-1/2 flex justify-end">
@@ -20,11 +21,17 @@
                     <p class="text-sm font-normal text-gray-500 pb-6">Email: greatstackdev@gmail.com</p>
                     <h1 class="text-md text-gray-600 font-semibold pb-6">CAREERS AT PRESCRIPTO</h1>
                     <p class="text-sm font-normal text-gray-500 pb-6">Learn more about our teams and job openings.</p>
-                    <button class="py-4 px-8 text-sm transition-all border-black border hover:bg-black hover:text-white">Explore Jobs</button>
+                    <button
+                        class="py-4 px-8 text-sm transition-all border-black border hover:bg-black hover:text-white">Explore
+                        Jobs</button>
                 </div>
             </div>
+        </div>
+        <div class="mt-20">
+            <Footer />
         </div>
     </div>
 </template>
 <script setup>
+import Footer from '../components/Footer.vue';
 </script>

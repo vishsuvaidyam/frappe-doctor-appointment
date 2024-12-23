@@ -19,14 +19,26 @@
         <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition">
           Login
         </button>
-        
+
         <p class="text-sm font-medium pt-2 text-gray-600">Create an new account ?
           <router-link to="/register" class="cursor-pointer text-blue-500">
             Click here
           </router-link>
         </p>
       </form>
+      <div class="flex gap-4 pt-4 w-auto justify-center">
+        <button class="flex items-center justify-center w-auto shadow-md px-9 py-2 rounded-lg border border-gray-300 ">
+          <img src="https://www.google.com/favicon.ico" alt="Google" class="w-6 h-6">
+        </button>
 
+        <button class="flex items-center justify-center w-auto shadow-md px-9 py-2 rounded-lg border border-gray-300 ">
+          <img src="https://www.facebook.com/favicon.ico" alt="Facebook" class="w-6 h-6">
+        </button>
+
+        <button class="flex items-center justify-center w-auto shadow-md px-9 py-2 rounded-lg border border-gray-300 ">
+          <img src="https://www.apple.com/favicon.ico" alt="Apple" class="  h-6">
+        </button>
+      </div>
     </div>
   </div>
 </template>
