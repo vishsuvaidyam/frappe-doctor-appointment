@@ -7,7 +7,13 @@
 
                 <div class="mb-4">
                     <div class="relative">
-                        <i class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <!-- <i class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM12 14c-3.86 0-7 3.14-7 7h14c0-3.86-3.14-7-7-7z" />
+                        </svg>
                         <input v-model="full_name" type="text"
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
                             placeholder="Name" />
@@ -15,7 +21,8 @@
                 </div>
                 <div class="mb-4">
                     <div class="relative">
-                        <i class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i
+                            class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input v-model="email" type="email"
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
                             placeholder="Email" />
@@ -23,7 +30,8 @@
                 </div>
                 <div class="mb-4">
                     <div class="relative">
-                        <i class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i
+                            class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input v-model="password" type="password"
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
                             placeholder="Password" />
@@ -61,27 +69,27 @@ const password = ref("");
 
 const register = async () => {
     try {
-    const res = await axios.post("/api/method/appointments_management.controllers.api.register_user", {
-        email: email.value,
-        // password: password.value,
-        first_name: full_name.value,
-    });
+        const res = await axios.post("/api/method/appointments_management.controllers.api.register_user", {
+            email: email.value,
+            password: password.value,
+            first_name: full_name.value,
+        });
 
-    if (res.data.message.code === 200) {
-        toast.success("registered successfully");  
-        email.value = '';
-        password.value = '';
-        full_name.value = '';
+        if (res.data.message.code === 200) {
+            toast.success("registered successfully");
+            email.value = '';
+            password.value = '';
+            full_name.value = '';
 
-    } else if (res.data.message.code === 400) {
-        toast.error("User already exists"); 
-    } else {
-        toast.error("An unexpected error occurred. Please try again.");
+        } else if (res.data.message.code === 400) {
+            toast.error("User already exists");
+        } else {
+            toast.error("An unexpected error occurred. Please try again.");
+        }
+    } catch (error) {
+        console.error(error);
+        toast.error("An error occurred while registering the user. Please try again.");
     }
-} catch (error) {
-    console.error(error);
-    toast.error("An error occurred while registering the user. Please try again.");
-}
 
 }
 </script>
