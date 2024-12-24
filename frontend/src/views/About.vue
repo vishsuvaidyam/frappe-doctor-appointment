@@ -32,24 +32,26 @@
             <h1 class="text-lg font-semibold pb-4">WHY <span class="text-lg font-extrabold text-gray-500">CHOOSE
                     US</span></h1>
             <div class="flex justify-center">
-                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
+                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 group">
+        <div class="px-20">
+            <h1 class="text-md font-bold text-slate-500 pb-6 group-hover:text-white">EFFICIENCY:</h1>
+            <h5 class="text-sm font-normal text-slate-500 group-hover:text-white">
+            Streamlined appointment scheduling that fits into your busy lifestyle.
+            </h5>
+        </div>
+        </div>
+
+                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 group">
                     <div class="px-20">
-                        <h1 class="text-md font-bold text-slate-500 pb-6">EFFICIENCY:</h1>
-                        <h5 class="text-sm font-normal text-slate-500">Streamlined appointment scheduling that fits into
-                            your busy lifestyle.</h5>
-                    </div>
-                </div>
-                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
-                    <div class="px-20">
-                        <h1 class="text-md font-bold text-slate-500 pb-6">CONVENIENCE:</h1>
-                        <p class="text-sm font-normal text-slate-500"> Access to a network of trusted healthcare
+                        <h1 class="text-md font-bold text-slate-500 pb-6 group-hover:text-white">CONVENIENCE:</h1>
+                        <p class="text-sm font-normal text-slate-500 group-hover:text-white"> Access to a network of trusted healthcare
                             professionals in your area.</p>
                     </div>
                 </div>
-                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 hover:text-white">
+                <div class="w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 group">
                     <div class="px-20">
-                        <h1 class="text-md font-bold text-slate-500 pb-6">PERSONALIZATION:</h1>
-                        <p class="text-sm font-normal text-slate-500"> Tailored recommendations and reminders to help
+                        <h1 class="text-md font-bold text-slate-500 pb-6 group-hover:text-white">PERSONALIZATION:</h1>
+                        <p class="text-sm font-normal text-slate-500 group-hover:text-white"> Tailored recommendations and reminders to help
                             you stay on top of your health</p>
                     </div>
                 </div>
@@ -57,7 +59,10 @@
             </div>
         </div>
         <div class="mt-20">
-            <Footer />
+            <div class="ml-20">
+                <Footer />
+            </div>
+            
         </div>
     </div>
 
