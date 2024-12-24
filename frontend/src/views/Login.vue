@@ -7,16 +7,32 @@
 
         <div class="mb-4">
           <label class="block text-sm font-medium mb-1">Email</label>
-          <input v-model="email" type="email" class="border rounded px-4 py-2 w-full outline-none" />
+          <div class="mb-4">
+                    <div class="relative">
+                        <i
+                            class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input v-model="email" type="email"
+                            class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
+                            placeholder="Email" />
+                    </div>
+                </div>
         </div>
+        
 
         <div class="mb-4">
           <label for="password" class="text-sm font-medium mb-1">Password</label>
-          <input type="password" id="password" v-model="password" class="border rounded px-4 py-2 w-full outline-none"
-            placeholder="Enter your password" required />
+           <div class="mb-4">
+                    <div class="relative">
+                        <i
+                            class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input v-model="password" type="password"
+                            class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
+                            placeholder="Password" />
+                    </div>
+                </div>
         </div>
 
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition">
+        <button type="submit" class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
           Login
         </button>
 
@@ -36,7 +52,7 @@
         </button>
 
         <button class="flex items-center justify-center w-auto shadow-md px-9 py-2 rounded-lg border border-gray-300 ">
-          <img src="https://www.apple.com/favicon.ico" alt="Apple" class="  h-6">
+          <img src="https://www.apple.com/favicon.ico" alt="Apple" class="w-6 h-6">
         </button>
       </div>
     </div>
