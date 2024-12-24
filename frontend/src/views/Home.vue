@@ -21,9 +21,15 @@
               </div>
             </div>
             <a href="#"
-              class="bg-white text-gray-500  text-sm font-semibold py-3 px-6 rounded-3xl shadow-lg  transition">
+              class="inline-flex items-center bg-white text-gray-500 text-sm font-semibold py-3 px-6 rounded-3xl shadow-lg hover:scale-105 transition-all">
               Book appointment
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ml-2" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-miterlimit="10" stroke-width="1.5" d="m14 16l4-4m0 0l-4-4m4 4H6" />
+              </svg>
             </a>
+
+
           </div>
           <div class="lg:w-1/2 flex justify-center">
             <img class="w-full max-w-md lg:max-w-full" src="../assets/header_img-DhAi3lLA.png" alt="Doctors" />
@@ -51,23 +57,25 @@
 
     <div class="bg-blue-500 h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 lg:mx-20 p-6">
       <!-- Text Section -->
-      <div class="lg:w-1/2 text-center lg:text-left mb-6 lg:mb-0">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white pb-4">
+      <div class="lg:w-1/2 text-center lg:text-left mb-6 lg:mb-0 px-4">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white pb-4 ml-8">
           Book Appointment <br>
           With 100+ Trusted Doctors
         </h1>
         <router-link to="/register"
-          class="inline-block cursor-pointer bg-white text-gray-500 text-sm font-semibold py-3 px-6 rounded-3xl">
+          class="inline-block cursor-pointer bg-white  py-3 px-6 rounded-3xl ml-8 hover:scale-105 transition-all">
           Create Account
         </router-link>
       </div>
 
       <!-- Image Section -->
       <div class="lg:w-1/2 flex justify-center">
-        <img class="w-full max-w-xs md:max-w-md lg:max-w-lg h-auto" src="../assets/appointment_female.png"
-          alt="Doctors" />
+        <img class="w-full max-w-xs md:max-w-md lg:max-w-lg object-contain rounded-lg"
+          src="../assets/appointment_female.png" alt="Doctors" />
       </div>
     </div>
+
+
 
     <div class="mt-20">
       <Footer />
