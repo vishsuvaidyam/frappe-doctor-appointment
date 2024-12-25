@@ -144,6 +144,8 @@ fixtures=[
     'Specialist',
     'Doctors_details',
     'User',
+    'Role',
+    'Role Profile'
     ]
 # Scheduled Tasks
 # ---------------

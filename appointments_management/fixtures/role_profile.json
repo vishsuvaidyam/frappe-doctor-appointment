@@ -1,0 +1,14 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-12-24 18:19:09.405150",
+  "name": "Primary",
+  "role_profile": "Primary",
+  "roles": [
+   {
+    "role": "Primary"
+   }
+  ]
+ }
+]
