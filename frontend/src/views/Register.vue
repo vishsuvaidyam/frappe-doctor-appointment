@@ -8,11 +8,12 @@
                 <div class="mb-4">
                     <div class="relative">
                         <!-- <i class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i> -->
-                        <svg xmlns="http://www.w3.org/2000/svg" 
-    class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-" 
-    fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.86 0-7 3.14-7 7h14c0-3.86-3.14-7-7-7z" />
-</svg>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-"
+                            fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.86 0-7 3.14-7 7h14c0-3.86-3.14-7-7-7z" />
+                        </svg>
 
                         <input v-model="full_name" type="text"
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
@@ -28,7 +29,7 @@
                             placeholder="Email" />
                     </div>
                 </div>
-                <!-- <div class="mb-4">
+                <div class="mb-4">
                     <div class="relative">
                         <i
                             class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -36,7 +37,7 @@
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
                             placeholder="Password" />
                     </div>
-                </div> -->
+                </div>
                 <div class="flex justify-end items-center mb-4">
                     <a href="#" class="text-sm text-blue-500 hover:underline ">Forgot password?</a>
                 </div>
