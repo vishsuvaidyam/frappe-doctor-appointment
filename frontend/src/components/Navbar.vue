@@ -38,9 +38,9 @@
 
       <div v-else class="relative inline-block text-left">
         <button @click="isOpen = !isOpen"
-          class="inline-flex justify-center w-full rounded-full p-6 border  border-gray-300 shadow-sm   text-sm font-semibold text-white">
-          <!-- <img src="../assets/doc10.png" alt="Profile"
-            class="rounded-full border h-auto w-auto border-gray-300 shadow-lg" /> -->
+          class="inline-flex justify-center w-full rounded-full p-1 border  border-gray-300 shadow-sm   text-sm font-semibold text-white">
+          <img src="../assets/doc10.png" alt="Profile"
+            class=" h-12 w-12" />
         </button>
         <div v-if="isOpen"
           class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
@@ -97,26 +97,21 @@ const isLoggedIn = ref(false);
 const router = useRouter();
 const route = useRoute();
 
-// Check if user is logged in
 onMounted(() => {
   isLoggedIn.value = !!sessionStorage.getItem("user");
 });
 
-// Handle navigation
 const goToRegister = () => router.push("/register");
 const goToProfile = () => router.push("/profile");
 
-// Logout action
 const logout = () => {
   sessionStorage.removeItem("user");
   isLoggedIn.value = false;
   router.push("/");
 };
 
-// Highlight active link
 const isActive = (path) => route.path === path;
 
-// Toggle mobile menu visibility
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };

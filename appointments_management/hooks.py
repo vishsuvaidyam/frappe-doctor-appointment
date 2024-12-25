@@ -142,8 +142,8 @@ api_methods = [
 fixtures=[
     'Doctor',
     'Specialist',
-    'General physician',
     'Doctors_details',
+    'User',
     ]
 # Scheduled Tasks
 # ---------------
