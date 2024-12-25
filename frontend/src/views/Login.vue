@@ -49,6 +49,7 @@ import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
+import { login } from "../auth";
 
 const router = useRouter();
 const email = ref("");
@@ -67,19 +68,17 @@ const handleLogin = async () => {
       password: password.value,
     });
 
-    const result = await response.data;
+    const result = response.data;
+
     if (result.message.code === 200) {
-      sessionStorage.setItem("user", JSON.stringify(result.message.user));
+      login(result.message.user);  
       toast.success("Login successful!");
-      email.value = "",
-      password.value = ""
-      router.push("/");
+      router.push("/");  
     } else if (result.message.code === 401) {
-      toast.error("Invalid password")
+      toast.error("Invalid password");
     } else if (result.message.code === 404) {
-      toast.error("User not found")
-    }
-    else {
+      toast.error("User not found");
+    } else {
       toast.error(result.message || "Login failed. Please try again.");
     }
   } catch (error) {
@@ -87,5 +86,4 @@ const handleLogin = async () => {
     console.error("Login error:", error);
   }
 };
-
 </script>
