@@ -31,17 +31,18 @@
 
     <!-- Action Buttons -->
     <div class="flex justify-end items-center space-x-4">
-      <button v-if="!isLoggedIn"
-        class="hidden px-6 py-3 text-sm font-normal text-white bg-blue-600 rounded-3xl md:block" @click="goToRegister">
+      <router-link v-if="!isLoggedIn" to="/login" class="hidden px-2 py-3 text-sm font-normal text-black md:block">
+        login
+      </router-link>
+      <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-normal text-black md:block">
         Create Account
-      </button>
-
+      </router-link>
       <div v-else class="relative inline-block text-left">
         <button @click="isOpen = !isOpen"
           class="inline-flex justify-center w-full rounded-full p-1 border  border-gray-300 shadow-sm   text-sm font-semibold text-white">
-          <img src="../assets/doc10.png" alt="Profile"
-            class=" h-12 w-12" />
+          <img src="../assets/doc10.png" alt="Profile" class=" h-12 w-12" />
         </button>
+
         <div v-if="isOpen"
           class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div class="p-4 bg-gray-100 text-gray-700">
@@ -90,9 +91,9 @@
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
-const isOpen = ref(false);  
-const menuOpen = ref(false);  
-const isLoggedIn = ref(false); 
+const isOpen = ref(false);
+const menuOpen = ref(false);
+const isLoggedIn = ref(false);
 
 const router = useRouter();
 const route = useRoute();
@@ -101,7 +102,6 @@ onMounted(() => {
   isLoggedIn.value = !!sessionStorage.getItem("user");
 });
 
-const goToRegister = () => router.push("/register");
 const goToProfile = () => router.push("/profile");
 
 const logout = () => {
