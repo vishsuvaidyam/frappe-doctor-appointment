@@ -84,7 +84,7 @@ const Doctordatails = async () => {
         // console.log("API Response:", response.data);  
         if (response.data.message) {
             doctorDetails.value = response.data.message;
-            console.log("Doctor Details Set:", doctorDetails.value);
+            // console.log("Doctor Details Set:", doctorDetails.value);
         } else {
             console.error("No data found for doctor.");
         }
