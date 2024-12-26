@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="grid-cols-3 w-full fixed top-0 bg-white z-20 px-4 md:px-8 lg:px-20 h-20 flex justify-between items-center shadow-md">
+    class="grid-cols-3 w-full fixed top-0 bg-white z-20 px-4 md:px-8 lg:px-20 h-20 flex justify-between items-center  border-b shadow-sm">
     <div class="flex items-center">
       <router-link to="/" class="text-2xl font-bold">
         <img class="w-32 md:w-40 h-12 md:h-[52px]" src="../assets/logo-BNCDj_dh.svg" alt="Logo" />
@@ -8,7 +8,7 @@
     </div>
 
     <!-- Links Section -->
-    <div class="hidden lg:flex justify-center space-x-8 text-sm font-medium">
+    <div class="hidden lg:flex justify-center items-center space-x-8 text-sm font-medium">
       <router-link to="/" class="text-sm font-medium"
         :class="{ 'border-b-2 border-blue-500 text-center': isActive('/') }">
         HOME
@@ -30,12 +30,15 @@
 
     <!-- Action Buttons -->
     <div class="flex justify-end items-center space-x-4">
-      <router-link v-if="!isLoggedIn" to="/login" class="hidden px-2 py-3 text-sm font-normal text-black md:block">
+      <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-medium text-black md:block">
+        Register
+      </router-link>
+      <router-link v-if="!isLoggedIn" to="/login"
+        class=" px-6 py-2 text-sm font-normal text-white bg-blue-500 hover:bg-blue-600 md:block rounded text-center">
         Login
       </router-link>
-      <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-normal text-black md:block">
-        Create Account
-      </router-link>
+
+
       <div v-else class="relative inline-block text-left">
         <button @click="isOpen = !isOpen"
           class="inline-flex justify-center w-full rounded-full p-1 border border-gray-300 shadow-sm text-sm font-semibold text-white">
