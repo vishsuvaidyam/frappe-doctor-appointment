@@ -10,7 +10,8 @@ import Profile from "../components/Profile.vue";
 import LoginPage from '../components/Login.vue';
 import Test from "../views/test.vue";
 import My_appointments from "../components/My_appointments.vue";
- 
+import NotFound from "../views/NotFound.vue";
+import Doctor_appointment from "../views/Doctor_appointment.vue";
 
 
 const routes = [
@@ -22,11 +23,11 @@ const routes = [
     component: Home,
   },
   {
-    path: "/doctors",  
+    path: "/doctors",
     name: "Doctors",
-    component: Doctors,   
-    props: true   
-  },  
+    component: Doctors,
+    props: true
+  },
   {
     path: "/about",
     name: "About",
@@ -44,25 +45,34 @@ const routes = [
   },
 
   {
-    path:"/profile",
-    name:"Profile",
-    component:Profile,
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
   },
   {
-    path:"/test",
-    name:"Test",
-    component:Test,
+    path: "/test",
+    name: "Test",
+    component: Test,
   },
   {
-    path:"/loginPage",
-    name:"LoginPage",
-    component:LoginPage,
+    path: "/loginPage",
+    name: "LoginPage",
+    component: LoginPage,
   },
   {
-      path: "/my-appointment",  
+    path: "/my-appointment",
     name: "My_appointments",
-    component: My_appointments,   
-  }, 
+    component: My_appointments,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
+  }, {
+    path: "/doctor-appointment",
+    name: "Doctor_appointment",
+    component: Doctor_appointment,
+  },
 
   ...authRoutes,
 ];
