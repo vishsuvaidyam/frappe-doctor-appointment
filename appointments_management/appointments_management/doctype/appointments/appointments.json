@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-26 16:09:42.396621",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "doctor_name",
+  "patient",
+  "appointment_date",
+  "appointment_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctor_name",
+   "fieldtype": "Data",
+   "label": "Doctor Name"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Data",
+   "label": "Patient"
+  },
+  {
+   "fieldname": "appointment_date",
+   "fieldtype": "Date",
+   "label": "Appointment Date"
+  },
+  {
+   "fieldname": "appointment_time",
+   "fieldtype": "Time",
+   "label": "Appointment Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-26 16:33:07.502410",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "Appointments",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

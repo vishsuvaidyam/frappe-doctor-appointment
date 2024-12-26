@@ -20,7 +20,9 @@
   "doctor_fee",
   "end_date",
   "section_break_hjom",
-  "description"
+  "description",
+  "column_break_garj",
+  "address"
  ],
  "fields": [
   {
@@ -106,11 +108,20 @@
    "fieldname": "end_date",
    "fieldtype": "Date",
    "label": "End date"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_garj",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-24 18:20:23.705999",
+ "modified": "2024-12-26 15:42:37.875306",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

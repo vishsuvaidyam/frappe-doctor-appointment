@@ -31,6 +31,7 @@
                 </div>
             </div>
         </div>
+    
         <div class="flex gap-10 w-full h-64 pt-8">
             <div class="w-1/6  ">
             </div>

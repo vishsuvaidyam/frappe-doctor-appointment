@@ -1,5 +1,5 @@
 <template>
-  <div class=" ">
+  <div class="inset-0  ">
     <div class="pt-20">
       <Navbar/>
     </div>

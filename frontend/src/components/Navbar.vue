@@ -37,8 +37,6 @@
         class=" px-6 py-2 text-sm font-normal text-white bg-blue-500 hover:bg-blue-600 md:block rounded text-center">
         Login
       </router-link>
-
-
       <div v-else class="relative inline-block text-left">
         <button @click="isOpen = !isOpen"
           class="inline-flex justify-center w-full rounded-full p-1 border border-gray-300 shadow-sm text-sm font-semibold text-white">
