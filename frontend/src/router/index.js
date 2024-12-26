@@ -9,6 +9,7 @@ import RegisterPage from '@/views/Register.vue';
 import Profile from "../components/Profile.vue";
 import LoginPage from '../components/Login.vue';
 import Test from "../views/test.vue";
+import My_appointments from "../components/My_appointments.vue";
  
 
 
@@ -57,6 +58,11 @@ const routes = [
     name:"LoginPage",
     component:LoginPage,
   },
+  {
+      path: "/my-appointment",  
+    name: "My_appointments",
+    component: My_appointments,   
+  }, 
 
   ...authRoutes,
 ];
