@@ -8,15 +8,14 @@ import Doctor_details from "../views/Doctor_details.vue";
 import RegisterPage from '@/views/Register.vue';
 import Profile from "../components/Profile.vue";
 import LoginPage from '../components/Login.vue';
-import Test from "../views/test.vue";
 import My_appointments from "../components/My_appointments.vue";
 import NotFound from "../views/NotFound.vue";
 import Doctor_appointment from "../views/Doctor_appointment.vue";
 
-
 const routes = [
-  // { path: '/login', component: LoginPage },
-  { path: '/register', component: RegisterPage },
+  { path: '/register', 
+    component: RegisterPage,
+  },
   {
     path: "/",
     name: "Home",
@@ -39,7 +38,7 @@ const routes = [
     component: Contact,
   },
   {
-    path: "/doctor-details/:full_name",
+    path: '/doctor-details/:full_name/:specialist?',
     name: "Doctor_details",
     component: Doctor_details,
   },
@@ -48,11 +47,6 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
-  },
-  {
-    path: "/test",
-    name: "Test",
-    component: Test,
   },
   {
     path: "/loginPage",

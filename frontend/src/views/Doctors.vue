@@ -22,7 +22,7 @@
             </button>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
-            <div v-for="doctor in doctors" :key="doctor.full_name" @click="goToDoctorDetails(doctor.full_name)"
+            <div v-for="doctor in doctors" :key="doctor.full_name" @click="goToDoctorDetails(doctor.full_name,doctor.specialist)"
                 class="bg-white shadow-md rounded-xl border border-indigo-200 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-4   duration-300">
                 <div class="bg-[#e1e5ff]  p-6 rounded-t-xl">
                     <img class="w-full h-54 " :src="doctor.doctor_image" :alt="doctor.full_name[0]" />
@@ -78,8 +78,9 @@ const fetchDoctors = (specialist) => {
         : allDoctors.value;
 };
 
-const goToDoctorDetails = (full_name) => {
-    router.push({ name: "Doctor_details", params: { full_name } });
+const goToDoctorDetails = (full_name,specialist) => {
+
+    router.push({ name: "Doctor_details", params: { full_name ,specialist } });
 };
 
 onMounted(fetchData);
