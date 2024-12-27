@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full  px-20 pt-10 " v-for=" doctor in doctorDetails" @click="goToDoctorDetails(doctor.specialist)">
+    <div class="w-full inset-0 px-20 pt-10 " v-for=" doctor in doctorDetails">
         <div class="flex gap-10 w-full h-auto">
             <div class="w-1/6  ">
                 <div class="border rounded-lg bg-blue-600">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="flex gap-10 w-full h-64 pt-8">
             <div class="w-1/6  ">
             </div>
@@ -59,45 +59,85 @@
             </div>
         </div>
 
-        <div class="pt-10">
-            <Realated_doctorDetails :relatedDoctors="relatedDoctors" />
+        <div class="pt-20">
+            <h1 class="text-center"> Related Doctors</h1>
+            <p class="text-center">Simply browse through our extensive list of trusted doctors.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full py-10">
+                <div v-for="related in allDoctors" :key="related.full_name"
+                    @click="goToDoctorDetails(related.full_name, related.specialist)"
+                    class="bg-white shadow-md h-50 rounded-xl border border-indigo-200 text-start cursor-pointer transition ease-in-out delay-150 hover:-translate-y-4   duration-300">
+                    <div class="bg-[#e1e5ff]  p-4 rounded-t-xl">
+                        <img class="w-full h-48 " :src="related.doctor_image" :alt="related.full_name[0]" />
+                    </div>
+                    <div class="  p-6">
+                        <span :class="doctor.status === 'Available' ? 'text-green-500' : 'text-red-500'"
+                            class="text-sm font-medium">
+                            ● {{ related.status }}
+                        </span>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-2">
+                            {{ related.full_name }}
+                        </h3>
+                        <p class="text-sm text-gray-600">{{ related.specialist }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 </template>
 <script setup>
 import axios from 'axios';
-import Realated_doctorDetails from './Realated_doctors.vue';
 import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
-const router=useRoute()
+const router = useRouter()
 const route = useRoute();
+const allDoctors = ref([]);
 const doctorDetails = ref([]);
-const Doctordatails = async () => {
+
+const fetchDoctors = async () => {
     try {
         console.log("Route Param Full Name:", route.params.full_name);
+        console.log("Route Param Specialist:", route.params.specialist);
 
-        const response = await axios.get(
-            `/api/method/appointments_management.controllers.api.doctor_details`,
-            { params: { full_name: route.params.full_name } }
+        // Fetch all filter doctors
+        const doctorsResponse = await axios.get(
+            "/api/method/appointments_management.controllers.api.doctors_filter"
         );
-        // console.log("API Response:", response.data);  
-        if (response.data.message) {
-            doctorDetails.value = response.data.message;
-            // console.log("Doctor Details Set:", doctorDetails.value);
+
+        if (doctorsResponse.data.message) {
+            allDoctors.value = doctorsResponse.data.message.filter(
+                (doctor) => doctor.specialist === route.params.specialist
+            );
+            console.log(allDoctors.value, '=================');
+        } else {
+            console.error("No doctors found.");
+        }
+
+        // Fetch doctor details
+        const doctorDetailsResponse = await axios.get(
+            "/api/method/appointments_management.controllers.api.doctor_details",
+            {
+                params: {
+                    full_name: route.params.full_name,
+                    specialist: route.params.specialist,
+                },
+            }
+        );
+        if (doctorDetailsResponse.data.message) {
+            doctorDetails.value = doctorDetailsResponse.data.message;
         } else {
             console.error("No data found for doctor.");
         }
+
     } catch (error) {
-        console.error('Error fetching doctor details:', error);
+        console.error("Error fetching doctor details:", error);
     }
 };
-const goToDoctorDetails=({ specialist: 'specialist' });
-console.log(goToDoctorDetails);
 
+const goToDoctorDetails = (full_name, specialist) => {
+    router.push({ name: "Doctor_details", params: { full_name, specialist } });
+    fetchDoctors();
+};
 
-onMounted(Doctordatails)
+onMounted(fetchDoctors)
 </script>
-
-
