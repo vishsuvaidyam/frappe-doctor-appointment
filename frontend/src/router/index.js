@@ -7,7 +7,7 @@ import Contact from "../views/Contact.vue";
 import Doctor_details from "../views/Doctor_details.vue";
 import RegisterPage from '@/views/Register.vue';
 import Profile from "../components/Profile.vue";
-import LoginPage from '../components/Login.vue';
+import LoginPage from '../views/Login.vue';
 import My_appointments from "../components/My_appointments.vue";
 import NotFound from "../views/NotFound.vue";
 import Doctor_appointment from "../views/Doctor_appointment.vue";
@@ -54,7 +54,7 @@ const routes = [
     component: LoginPage,
   },
   {
-    path: "/my-appointment",
+    path: "/my-appointment/:full_name",
     name: "My_appointments",
     component: My_appointments,
   },

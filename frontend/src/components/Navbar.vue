@@ -30,6 +30,14 @@
 
     <!-- Action Buttons -->
     <div class="flex justify-end items-center space-x-4">
+      <!-- <div
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white p-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+        <img v-if="auth?.cookie?.user_image" class="w-10 h-10 object-cover rounded-full" :src="auth?.cookie?.user_image"
+          alt="">
+        <p class="w-10 h-10 flex items-center justify-center text-xl font-normal text-gray-600" v-else>{{
+          auth?.cookie?.full_name?.split('')[0] }}</p>
+      </div> -->
+
       <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-medium text-black md:block">
         Register
       </router-link>
@@ -39,8 +47,8 @@
       </router-link>
       <div v-else class="relative inline-block text-left">
         <button @click="isOpen = !isOpen"
-          class="inline-flex justify-center w-full rounded-full p-1 border border-gray-300 shadow-sm text-sm font-semibold text-white">
-          <img src="../assets/doc10.png" alt="Profile" class="h-12 w-12" />
+          class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white p-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+          <img :src="auth?.cookie?.user_image" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
         </button>
 
         <div v-if="isOpen"

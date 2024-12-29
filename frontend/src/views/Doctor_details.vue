@@ -3,18 +3,19 @@
         <div class="flex gap-10 w-full h-auto">
             <div class="w-1/6  ">
                 <div class="border rounded-lg bg-blue-600">
-                    <img class="h-64 flex justify-center" :src="doctor.doctor_image" />
+                    <img class="h-64 flex justify-center" :src="doctor.doctor.doctor_image" />
                 </div>
             </div>
             <div class="w-4/5 border border-gray-300 rounded-lg">
 
                 <div class=" px-8 py-8 ">
                     <h1 class="text-3xl text-gray-700 font-bold py-1 flex items-center gap-2">
-                        {{ doctor.name }}
+                        {{ doctor.doctor.full_name }}
                         <img class="w-4 h-4" src="../assets/download (1).svg" alt="" srcset="">
                     </h1>
-                    <p class="text-md text-gray-700 font-normal py-1">{{ doctor.qulifications }}-{{ doctor.specialist }}
-                        <span class="border px-4 py-1  rounded-3xl">{{ doctor.experience }}</span>
+                    <p class="text-md text-gray-700 font-normal py-1">{{ doctor.doctor.qulifications }}-{{
+                        doctor.doctor.specialist }}
+                        <span class="border px-4 py-1  rounded-3xl">{{ doctor.doctor.experience }}</span>
                     </p>
                     <p class="flex gap-2 items-center text-md font-semibold py-2">About
                         <span class="">
@@ -22,12 +23,12 @@
                         </span>
                     </p>
                     <div class="w-3/5">
-                        <p class="text-sm font-normal text-gray-600 "> {{ doctor.description }}
+                        <p class="text-sm font-normal text-gray-600 "> {{ doctor.doctor.description }}
 
                         </p>
                     </div>
                     <p class="text-md font-semibold pt-4 text-gray-500">Apointment fee:<span
-                            class="text-md font-semibold px-2 text-gray-800">${{ doctor.doctor_fee }}</span></p>
+                            class="text-md font-semibold px-2 text-gray-800">${{ doctor.doctor.doctor_fee }}</span></p>
                 </div>
             </div>
         </div>
@@ -36,30 +37,46 @@
             <div class="w-1/6  ">
             </div>
             <div class="w-4/5">
-                <h1>Booking slots</h1>
-                <div class="pt-4 flex gap-4">
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
-                    <button class="px-2 text-sm font-normal py-10 border rounded-full">THU 12</button>
+                <h1>Booking Date</h1>
+                <div class="flex items-center space-x-2">
+                    <div class="relative pt-4">
+                        <div class="flex gap-4 items-center">
+                            <!-- Date Picker -->
+                            <div class="relative">
+                                <input type="date" id="date" v-model="selectedDate" :min="minDate" :max="maxDate"
+                                    class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                <span class="absolute left-2 top-2/4 transform -translate-y-2/4 text-gray-500">
+                                    <CalendarIcon class="h-5 w-5 text-gray-500" />
+                                </span>
+                            </div>
+
+                            <!-- Time Picker -->
+                            <div class="relative">
+                                <input type="time" id="time" v-model="selectedTime"
+                                    class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                            </div>
+                        </div>
+
+                        <!-- Display formatted date and time -->
+                        <p v-if="selectedDate && selectedTime" class="mt-4 text-sm text-gray-600">
+                            Selected Date & Time: {{ formattedDateTime }}
+                        </p>
+                    </div>
+                    <p v-if="selectedDate" class="mt-2 text-sm text-gray-600">
+                        Selected Date: {{ selectedDate }}
+                    </p>
+                    <!-- <input type="date" id="date" v-model="selectedDate"
+                        class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" /> -->
                 </div>
-                <div class="flex gap-4 pt-4">
-                    <button class="px-8 py-2 border rounded-full">10:30 am</button>
-                    <button class="px-8 py-2 border rounded-full">10:30 am</button>
-                    <button class="px-8 py-2 border rounded-full">10:30 am</button>
-                    <button class="px-8 py-2 border rounded-full">10:30 am</button>
-                    <button class="px-8 py-2 border rounded-full">10:30 am</button>
-                    <button class="px-8 py-2 border rounded-full">10:30 am</button>
+                <div class="py-5">
+                    <router-link to="/my-appointment" @click="bookAppointment(doctor.doctor.full_name)"
+                        class="px-10 py-3 border rounded-3xl  bg-blue-600 text-white text-sm font-normal">Book
+                        an appointment</router-link>
                 </div>
-                <button class="px-10 py-3 border rounded-3xl mt-4 bg-blue-600 text-white text-sm font-normal">Book an
-                    appointment</button>
             </div>
         </div>
 
-        <div class="pt-20">
+        <div class="pt-10">
             <h1 class="text-center"> Related Doctors</h1>
             <p class="text-center">Simply browse through our extensive list of trusted doctors.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full py-10">
@@ -70,7 +87,7 @@
                         <img class="w-full h-48 " :src="related.doctor_image" :alt="related.full_name[0]" />
                     </div>
                     <div class="  p-6">
-                        <span :class="doctor.status === 'Available' ? 'text-green-500' : 'text-red-500'"
+                        <span :class="related.status === 'Available' ? 'text-green-500' : 'text-red-500'"
                             class="text-sm font-medium">
                             ● {{ related.status }}
                         </span>
@@ -86,13 +103,39 @@
 </template>
 <script setup>
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { CalendarIcon } from '@heroicons/vue/solid';
 
+const today = new Date();
+const selectedDate = ref('');
 const router = useRouter()
 const route = useRoute();
 const allDoctors = ref([]);
 const doctorDetails = ref([]);
+const selectedTime = ref('');
+
+
+
+// const minDate = computed(() => today.toISOString().split("T")[0]);
+// const maxDate = computed(() => {
+//     const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+//     return `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, "0")}-${lastDayOfMonth}`;
+// });
+
+const formattedDateTime = computed(() => {
+    if (selectedDate.value && selectedTime.value) {
+        const date = new Date(selectedDate.value);
+        const options = { day: "2-digit", month: "long", year: "numeric" };
+        const formattedDate = date.toLocaleDateString("en-US", options);
+        const formattedTime = new Date(`1970-01-01T${selectedTime.value}`).toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+        return `${formattedDate} | ${formattedTime}`;
+    }
+    return '';
+});
 
 const fetchDoctors = async () => {
     try {
@@ -124,7 +167,12 @@ const fetchDoctors = async () => {
             }
         );
         if (doctorDetailsResponse.data.message) {
+            console.log(doctorDetailsResponse.data.message);
+
             doctorDetails.value = doctorDetailsResponse.data.message;
+
+            console.log(doctorDetails.value);
+
         } else {
             console.error("No data found for doctor.");
         }
@@ -138,6 +186,31 @@ const goToDoctorDetails = (full_name, specialist) => {
     router.push({ name: "Doctor_details", params: { full_name, specialist } });
     fetchDoctors();
 };
+
+const bookAppointment = (full_name) => {
+    router.push({
+        name: "My_appointments",
+        params: {
+            full_name,
+        },
+        query: { date: formattedDateTime.value }
+    });
+};
+
+const currentYear = today.getFullYear();
+const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0');
+
+// Set the minimum date to today
+const minDate = computed(() => {
+    const day = today.getDate().toString().padStart(2, '0');
+    return `${currentYear}-${currentMonth}-${day}`;
+});
+
+// Set the maximum date to the end of the current month
+const maxDate = computed(() => {
+    const lastDayOfMonth = new Date(currentYear, today.getMonth() + 2, 0).getDate();
+    return `${currentYear}-${currentMonth}`;
+});
 
 onMounted(fetchDoctors)
 </script>

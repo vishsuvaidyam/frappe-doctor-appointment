@@ -19,6 +19,8 @@
   "status",
   "doctor_fee",
   "end_date",
+  "doctor_shift_section",
+  "shift",
   "section_break_hjom",
   "description",
   "column_break_garj",
@@ -117,11 +119,22 @@
   {
    "fieldname": "column_break_garj",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "doctor_shift_section",
+   "fieldtype": "Section Break",
+   "label": "Doctor Shift"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Table",
+   "label": "Shift",
+   "options": "Doctor Shift"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-26 15:42:37.875306",
+ "modified": "2024-12-27 15:29:34.175578",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
