@@ -26,18 +26,18 @@
  {
   "docstatus": 0,
   "doctype": "Specialist",
-  "image": "/private/files/dram.svg",
-  "modified": "2024-12-23 12:49:21.671406",
-  "name": "Dermatologist",
-  "name1": "Dermatologist"
- },
- {
-  "docstatus": 0,
-  "doctype": "Specialist",
   "image": "/private/files/gen_ph.svg",
   "modified": "2024-12-23 12:48:56.560477",
   "name": "General physician",
   "name1": "General physician"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/dram.svg",
+  "modified": "2024-12-23 12:49:21.671406",
+  "name": "Dermatologist",
+  "name1": "Dermatologist"
  },
  {
   "docstatus": 0,

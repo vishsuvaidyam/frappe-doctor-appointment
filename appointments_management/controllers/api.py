@@ -122,16 +122,46 @@ def doctors_filter(specialist=None):
 
 @frappe.whitelist(allow_guest=True)
 def doctor_details(full_name, specialist):
-    # print(f"Received full_name: {full_name}, specialist: {specialist}")
-
+    """
+    Fetches the details of a doctor and their shifts based on the given full name and specialist.
+    """
     if not full_name or not specialist:
         return {"message": "Full name or specialist not provided"}
 
+    # Retrieve doctor details
     doctor = frappe.db.get_value("Doctor", {"full_name": full_name, "specialist": specialist}, "*", as_dict=True)
+
+    if not doctor:
+        return {"message": "Doctor not found"}
+
+    # Retrieve doctor's shifts
+    shifts = frappe.get_all(
+        "Doctor Shift",
+        filters={"parent": doctor["name"]},
+        fields=["*"]
+    )
+
+    # Return a structured response
+    return {"message": {"doctor": doctor, "shifts": shifts}}
+
+@frappe.whitelist(allow_guest=True)
+def details(full_name):
+    if not full_name:
+        return {"message": "Full name not provided"}
+    
+    # Get the doctor record by full_name
+    doctor = frappe.get_all(
+        "Doctor",
+        filters={"full_name": full_name},
+        fields="*"
+    )
+    
     if not doctor:
         return {"message": "Doctor not found"}
     
-    return {"message": doctor}
+    # Since frappe.get_all returns a list, fetch the first record
+    return {"message": doctor[0] if len(doctor) > 0 else {}}
+
 
 
 @frappe.whitelist(allow_guest=True)
