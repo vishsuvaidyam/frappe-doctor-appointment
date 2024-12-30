@@ -196,3 +196,51 @@ def related_doctors(specialist=None):
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "Related Doctors Fetch Error")
         return {"error": str(e)}
+
+
+@frappe.whitelist(allow_guest=True)
+def appointment_data():
+    try:
+        # Log incoming data
+        frappe.logger().info(f"Received Data: {frappe.form_dict}")
+
+        # Extract and validate fields
+        doctor_name = frappe.form_dict.get("doctor_name")
+        patient = frappe.form_dict.get("patient")
+        specialist = frappe.form_dict.get("specialist")
+        experience = frappe.form_dict.get("experience")
+        doctor_image = frappe.form_dict.get("doctor_image")
+        address = frappe.form_dict.get("address")
+
+        if not all([doctor_name, patient, specialist, experience, doctor_image, address]):
+            frappe.throw("All fields are mandatory.")
+
+        # Log validated data
+        frappe.logger().info(f"Validated Data: doctor_name={doctor_name}, patient={patient}, ...")
+
+        # Create and insert document
+        appointment = frappe.get_doc({
+            "doctype": "Appointments",
+            "doctor_name": doctor_name,
+            "patient": patient,
+            "specialist": specialist,
+            "experience": experience,
+            "doctor_image": doctor_image,
+            "address": address,
+        })
+        appointment.insert(ignore_permissions=True)
+        frappe.db.commit()
+
+        return {"status": "success", "message": "Appointment created successfully."}
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Appointment Creation Failed")
+        return {"status": "error", "message": str(e)}
+
+@frappe.whitelist(allow_guest=True)
+def my_appointment():
+    appointment = frappe.get_all(
+        "Appointments",
+        fields="*"
+    )
+    return appointment

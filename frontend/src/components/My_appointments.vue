@@ -9,7 +9,7 @@
             </div>
 
             <div class="flex-1 ml-0 sm:ml-6 mt-4 sm:mt-0">
-                <h3 class="text-md sm:text-lg font-bold">{{ doctorappointment.name }}</h3>
+                <h3 class="text-md sm:text-lg font-bold">{{ doctorappointment.doctor_name }}</h3>
                 <p class="text-sm text-gray-600">{{ doctorappointment.specialist }}</p>
                 <p class="text-sm text-gray-600 mt-1">
                     <span class="font-semibold">Address:</span><br>
@@ -73,20 +73,12 @@ const selectedDate = route.query.date || "N/A";
 const doctorappoint = ref([]);
 
 const appointment = async () => {
-    console.log("Route Param Full Name:", route.params.full_name);
     try {
         const response = await axios.get(
-            "/api/method/appointments_management.controllers.api.details",
-            {
-                params: {
-                    full_name: route.params.full_name || "",
-                },
-            }
+            "/api/method/appointments_management.controllers.api.my_appointment",
         );
-
         if (response.data.message) {
             doctorappoint.value = response.data.message;
-            toast.success("Appointment Booked");
         } else {
             console.error("No data found for doctor.");
         }
