@@ -37,14 +37,16 @@ def register_user(email, password, first_name):
 @frappe.whitelist(allow_guest=True)
 def login_user(email, password):
     try:
+        # Fetch user details
         user = frappe.db.get_value(
-            "User", {"email": email}, ["name", "enabled"], as_dict=True
+            "User", {"email": email}, ["name", "enabled", "user_image", "full_name"], as_dict=True
         )
         if not user:
             return {"code": 404, "message": "User not found"}
         if not user.enabled:
             return {"code": 403, "message": "User account is disabled"}
 
+        # Validate password
         try:
             check_password(user.name, password)
         except frappe.AuthenticationError:
@@ -54,7 +56,15 @@ def login_user(email, password):
         frappe.local.login_manager.user = user.name
         frappe.local.login_manager.post_login()
 
-        return {"code": 200, "message": "Login successful", "user": user.name}
+        return {
+            "code": 200,
+            "message": "Login successful",
+            "user": {
+                "name": user.name,
+                "user_image": user.user_image,
+                "full_name": user.full_name,
+            },
+        }
     except Exception as e:
         frappe.log_error(message=str(e), title="User Login Error")
         return {

@@ -48,9 +48,11 @@
       <div v-else class="relative inline-block text-left">
         <button @click="isOpen = !isOpen"
           class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white p-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          <img :src="auth?.cookie?.user_image" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
+          <img v-if="userImage" :src="userImage" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
+          <div v-else class="h-12 w-12 flex items-center justify-center bg-gray-200 rounded-full">
+            <span class="text-lg font-semibold text-gray-700">{{ full_name }}</span>
+          </div>
         </button>
-
         <div v-if="isOpen"
           class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div class="p-4 bg-gray-100 text-gray-700">
@@ -68,13 +70,29 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { isLoggedIn, logout } from "../auth";
 
 const isOpen = ref(false);
 const router = useRouter();
 const route = useRoute();
+const userImage = ref(null);
+const full_name = ref()
+
+
+onMounted(() => {
+  // Retrieve the user data from sessionStorage
+  const storedData = sessionStorage.getItem("user");
+  if (storedData) {
+    const userData = JSON.parse(storedData);
+    userImage.value = userData?.user_image;
+    full_name.value = userData?.full_name; 
+
+    // console.log( userData, "===================");
+  }
+});
+
 
 const handleLogout = () => {
   logout();
