@@ -106,6 +106,7 @@ import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { CalendarIcon } from '@heroicons/vue/solid';
+import { useToast } from 'vue-toastification';
 
 const today = new Date();
 const selectedDate = ref('');
@@ -114,6 +115,7 @@ const route = useRoute();
 const allDoctors = ref([]);
 const doctorDetails = ref([]);
 const selectedTime = ref('');
+const toast=useToast()
 
 
 
@@ -187,7 +189,20 @@ const goToDoctorDetails = (full_name, specialist) => {
     fetchDoctors();
 };
 
+const isLoggedIn = () => {
+    const token = localStorage.getItem('user');
+    console.log("authToken:", token); 
+    return !!token;
+};
+
+
 const bookAppointment = (full_name) => {
+    if (!isLoggedIn()) {
+        toast.error("Login to doctors Appointment")
+        router.push({ name: 'Login' });
+        return;
+    }
+
     router.push({
         name: "My_appointments",
         params: {
@@ -196,6 +211,8 @@ const bookAppointment = (full_name) => {
         query: { date: formattedDateTime.value }
     });
 };
+
+
 
 const currentYear = today.getFullYear();
 const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0');

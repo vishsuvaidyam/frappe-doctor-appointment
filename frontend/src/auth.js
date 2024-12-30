@@ -1,7 +1,7 @@
 // src/auth.js
 import { ref } from "vue";
 
-export const isLoggedIn = ref(!!sessionStorage.getItem("user"));
+export const isLoggedIn = ref(!!sessionStorage.getItem("user") || !!localStorage.getItem("user"));
 
 export const login = (userData) => {
   const user = {
@@ -12,11 +12,18 @@ export const login = (userData) => {
 
   console.log("User Object during Login:", user);  
   sessionStorage.setItem("user", JSON.stringify(user));
+  localStorage.setItem("user", JSON.stringify(user));
   isLoggedIn.value = true;
+  console.log(isLoggedIn.value );
+  
 };
 
 
 export const logout = () => {
   sessionStorage.removeItem("user");
+  localStorage.removeItem("user");
   isLoggedIn.value = false;
 };
+
+
+
