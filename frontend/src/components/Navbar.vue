@@ -59,6 +59,9 @@
             <router-link to="/profile" class="w-full text-left px-2 py-1 text-black">
               Profile
             </router-link>
+            <router-link to="/my-appointment/:full_name" class="w-full text-left px-2 py-1 text-black">
+              My Appointment
+            </router-link>
             <button class="w-full text-left px-2 py-1 text-black" @click="handleLogout">
               Logout
             </button>
