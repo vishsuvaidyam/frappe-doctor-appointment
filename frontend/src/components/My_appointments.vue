@@ -2,25 +2,43 @@
     <div class="mx-auto mt-4">
         <h2 class="text-xl font-semibold mb-2">My Appointments</h2>
         <div v-for="doctorappointment in doctorappoint" :key="doctorappointment.id"
-            class="flex items-start p-4 border rounded-lg shadow-sm">
-            <img class="w-36 h-30 object-cover rounded-md border" :src="doctorappointment.doctor_image" alt="Doctor" />
+            class="flex items-start p-4 border  rounded-lg  ">
+            <div class="w-36 h-36 border animate-pulse border-gray-300 bg-gray-100 rounded-md overflow-hidden">
+                <img class="w-full h-full object-cover" :src="doctorappointment.doctor_image"
+                    :alt="doctorappointment.name[0]" />
+            </div>
+
             <div class="flex-1 ml-6">
                 <h3 class="text-lg font-bold">{{ doctorappointment.name }}</h3>
                 <p class="text-sm text-gray-600">{{ doctorappointment.specialist }}</p>
                 <p class="text-sm text-gray-600">
-                    <span class="font-semibold">Address: <br> </span>
-                    {{ doctorappointment.address }}
+                    <span class="font-semibold ">Address: <br></span>
+                    <span class="justify-between text-gray-500"
+                        style="display: inline-block; width: 200px; word-wrap: break-word;">
+                        {{ doctorappointment.address }}
+                    </span>
                 </p>
+
                 <p class="text-sm text-gray-600">
                     <span class="font-semibold">Date & Time:</span>{{ selectedDate }}
                 </p>
             </div>
-            <div class="flex flex-col space-y-3 py-8">
-                <button class="bg-gray-100 text-black text-sm py-2 px-4 rounded-lg hover:bg-blue-600 hover:text-white"
+            <div class="flex flex-col space-y-3 py-8 ">
+                <div v-if="isPaymentVisible" class="payment-section">
+                    <button class="hover:bg-gray-100 border text-black text-sm py-2 px-14 hight">
+                        <img class="h-6 " src="../assets/Stript.png" alt="" srcset="">
+                    </button>
+                </div>
+                <div v-if="isPaymentVisible" class="payment-section">
+                    <button class="hover:bg-gray-100 border text-black text-sm py-2 px-9">
+                        <img class="h-5" src="../assets/Razopay.png" alt="" srcset="">
+                    </button>
+                </div>
+                <button v-if="!isPaymentVisible" :class="hidden" class=" border text-black text-sm py-2 px-4  hover:bg-blue-600 hover:text-white"
                     @click="payOnline">
                     Pay Online
                 </button>
-                <button class="bg-gray-100 text-sm py-2 px-4 rounded-lg hover:bg-red-500 hover:text-white"
+                <button class="  border text-gray-500 font-normal text-sm py-2 px-4 hover:bg-red-500 hover:text-white"
                     @click="cancelAppointment">
                     Cancel Appointment
                 </button>
@@ -35,6 +53,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 
+const isPaymentVisible = ref()
 const toast = useToast();
 const route = useRoute();
 const router = useRouter();
@@ -57,11 +76,11 @@ const appointment = async () => {
     try {
         const loggedIn = await checkLogin();
 
-        if (!loggedIn) {
-            toast.error("You must be logged in to book an appointment.");
-            router.push({ name: 'LoginPage' }); // Redirect to the login page
-            return;
-        }
+        // if (!loggedIn) {
+        //     toast.error("You must be logged in to book an appointment.");
+        //     router.push({ name: 'LoginPage' }); 
+        //     return;
+        // }
 
         const response = await axios.get(
             "/api/method/appointments_management.controllers.api.details",
@@ -84,5 +103,9 @@ const appointment = async () => {
     }
 };
 
+const payOnline = () => {
+    isPaymentVisible.value = true
+    console.log("Online payment section shown");
+}
 onMounted(appointment);
 </script>
