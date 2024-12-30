@@ -38,8 +38,8 @@
                     @click="payOnline">
                     Pay Online
                 </button>
-                <button class="  border text-gray-500 font-normal text-sm py-2 px-4 hover:bg-red-500 hover:text-white"
-                    @click="cancelAppointment">
+                <button  class="  border text-gray-500 font-normal text-sm py-2 px-4 hover:bg-red-500 hover:text-white"
+                    @click="payOnline">
                     Cancel Appointment
                 </button>
             </div>
