@@ -2,6 +2,18 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
+  "modified": "2024-12-30 17:12:23.845435",
+  "name": "user",
+  "role_profile": "user",
+  "roles": [
+   {
+    "role": "user"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
   "modified": "2024-12-24 18:19:09.405150",
   "name": "Primary",
   "role_profile": "Primary",

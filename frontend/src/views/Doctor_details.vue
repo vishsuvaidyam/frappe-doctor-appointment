@@ -56,22 +56,20 @@
                                     class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
                             </div>
                         </div>
-
-                        <!-- Display formatted date and time -->
-                        <p v-if="selectedDate && selectedTime" class="mt-4 text-sm text-gray-600">
-                            Selected Date & Time: {{ formattedDateTime }}
-                        </p>
                     </div>
-                    <p v-if="selectedDate" class="mt-2 text-sm text-gray-600">
-                        Selected Date: {{ selectedDate }}
-                    </p>
-                    <!-- <input type="date" id="date" v-model="selectedDate"
-                        class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" /> -->
                 </div>
+
+                <!-- Book Appointment Button -->
                 <div class="py-5">
-                    <router-link to="/my-appointment" @click="bookAppointment(doctor.doctor.full_name)"
-                        class="px-10 py-3 border rounded-3xl  bg-blue-600 text-white text-sm font-normal">Book
-                        an appointment</router-link>
+                    <router-link to="/my-appointment"
+                        @click="isFormValid ? bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist, doctor.doctor.experience, doctor.doctor.doctor_image, doctor.doctor.description) : null"
+                        :class="{
+                            'px-10 py-3 border rounded-3xl text-white text-sm font-normal': true,
+                            'bg-blue-600': isFormValid,
+                            'bg-gray-300 cursor-not-allowed': !isFormValid
+                        }" :disabled="!isFormValid">
+                        Book an appointment
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -100,6 +98,7 @@
             </div>
         </div>
     </div>
+
 </template>
 <script setup>
 import axios from 'axios';
@@ -107,23 +106,20 @@ import { computed, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { CalendarIcon } from '@heroicons/vue/solid';
 import { useToast } from 'vue-toastification';
+import { isLoggedIn } from '../auth';
 
 const today = new Date();
 const selectedDate = ref('');
-const router = useRouter()
+const router = useRouter();
 const route = useRoute();
 const allDoctors = ref([]);
-const doctorDetails = ref([]);
+const doctorDetails = ref({});
 const selectedTime = ref('');
-const toast=useToast()
+const toast = useToast();
 
-
-
-// const minDate = computed(() => today.toISOString().split("T")[0]);
-// const maxDate = computed(() => {
-//     const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-//     return `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, "0")}-${lastDayOfMonth}`;
-// });
+const isFormValid = computed(() => {
+    return selectedDate.value && selectedTime.value;
+});
 
 const formattedDateTime = computed(() => {
     if (selectedDate.value && selectedTime.value) {
@@ -144,7 +140,7 @@ const fetchDoctors = async () => {
         console.log("Route Param Full Name:", route.params.full_name);
         console.log("Route Param Specialist:", route.params.specialist);
 
-        // Fetch all filter doctors
+        // Fetch all filtered doctors
         const doctorsResponse = await axios.get(
             "/api/method/appointments_management.controllers.api.doctors_filter"
         );
@@ -153,7 +149,7 @@ const fetchDoctors = async () => {
             allDoctors.value = doctorsResponse.data.message.filter(
                 (doctor) => doctor.specialist === route.params.specialist
             );
-            console.log(allDoctors.value, '=================');
+            // console.log(allDoctors.value, '=================');
         } else {
             console.error("No doctors found.");
         }
@@ -172,9 +168,6 @@ const fetchDoctors = async () => {
             console.log(doctorDetailsResponse.data.message);
 
             doctorDetails.value = doctorDetailsResponse.data.message;
-
-            console.log(doctorDetails.value);
-
         } else {
             console.error("No data found for doctor.");
         }
@@ -189,27 +182,35 @@ const goToDoctorDetails = (full_name, specialist) => {
     fetchDoctors();
 };
 
-const isLoggedIn = () => {
-    const token = localStorage.getItem('user');
-    console.log("authToken:", token); 
-    return !!token;
-};
 
-
-const bookAppointment = (full_name) => {
-    if (!isLoggedIn()) {
-        toast.error("Login to doctors Appointment")
-        router.push({ name: 'Login' });
+const bookAppointment = async (full_name, specialist, experience, doctor_image, description) => {
+if (!isLoggedIn.value) {  // Check if logged in using .value
+        toast.error("You need to log in to book an appointment.");
+        router.push({ name: 'Login' });  // Redirect to Login page
         return;
     }
 
-    router.push({
-        name: "My_appointments",
-        params: {
-            full_name,
-        },
-        query: { date: formattedDateTime.value }
-    });
+    try {
+        const response = await axios.post("/api/method/appointments_management.controllers.api.appointment_data", {
+            doctor_name: full_name,
+            patient: "John Doe",  
+            specialist: specialist,
+            experience: experience,
+            doctor_image: doctor_image,
+            address: description,
+        });
+
+        toast.success("Appointment booked successfully!");
+        console.log("Booking Response:", response.data);
+
+        router.push({
+            name: "my-appointment/:full_name",
+        });
+
+    } catch (error) {
+        console.error("Error booking appointment:", error);
+        toast.error("Failed to book appointment.");
+    }
 };
 
 
@@ -217,17 +218,15 @@ const bookAppointment = (full_name) => {
 const currentYear = today.getFullYear();
 const currentMonth = (today.getMonth() + 1).toString().padStart(2, '0');
 
-// Set the minimum date to today
 const minDate = computed(() => {
     const day = today.getDate().toString().padStart(2, '0');
     return `${currentYear}-${currentMonth}-${day}`;
 });
 
-// Set the maximum date to the end of the current month
 const maxDate = computed(() => {
     const lastDayOfMonth = new Date(currentYear, today.getMonth() + 2, 0).getDate();
     return `${currentYear}-${currentMonth}`;
 });
 
-onMounted(fetchDoctors)
+onMounted(fetchDoctors);
 </script>
