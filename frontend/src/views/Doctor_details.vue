@@ -184,9 +184,9 @@ const goToDoctorDetails = (full_name, specialist) => {
 
 
 const bookAppointment = async (full_name, specialist, experience, doctor_image, description) => {
-if (!isLoggedIn.value) {  // Check if logged in using .value
+if (!isLoggedIn.value) { 
         toast.error("You need to log in to book an appointment.");
-        router.push({ name: 'Login' });  // Redirect to Login page
+        router.push({ name: 'Login' });  
         return;
     }
 
@@ -204,7 +204,7 @@ if (!isLoggedIn.value) {  // Check if logged in using .value
         console.log("Booking Response:", response.data);
 
         router.push({
-            name: "my-appointment/:full_name",
+            name: "/my-appointment/:full_name",
         });
 
     } catch (error) {

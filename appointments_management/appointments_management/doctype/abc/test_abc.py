@@ -12,18 +12,18 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class UnitTestAppointments(UnitTestCase):
+class UnitTestAbc(UnitTestCase):
 	"""
-	Unit tests for Appointments.
+	Unit tests for Abc.
 	Use this class for testing individual functions and methods.
 	"""
 
 	pass
 
 
-class IntegrationTestAppointments(IntegrationTestCase):
+class IntegrationTestAbc(IntegrationTestCase):
 	"""
-	Integration tests for Appointments.
+	Integration tests for Abc.
 	Use this class for testing interactions between multiple components.
 	"""
 

@@ -220,7 +220,7 @@ def appointment_data():
 
         # Create and insert document
         appointment = frappe.get_doc({
-            "doctype": "Appointments",
+            "doctype": "Appointment",
             "doctor_name": doctor_name,
             "patient": patient,
             "specialist": specialist,
@@ -240,7 +240,7 @@ def appointment_data():
 @frappe.whitelist(allow_guest=True)
 def my_appointment():
     appointment = frappe.get_all(
-        "Appointments",
+        "Appointment",
         fields="*"
     )
     return appointment
