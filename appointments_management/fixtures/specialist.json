@@ -34,17 +34,17 @@
  {
   "docstatus": 0,
   "doctype": "Specialist",
-  "image": "/private/files/Pediatricians-C6nmx5n8.svg",
-  "modified": "2024-12-23 12:50:19.009857",
-  "name": "Pediatricians",
-  "name1": "Pediatricians"
- },
- {
-  "docstatus": 0,
-  "doctype": "Specialist",
   "image": "/private/files/dram.svg",
   "modified": "2024-12-23 12:49:21.671406",
   "name": "Dermatologist",
   "name1": "Dermatologist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/Pediatricians-C6nmx5n8.svg",
+  "modified": "2024-12-23 12:50:19.009857",
+  "name": "Pediatricians",
+  "name1": "Pediatricians"
  }
 ]

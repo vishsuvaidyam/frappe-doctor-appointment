@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Custom HTML Block",
+  "html": "<div class=\"w-full bg-info h-100\">\n     <div class=\"container mt-5\">\n    <table class=\"table table-striped table-hover\">\n      <thead class=\"table-dark\">\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Patient</th>\n          <th scope=\"col\">Age</th>\n          <th scope=\"col\">Date & Time</th>\n           <th scope=\"col\">Doctor</th>\n          <th scope=\"col\">Fees</th>\n          <th scope=\"col\">Fees</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <th scope=\"row\">1</th>\n          <td>John Doe</td>\n          <td>John Doe</td>\n          <td>John Doe</td>\n          <td>John Doe</td>\n          <td>johndoe@example.com</td>\n          <td>\n            <button class=\"btn btn-primary btn-sm\">Edit</button>\n            <button class=\"btn btn-danger btn-sm\">Delete</button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>",
+  "modified": "2024-12-31 01:03:02.664297",
+  "name": "Appointmet Dp",
+  "private": 0,
+  "roles": [],
+  "script": null,
+  "style": null
+ }
+]

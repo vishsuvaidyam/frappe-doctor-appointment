@@ -54,7 +54,7 @@ const routes = [
     component: LoginPage,
   },
   {
-    path: "/my-appointment/:full_name",
+    path: "/my-appointment",
     name: "My_appointments",
     component: My_appointments,
   },

@@ -145,7 +145,8 @@ fixtures=[
     'Doctors_details',
     'User',
     'Role',
-    'Role Profile'
+    'Role Profile',
+    'Custom HTML Block',
     ]
 # Scheduled Tasks
 # ---------------

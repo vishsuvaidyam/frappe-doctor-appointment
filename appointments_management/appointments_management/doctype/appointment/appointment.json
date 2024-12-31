@@ -10,7 +10,9 @@
   "specialist",
   "experience",
   "address",
-  "doctor_image"
+  "doctor_image",
+  "formatteddatetime",
+  "doctor_fees"
  ],
  "fields": [
   {
@@ -45,11 +47,21 @@
    "fieldname": "doctor_image",
    "fieldtype": "Attach",
    "label": "Doctor Image"
+  },
+  {
+   "fieldname": "formatteddatetime",
+   "fieldtype": "Data",
+   "label": "FormattedDateTime"
+  },
+  {
+   "fieldname": "doctor_fees",
+   "fieldtype": "Data",
+   "label": "Doctor fees"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-31 11:25:18.127339",
+ "modified": "2024-12-31 21:30:08.423214",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",

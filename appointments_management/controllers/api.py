@@ -211,8 +211,11 @@ def appointment_data():
         experience = frappe.form_dict.get("experience")
         doctor_image = frappe.form_dict.get("doctor_image")
         address = frappe.form_dict.get("address")
+        doctor_fees = frappe.form_dict.get("doctor_fees")
+        formatteddatetime = frappe.form_dict.get("doctor_fees")
 
-        if not all([doctor_name, patient, specialist, experience, doctor_image, address]):
+
+        if not all([doctor_name, patient, specialist, experience, doctor_image, address,doctor_fees,formatteddatetime]):
             frappe.throw("All fields are mandatory.")
 
         # Log validated data
@@ -227,6 +230,8 @@ def appointment_data():
             "experience": experience,
             "doctor_image": doctor_image,
             "address": address,
+            "doctor_fees":doctor_fees,
+            "formatteddatetime":formatteddatetime,
         })
         appointment.insert(ignore_permissions=True)
         frappe.db.commit()
