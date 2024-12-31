@@ -54,19 +54,26 @@
           </div>
         </button>
         <div v-if="isOpen"
-          class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div class="p-4 bg-gray-100 text-gray-700">
-            <router-link to="/profile" class="w-full text-left px-2 py-1 text-black">
-              Profile
-            </router-link>
-            <router-link to="/my-appointment/:full_name" class="w-full text-left px-2 py-1 text-black">
-              My Appointment
-            </router-link>
-            <button class="w-full text-left px-2 py-1 text-black" @click="handleLogout">
-              Logout
-            </button>
-          </div>
-        </div>
+     class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+  <div class="p-4 bg-gray-100 text-gray-700 space-y-2">
+    <router-link to="/profile" 
+                 class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
+      <i class="fas fa-user mr-2"></i> <!-- Add an appropriate icon -->
+      Profile
+    </router-link>
+    <router-link to="/my-appointment/:full_name" 
+                 class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
+      <i class="fas fa-calendar-alt mr-2"></i> <!-- Add an appropriate icon -->
+      My Appointment
+    </router-link>
+    <button class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-red-100 hover:text-red-600 transition"
+            @click="handleLogout">
+      <i class="fas fa-sign-out-alt mr-2"></i> <!-- Add an appropriate icon -->
+      Logout
+    </button>
+  </div>
+</div>
+
       </div>
     </div>
   </nav>
