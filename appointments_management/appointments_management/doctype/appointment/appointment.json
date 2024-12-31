@@ -1,8 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:doctor_name",
- "creation": "2024-12-26 16:09:42.396621",
+ "creation": "2024-12-31 11:17:58.921064",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -34,6 +33,7 @@
   {
    "fieldname": "experience",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Experience"
   },
   {
@@ -49,11 +49,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-31 00:43:38.040684",
+ "modified": "2024-12-31 11:25:18.127339",
  "modified_by": "Administrator",
  "module": "appointments_management",
- "name": "Appointments",
- "naming_rule": "Expression",
+ "name": "Appointment",
  "owner": "Administrator",
  "permissions": [
   {
@@ -71,6 +70,5 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": [],
- "title_field": "doctor_name"
+ "states": []
 }
