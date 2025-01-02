@@ -212,7 +212,7 @@ def appointment_data():
         doctor_image = frappe.form_dict.get("doctor_image")
         address = frappe.form_dict.get("address")
         doctor_fees = frappe.form_dict.get("doctor_fees")
-        formatteddatetime = frappe.form_dict.get("doctor_fees")
+        formatteddatetime = frappe.form_dict.get("formatteddatetime")
 
 
         if not all([doctor_name, patient, specialist, experience, doctor_image, address,doctor_fees,formatteddatetime]):
@@ -249,3 +249,17 @@ def my_appointment():
         fields="*"
     )
     return appointment
+
+@frappe.whitelist(allow_guest=True)
+def delete_appointment():
+    try:
+        appointment_id = frappe.form_dict.get("appointment_id")
+        if not appointment_id:
+            frappe.throw("Appointment ID is required.")
+        appointment = frappe.get_doc("Appointment", appointment_id)
+        appointment.delete()
+        frappe.db.commit()
+        return {"status": "success", "message": "Appointment deleted successfully."}
+    except frappe.DoesNotExistError:
+        frappe.log_error(f"Appointment not found: {appointment_id}", "Delete Appointment")
+        return {"status": "error", "message": "Appointment not found."}
