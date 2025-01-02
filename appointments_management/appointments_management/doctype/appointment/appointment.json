@@ -6,13 +6,15 @@
  "engine": "InnoDB",
  "field_order": [
   "doctor_name",
-  "patient",
   "specialist",
   "experience",
   "address",
   "doctor_image",
-  "formatteddatetime",
-  "doctor_fees"
+  "doctor_fees",
+  "patient",
+  "pataient_age",
+  "gender",
+  "email"
  ],
  "fields": [
   {
@@ -49,19 +51,29 @@
    "label": "Doctor Image"
   },
   {
-   "fieldname": "formatteddatetime",
-   "fieldtype": "Data",
-   "label": "FormattedDateTime"
-  },
-  {
    "fieldname": "doctor_fees",
    "fieldtype": "Data",
    "label": "Doctor fees"
+  },
+  {
+   "fieldname": "pataient_age",
+   "fieldtype": "Data",
+   "label": "Pataient age"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-31 21:30:08.423214",
+ "modified": "2025-01-02 22:15:08.992307",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",

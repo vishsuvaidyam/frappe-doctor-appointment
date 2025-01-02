@@ -63,7 +63,7 @@
                 <!-- Book Appointment Button -->
                 <div class="py-5">
                     <router-link to="/my-appointment"
-                        @click="isFormValid ? bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist, doctor.doctor.experience, doctor.doctor.doctor_image, doctor.doctor.address, doctor.doctor.doctor_fee ) : null"
+                        @click="isFormValid ? bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist) : null"
                         :class="{
                             'px-10 py-3 border rounded-3xl text-white text-sm font-normal': true,
                             'bg-blue-600': isFormValid,
@@ -184,41 +184,46 @@ const goToDoctorDetails = (full_name, specialist) => {
 };
 
 
-const bookAppointment = async (full_name, specialist, experience, doctor_image, address,doctor_fees,formatteddatetime) => {
-    console.log(formattedDateTime,"=============================");
-    
-if (!isLoggedIn.value) { 
-        toast.error("You need to log in to book an appointment.");
-        router.push({ name: 'Login' });  
-        return;
-    }
+const bookAppointment = (full_name,specialist) => {
+    router.push({ name: 'Patient_details', params: {full_name,specialist } });
 
-    try {
-        const response = await axios.post("/api/method/appointments_management.controllers.api.appointment_data", {
-            doctor_name: full_name,
-            patient: "John Doe",  
-            specialist: specialist,
-            experience: experience,
-            doctor_image: doctor_image,
-            address: address,
-            doctor_fees:doctor_fees,doctor_fees,
-            formattedDateTime: formattedDateTime.value,
-        });
-        if (response) {
-            console.log(response.data.message);
-            toast.success("Appointment booked successfully!");
-        } else {
-            console.log("Booking Response:", response.data);
-        }
-        
-        router.push({
-            name: "/my-appointment",
-        });
-
-    } catch (error) {
-        console.error("Error booking appointment:", error);
-    }
 };
+
+// const bookAppointment = async (full_name, specialist, experience, doctor_image, address,doctor_fees) => {
+//     console.log(formattedDateTime,"=============================");
+    
+// if (!isLoggedIn.value) { 
+//         toast.error("You need to log in to book an appointment.");
+//         router.push({ name: 'Login' });  
+//         return;
+//     }
+
+//     try {
+//         const response = await axios.post("/api/method/appointments_management.controllers.api.appointment_data", {
+//             doctor_name: full_name,
+//             patient: "John Doe",  
+//             specialist: specialist,
+//             experience: experience,
+//             doctor_image: doctor_image,
+//             address: address,
+//             doctor_fees:doctor_fees,doctor_fees,
+//             formattedDateTime: formattedDateTime.value,
+//         });
+//         if (response) {
+//             console.log(response.data.message);
+//             toast.success("Appointment booked successfully!");
+//         } else {
+//             console.log("Booking Response:", response.data);
+//         }
+        
+//         router.push({
+//             name: "/patient",
+//         });
+
+//     } catch (error) {
+//         console.error("Error booking appointment:", error);
+//     }
+// };
 
 
 
