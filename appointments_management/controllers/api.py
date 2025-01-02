@@ -212,7 +212,7 @@ def appointment_data():
         doctor_image = frappe.form_dict.get("doctor_image")
         address = frappe.form_dict.get("address")
         doctor_fees = frappe.form_dict.get("doctor_fees")
-        formatteddatetime = frappe.form_dict.get("formatteddatetime")
+        formatteddatetime = frappe.form_dict.get("doctor_fees")
 
 
         if not all([doctor_name, patient, specialist, experience, doctor_image, address,doctor_fees,formatteddatetime]):

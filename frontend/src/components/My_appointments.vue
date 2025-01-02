@@ -46,7 +46,7 @@
 
                 <!-- Cancel Button -->
                 <button v-if="!doctorappointment.canceled"
-                    class="border text-gray-500 font-normal text-sm py-2 px-4 hover:bg-red-500 hover:text-white"
+                    class="border text-black font-normal text-sm py-2 px-4 hover:bg-red-500 hover:text-white"
                     @click="cancelAppointment(index)">
                     Cancel Appointment
                 </button>
