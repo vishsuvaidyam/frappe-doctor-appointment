@@ -104,14 +104,14 @@
   "description": "Dr. Ava Mitchell has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. \n\n",
   "docstatus": 0,
   "doctor_fee": 800.0,
-  "doctor_image": "/private/files/doc9.png",
+  "doctor_image": "/private/files/Ava.png",
   "doctype": "Doctor",
   "end_date": "2025-01-04",
   "experience": "3 years",
   "first_name": " Dr. Ava Mitchell",
   "full_name": "Dr. Ava Mitchell",
   "last_name": " ",
-  "modified": "2024-12-31 20:07:17.220439",
+  "modified": "2025-01-02 11:41:50.151257",
   "name": "Dr. Ava Mitchell",
   "qulifications": "MBBS",
   "shift": [],
@@ -131,15 +131,10 @@
   "first_name": "Dr. Timothy White",
   "full_name": "Dr. Timothy White",
   "last_name": " ",
-  "modified": "2024-12-31 21:47:41.056835",
+  "modified": "2025-01-02 10:53:18.300136",
   "name": "Dr. Timothy White",
   "qulifications": "MBBS",
-  "shift": [
-   {
-    "end_time": "4:16:11",
-    "start_time": "15:33:15"
-   }
-  ],
+  "shift": [],
   "specialist": "Pediatricians",
   "start_date": null,
   "status": "Available"
