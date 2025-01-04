@@ -10,18 +10,18 @@
  {
   "docstatus": 0,
   "doctype": "Specialist",
-  "image": "/private/files/Neurologist-CuaLxNpX.svg",
-  "modified": "2024-12-23 12:50:01.387984",
-  "name": "Neurologist",
-  "name1": "Neurologist"
- },
- {
-  "docstatus": 0,
-  "doctype": "Specialist",
   "image": "/private/files/Gynecologist-Av1zZu4d.svg",
   "modified": "2024-12-23 12:49:43.643039",
   "name": "Gynecologist",
   "name1": "Gynecologist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Specialist",
+  "image": "/private/files/Neurologist-CuaLxNpX.svg",
+  "modified": "2024-12-23 12:50:01.387984",
+  "name": "Neurologist",
+  "name1": "Neurologist"
  },
  {
   "docstatus": 0,
