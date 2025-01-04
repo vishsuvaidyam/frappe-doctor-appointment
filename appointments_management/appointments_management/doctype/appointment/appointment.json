@@ -14,7 +14,8 @@
   "patient",
   "pataient_age",
   "gender",
-  "email"
+  "email",
+  "datetime"
  ],
  "fields": [
   {
@@ -69,11 +70,16 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email"
+  },
+  {
+   "fieldname": "datetime",
+   "fieldtype": "Data",
+   "label": "DateTime"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-02 22:15:08.992307",
+ "modified": "2025-01-04 11:43:43.267823",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",
