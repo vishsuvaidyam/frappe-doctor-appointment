@@ -33,12 +33,13 @@
                         <label class="block text-sm font-medium text-gray-700">Gender</label>
                         <select v-model="patient.gender"
                             class="mt-1 w-full p-2 border border-gray-300 rounded-md bg-white text-gray-700 focus:ring outline-none">
-                            <option>Please Select</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
+                            <option value="">Please Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
+
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Phone Number</label>
                         <input v-model="patient.contact" type="tel" placeholder="(000) 000-0000"
