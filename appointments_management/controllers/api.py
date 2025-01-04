@@ -214,9 +214,9 @@ def appointment_data():
         pataient_age=frappe.form_dict.get("pataient_age")
         pataient_gender=frappe.form_dict.get("gender")
         pataient_email=frappe.form_dict.get("email")
+        datatimes=frappe.form_dict.get("datetime")
 
-
-        if not all([doctor_name, patient, specialist, experience, doctor_image, address,doctor_fees,pataient_age,pataient_gender,pataient_email]):
+        if not all([doctor_name, patient, specialist, experience, doctor_image, address,doctor_fees,pataient_age,pataient_gender,pataient_email,datatimes]):
             frappe.throw("All fields are mandatory.")
 
         # Log validated data
@@ -235,6 +235,7 @@ def appointment_data():
             "pataient_age":pataient_age,
             "gender":pataient_gender,
             "email":pataient_email,
+            "datetime":datatimes
         })
         appointment.insert(ignore_permissions=True)
         frappe.db.commit()

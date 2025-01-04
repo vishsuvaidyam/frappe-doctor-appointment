@@ -60,7 +60,7 @@ const routes = [
     component: My_appointments,
   },
   {
-    path: "/patient/:full_name/:specialist?",
+    path: "/patient/:full_name/:specialist/:formattedDateTime",
     name: "Patient_details",
     component: Patient_details,
   },

@@ -20,7 +20,7 @@
                     </span>
                 </p>
                 <p class="text-sm text-gray-600 mt-1">
-                    <span class="font-semibold">Date & Time:</span> {{doctorappointment.formatteddatetime }}
+                    <span class="font-semibold">Date & Time:</span> {{doctorappointment.datetime}}
                 </p>
             </div>
 

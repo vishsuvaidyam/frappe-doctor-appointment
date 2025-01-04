@@ -1,68 +1,5 @@
-<!-- <template>
-    <div  v-for=" doctor in doctorDetails"  class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">Patient Form</h2>
-        <form class="space-y-6">
-            <div>
-                <h3 class="text-lg font-semibold text-gray-700">Basic Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600">Patient Name</label>
-                        <input type="text" v-model="patient.name"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                            placeholder="Enter Your Patient Name">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Gender</label>
-                        <select v-model="patient.gender"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600">Age</label>
-                        <input type="number" v-model="patient.age"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                            placeholder="Enter Your Age">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600">Contact Number</label>
-                        <input type="tel" v-model="patient.contact"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                            placeholder="+911234567890">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600">Email</label>
-                        <input type="email" v-model="patient.email"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                            placeholder="Enter Your Email">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-600">Address</label>
-                        <textarea v-model="patient.address"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                            placeholder="Enter Your Address" rows="4"></textarea>
-                    </div>
-                </div> -->
-<!-- <div class="mt-8 flex justify-centv-for=" doctor in doctorDetails" er">
-                    <button type="submit"
-                        class="w-80 px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        Submit
-                    </button>
-                </div> -->
-<!-- </div>
-        </form>
-        <router-link to="/my-appointment"
-            @click=" bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist ,doctor.doctor.experience, doctor.doctor.doctor_image, doctor.doctor.address, doctor.doctor.doctor_fee,patient.name,patient.age,patient.gender,patient.email)">
-            Book an appointment
-        </router-link>
-    </div> -->
-
-<!-- </template> -->
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-teal-100">
+    <div class="inset-0 flex items-center justify-center bg-teal-100 mt-10 py-10 ">
         <div v-for=" doctor in doctorDetails" class="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md">
             <h1 class="text-2xl font-bold text-center text-gray-800">Doctor Appointment Request Form</h1>
             <p class="text-center text-gray-600 mb-6">
@@ -84,7 +21,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Age</label>
                     <input type="number" v-model="patient.age"
@@ -103,8 +39,6 @@
                             <option>Other</option>
                         </select>
                     </div>
-
-
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Phone Number</label>
                         <input v-model="patient.contact" type="tel" placeholder="(000) 000-0000"
@@ -122,11 +56,11 @@
                         class="mt-1 w-full p-2 border  rounded-md focus:ring  outline-none">
                 </div>
             </form>
-            <div class="flex justify-center pt-4" >
-                <router-link to="/my-appointment" class="px-6 py-2 bg-teal-500 text-white rounded-md"
-                    @click=" bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist, doctor.doctor.experience, doctor.doctor.doctor_image, doctor.doctor.address, doctor.doctor.doctor_fee, patient.name, patient.age, patient.gender, patient.email)">
+            <div class="flex justify-center pt-4">
+                <button class="px-6 py-2 bg-teal-500 text-white rounded-md"
+                    @click=" bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist, doctor.doctor.experience, doctor.doctor.doctor_image, doctor.doctor.address, doctor.doctor.doctor_fee, patient.name, patient.age, patient.gender, patient.email, date)">
                     Submit
-                </router-link>
+                </button>
             </div>
         </div>
     </div>
@@ -149,18 +83,20 @@ const patient = ref({
     address: '',
 });
 
-console.log(patient);
+const date = route.params.formattedDateTime;
 
 const doctorDetails = ref([]);
 
 const fetchDoctorsData = async () => {
     try {
+        console.log(route.params.formattedDateTime, "=========================");
         const doctorDetailsResponse = await axios.get(
             "/api/method/appointments_management.controllers.api.doctor_details",
             {
                 params: {
                     full_name: route.params.full_name,
                     specialist: route.params.specialist,
+                    formattedDateTime: route.params.formattedDateTime,
                 },
             }
         );
@@ -177,7 +113,9 @@ const fetchDoctorsData = async () => {
 };
 
 
-const bookAppointment = async (full_name, specialist, experience, doctor_image, address, doctor_fee, name, age, gender, email) => {
+const bookAppointment = async (full_name, specialist, experience, doctor_image, address, doctor_fee, name, age, gender, email, date) => {
+    console.log(date, "==============================");
+
     // if (!isLoggedIn.value) { 
     //         toast.error("You need to log in to book an appointment.");
     //         router.push({ name: 'Login' });  
@@ -195,20 +133,14 @@ const bookAppointment = async (full_name, specialist, experience, doctor_image, 
             pataient_age: age,
             gender: gender,
             email: email,
+            datetime: date
         });
-        console.log(response);
-
         if (response) {
-            console.log(response.data.message);
-            // router.push({
-            //     name: "/My_appointments",
-            // });
-            // toast.success("Appointment booked successfully!");
+            // console.log(response.data.message);
+            router.push("/my-appointment");
         } else {
             console.log("Booking Response:", response.data);
         }
-
-
 
     } catch (error) {
         console.error("Error booking appointment:", error);
