@@ -79,8 +79,7 @@
   {
    "fieldname": "doctor_image",
    "fieldtype": "Attach Image",
-   "label": "Doctor Image",
-   "reqd": 1
+   "label": "Doctor Image"
   },
   {
    "fetch_from": "details.experience",
@@ -130,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-04 14:05:56.264509",
+ "modified": "2025-01-04 14:33:44.415642",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
