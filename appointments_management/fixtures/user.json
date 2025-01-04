@@ -232,7 +232,7 @@
   "home_settings": null,
   "interest": null,
   "language": null,
-  "last_active": "2025-01-04 14:24:03.889145",
+  "last_active": "2025-01-04 14:34:05.476317",
   "last_ip": "127.0.0.1",
   "last_known_versions": "{\"frappe\": {\"title\": \"Framework\", \"description\": \"Full stack web framework with Python, Javascript, MariaDB, Redis, Node\", \"branch\": \"develop\", \"branch_version\": \"15.x.x-develop ()\", \"version\": \"16.0.0-dev\"}, \"appointments_management\": {\"title\": \"appointments_management\", \"description\": \" appointments web portal\", \"branch\": \"main\", \"version\": \"0.0.1\"}}",
   "last_login": "2024-12-27 20:28:52.654532",
