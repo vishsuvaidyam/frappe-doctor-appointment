@@ -12,13 +12,11 @@
   "full_name",
   "specialist",
   "experience",
-  "start_date",
   "column_break_boab",
   "last_name",
   "qulifications",
   "status",
   "doctor_fee",
-  "end_date",
   "doctor_shift_section",
   "shift",
   "section_break_hjom",
@@ -30,7 +28,8 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name"
+   "label": "First Name",
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
@@ -50,7 +49,8 @@
    "fieldname": "qulifications",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Qulifications"
+   "label": "Qulifications",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_boab",
@@ -65,14 +65,16 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Specialist",
-   "options": "Specialist"
+   "options": "Specialist",
+   "reqd": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "\nAvailable\nNot Available"
+   "options": "\nAvailable\nNot Available",
+   "reqd": 1
   },
   {
    "fieldname": "doctor_image",
@@ -84,37 +86,31 @@
    "fetch_from": "details.experience",
    "fieldname": "experience",
    "fieldtype": "Data",
-   "label": "Experience"
+   "label": "Experience",
+   "reqd": 1
   },
   {
    "fetch_from": "details.description",
    "fieldname": "description",
    "fieldtype": "Small Text",
-   "label": "Description"
+   "label": "Description",
+   "reqd": 1
   },
   {
    "fieldname": "doctor_fee",
    "fieldtype": "Currency",
-   "label": "Doctor Fee"
+   "label": "Doctor Fee",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_hjom",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "start_date",
-   "fieldtype": "Date",
-   "label": "Start date"
-  },
-  {
-   "fieldname": "end_date",
-   "fieldtype": "Date",
-   "label": "End date"
-  },
-  {
    "fieldname": "address",
    "fieldtype": "Small Text",
-   "label": "Address"
+   "label": "Address",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_garj",
@@ -134,7 +130,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-27 15:29:34.175578",
+ "modified": "2025-01-04 14:05:56.264509",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
