@@ -1,5 +1,5 @@
 <template>
-  <nav
+  <nav 
     class="grid-cols-3 w-full fixed top-0 bg-white z-20 px-4 md:px-8 lg:px-20 h-20 flex justify-between items-center  border-b shadow-sm">
     <div class="flex items-center">
       <router-link to="/" class="text-2xl font-bold">
@@ -54,25 +54,26 @@
           </div>
         </button>
         <div v-if="isOpen"
-     class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-  <div class="p-4 bg-gray-100 text-gray-700 space-y-2">
-    <router-link to="/profile" 
-                 class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
-      <i class="fas fa-user mr-2"></i> <!-- Add an appropriate icon -->
-      Profile
-    </router-link>
-    <router-link to="/my-appointment/:full_name" 
-                 class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
-      <i class="fas fa-calendar-alt mr-2"></i> <!-- Add an appropriate icon -->
-      My Appointment
-    </router-link>
-    <button class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-red-100 hover:text-red-600 transition"
-            @click="handleLogout">
-      <i class="fas fa-sign-out-alt mr-2"></i> <!-- Add an appropriate icon -->
-      Logout
-    </button>
-  </div>
-</div>
+          class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div class="p-4 bg-gray-100 text-gray-700 space-y-2">
+            <router-link to="/profile"
+              class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
+              <i class="fas fa-user mr-2"></i> <!-- Add an appropriate icon -->
+              Profile
+            </router-link>
+            <router-link to="/my-appointment"
+              class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
+              <i class="fas fa-calendar-alt mr-2"></i> <!-- Add an appropriate icon -->
+              My Appointment
+            </router-link>
+            <button
+              class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-red-100 hover:text-red-600 transition"
+              @click="handleLogout">
+              <i class="fas fa-sign-out-alt mr-2"></i> <!-- Add an appropriate icon -->
+              Logout
+            </button>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -92,13 +93,11 @@ const full_name = ref()
 
 
 onMounted(() => {
-  // Retrieve the user data from sessionStorage
   const storedData = sessionStorage.getItem("user");
   if (storedData) {
     const userData = JSON.parse(storedData);
     userImage.value = userData?.user_image;
-    full_name.value = userData?.full_name; 
-
+    full_name.value = userData?.full_name;
     // console.log( userData, "===================");
   }
 });
