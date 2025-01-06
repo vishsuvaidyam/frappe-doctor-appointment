@@ -52,7 +52,7 @@
 
                 <!-- Book Appointment Button -->
                 <div class="py-5">
-                    <router-link to="/my-appointment"
+                    <button  
                         @click="isFormValid ? bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist, formattedDateTime) : null"
                         :class="{
                             'px-10 py-3 border rounded-3xl text-white text-sm font-normal': true,
@@ -60,7 +60,7 @@
                             'bg-gray-300 cursor-not-allowed': !isFormValid
                         }" :disabled="!isFormValid">
                         Book an appointment
-                    </router-link>
+                    </button>
                 </div>
             </div>
         </div>
