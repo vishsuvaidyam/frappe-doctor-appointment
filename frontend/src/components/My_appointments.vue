@@ -28,7 +28,7 @@
                 <!-- Payment Section -->
                 <div v-if="!doctorappointment.canceled">
                     <div v-if="doctorappointment.isPaymentVisible" class="payment-section">
-                        <button class="hover:bg-gray-100 border text-black text-sm py-2 px-8 sm:px-14">
+                        <button class="hover:bg-gray-100 border text-black text-sm py-2 px-8 sm:px-14" @click="initiatePayment(index)">
                             <img class="h-6" src="../assets/Stript.png" alt="Stripe Logo">
                         </button>
                     </div>
@@ -64,11 +64,13 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
+// Replace with your provided Stripe public key
+const stripePromise = loadStripe("pk_test_51QeDoT079z0KEg54NoLl3UrSsd2HGv7TYOuKfThvVmn4XASwpB2T6TrxRVb3B8j9aGTriJjyUvEDVtXmcBTfqLgN00iUIPr4sY");
+
 const doctorappoint = ref([]);
- 
 
 const fetchAppointments = async () => {
     try {
@@ -78,8 +80,8 @@ const fetchAppointments = async () => {
         if (response.data.message) {
             doctorappoint.value = response.data.message.map(appointment => ({
                 ...appointment,
-                canceled: false, 
-                isPaymentVisible: false, 
+                canceled: false,
+                isPaymentVisible: false,
             }));
         }
     } catch (error) {
@@ -95,5 +97,24 @@ const cancelAppointment = (index) => {
     doctorappoint.value[index].canceled = true;
 };
 
+const initiatePayment = async (index) => {
+    try {
+        const stripe = await stripePromise;
+        const appointment = doctorappoint.value[index];
+
+        // Send a request to your backend to create a payment session
+        const response = await axios.post("/api/method/appointments_management.controllers.api.create-payment-session", {
+            appointmentId: appointment.id, // Pass relevant appointment details
+        });
+
+        // Redirect to Stripe Checkout
+        const { sessionId } = response.data;
+        await stripe.redirectToCheckout({ sessionId });
+    } catch (error) {
+        console.error("Error initiating payment:", error);
+    }
+};
+
 onMounted(fetchAppointments);
 </script>
+

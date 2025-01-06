@@ -1,4 +1,5 @@
 import frappe
+# import stripe
 from frappe import _
 from frappe.utils.password import update_password
 from frappe.utils.password import check_password
@@ -398,3 +399,41 @@ def reject_appointment(appointment_name, status):
     
     # Optionally, send rejection email (or handle any other logic)
     return "success"
+
+
+# Set your Stripe secret key
+# stripe.api_key = "sk_test_51QeDoT079z0KEg54PD4xXTJ9Mmo9t42PZSoEOa0tgIxOR0m7m8j7fKLTXQ52XmFmyi9KIj47x6Mt1PRaIyQ8Ap5r00iV9GWqJv"
+
+# @frappe.whitelist(allow_guest=True)
+# def create_payment_session(appointment_id):
+#     try:
+#         # Get appointment data from the database (this assumes you have a DocType for appointments)
+#         appointment = frappe.get_doc("Appointment", appointment_id)
+        
+#         # Create a Stripe Checkout session
+#         session = stripe.checkout.Session.create(
+#             payment_method_types=['card'],
+#             line_items=[{
+#                 'price_data': {
+#                     'currency': 'usd',
+#                     'product_data': {
+#                         'name': f"Appointment with Dr. {appointment.doctor_name}",
+#                     },
+#                     'unit_amount': int(appointment.price * 100),  # Convert to cents
+#                 },
+#                 'quantity': 1,
+#             }],
+#             mode='payment',
+#             success_url=frappe.utils.get_url('/success?session_id={CHECKOUT_SESSION_ID}'),
+#             cancel_url=frappe.utils.get_url('/cancel'),
+#         )
+
+#         # Return the session ID to the frontend
+#         return {
+#             'sessionId': session.id
+#         }
+
+#     except stripe.error.StripeError as e:
+#         frappe.log_error(message=str(e), title="Stripe Payment Error")
+#         raise frappe.ValidationError(_("Error creating payment session"))
+
