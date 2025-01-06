@@ -1,7 +1,9 @@
 import frappe
+from frappe import _
 from frappe.utils.password import update_password
 from frappe.utils.password import check_password
 from frappe.core.doctype.communication.email import make
+from frappe.utils import get_url
 
 
 @frappe.whitelist(allow_guest=True)
@@ -267,3 +269,132 @@ def delete_appointment():
     except frappe.DoesNotExistError:
         frappe.log_error(f"Appointment not found: {appointment_id}", "Delete Appointment")
         return {"status": "error", "message": "Appointment not found."}
+
+
+# accept to send email message
+@frappe.whitelist()
+def send_accept_email(recipient_email, patient, doctor_name, datetime):
+    """
+    Send an email for appointment confirmation.
+
+    Args:
+        recipient_email (str): Recipient's email address.
+        patient (str): Patient's name.
+        doctor_name (str): Doctor's name.
+        datetime (str): Appointment date and time.
+
+    Returns:
+        str: "success" if the email is sent, else raises an exception.
+    """
+    try:
+        subject = "Appointment Confirmation"
+        message_content = f"""
+            <p>Dear {patient},</p>
+            <p>Your appointment with {doctor_name} is confirmed.</p>
+            <p><strong>Date and Time:</strong> {datetime}</p>
+            <p>Thank you for choosing our services.</p>
+            <p>Regards,</p>
+            <p>Appointments Management Team</p>
+        """
+
+        # Sending the email
+        frappe.sendmail(
+            recipients=[recipient_email],
+            subject=subject,
+            message=message_content,
+        )
+
+        return "success"
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Send Email Error")
+        frappe.throw("Unable to send email. Please check the logs.")
+    """
+    Send an email notification when a message is sent.
+
+    Args:
+        message (str): The content of the message to be sent.
+        recipient_email (str): The recipient's email address.
+    """
+    try:
+        subject = "New Message Notification"
+        message_content = f"""
+            <p>Hello,</p>
+            <p>You have received a new message:</p>
+            <blockquote>{message}</blockquote>
+            <p><a href="{get_url()}">View it on the system</a></p>
+        """
+
+        # Sending email
+        frappe.sendmail(
+            recipients=[recipient_email],
+            subject=subject,
+            message=message_content,
+        )
+
+        return {"status": "success", "message": "Email sent successfully!"}
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Send Message Email Error")
+        return {"status": "error", "message": str(e)}
+    
+    # reject to send email message
+
+@frappe.whitelist()
+def send_reject_email(recipient_email, doctor_name, datetime):
+    """
+    Send a rejection email to the doctor.
+
+    Args:
+        recipient_email (str): Recipient's email address (doctor).
+        doctor_name (str): Doctor's name.
+        datetime (str): Appointment date and time.
+
+    Returns:
+        str: "success" if the email is sent, else raises an exception.
+    """
+    try:
+        subject = "Appointment Rejection Notification"
+        message_content = f"""
+            <p>Dear. {doctor_name},</p>
+            <p>We regret to inform you that the appointment scheduled on <strong>{datetime}</strong> has been rejected by the patient.</p>
+            <p>If you have any questions, please contact our support team.</p>
+            <p>Thank you for your understanding.</p>
+            <p>Regards,</p>
+            <p>Appointments Management Team</p>
+        """
+
+        # Sending the email
+        frappe.sendmail(
+            recipients=[recipient_email],
+            subject=subject,
+            message=message_content,
+        )
+
+        return "success"
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Reject Email Error")
+        frappe.throw("Unable to send rejection email. Please check the logs.")
+
+
+@frappe.whitelist()
+def accept_appointment(appointment_name, status):
+    appointment = frappe.get_doc("Appointment", appointment_name)
+    appointment.status = status
+    appointment.save()
+    return _("success")
+
+@frappe.whitelist()
+def reject_appointment(appointment_name, status):
+    # Fetch the appointment record by name
+    appointment = frappe.get_doc("Appointment", appointment_name)
+    
+    # Update the status to "Rejected"
+    appointment.status = status
+    
+    # Save the updated appointment
+    appointment.save()
+    
+    # Optionally, send rejection email (or handle any other logic)
+    return "success"
