@@ -39,13 +39,13 @@
                         <!-- Date Picker -->
                         <div class="relative">
                             <input type="date" id="date" v-model="selectedDate" :min="minDate" :max="maxDate"
-                                class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
                         </div>
 
                         <!-- Time Picker -->
                         <div class="relative">
                             <input type="time" id="time" v-model="selectedTime"
-                                class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                class="border border-gray-300 rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
                         </div>
                     </div>
                 </div>
