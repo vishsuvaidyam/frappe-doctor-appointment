@@ -263,12 +263,12 @@ const validateName = () => {
 };
 
 const validationAllField = async () => {
-    validateEmail();
     validateName();
-    return !emailError.value && !nameError.value;
+    validateEmail();
+    return !nameError.value && !emailError.value;
 };
 
-const submitForm = async (full_name, specialist, experience, doctor_image, address, doctor_fee) => {
+const submitForm = async (full_name, specialist, experience, doctor_image, address, doctor_fee, name, age, gender, email, date) => {
     const isValid = await validationAllField();
     if (!isValid) {
         toast.error("Please fix the errors before submitting.");
@@ -279,15 +279,15 @@ const submitForm = async (full_name, specialist, experience, doctor_image, addre
     try {
         const response = await axios.post("/api/method/appointments_management.controllers.api.appointment_data", {
             doctor_name: full_name,
-            patient: patient.value.name,
+            patient: name,
             specialist: specialist,
             experience: experience,
             doctor_image: doctor_image,
             address: address,
             doctor_fees: doctor_fee,
-            patient_age: patient.value.age,
-            gender: patient.value.gender,
-            email: patient.value.email,
+            pataient_age: age,
+            gender: gender,
+            email: email,
             datetime: date
         });
         if (response) {
