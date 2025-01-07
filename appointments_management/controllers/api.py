@@ -260,16 +260,20 @@ def my_appointment():
 @frappe.whitelist(allow_guest=True)
 def delete_appointment():
     try:
-        appointment_id = frappe.form_dict.get("appointment_id")
+        appointment_id = frappe.form_dict.get("appointment_name")  
         if not appointment_id:
             frappe.throw("Appointment ID is required.")
         appointment = frappe.get_doc("Appointment", appointment_id)
         appointment.delete()
         frappe.db.commit()
+        
         return {"status": "success", "message": "Appointment deleted successfully."}
     except frappe.DoesNotExistError:
         frappe.log_error(f"Appointment not found: {appointment_id}", "Delete Appointment")
         return {"status": "error", "message": "Appointment not found."}
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Delete Appointment Error")
+        return {"status": "error", "message": str(e)}
 
 
 # accept to send email message
