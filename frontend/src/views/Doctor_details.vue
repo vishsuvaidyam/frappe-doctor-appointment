@@ -61,6 +61,7 @@
                         }" :disabled="!isFormValid">
                         Book an appointment
                     </button>
+                    {{ formattedDateTime }}
                 </div>
             </div>
         </div>
@@ -123,7 +124,7 @@ const isFormValid = computed(() => {
 const formattedDateTime = computed(() => {
     if (selectedDate.value && selectedTime.value) {
         const date = new Date(selectedDate.value);
-        const formattedDate = date.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' });
+        const formattedDate = date.toLocaleDateString('en-US', { day: '2-digit', month: 'numeric', year: 'numeric' });
         const formattedTime = new Date(`1970-01-01T${selectedTime.value}`).toLocaleTimeString('en-US', {
             hour: '2-digit',
             minute: '2-digit',
