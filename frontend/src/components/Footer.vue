@@ -1,13 +1,13 @@
 <template>
     <div class="h-auto w-full">
-      <div class="w-full flex flex-col sm:flex-row lg:flex-row justify-center gap-10 px-5 sm:px-10 lg:px-20 py-10">
+      <div class="w-full flex flex-col sm:flex-row lg:flex-row justify-center gap-44 px-5 sm:px-10 lg:px-20 py-10">
         <!-- Left Section (Logo & Description) -->
         <div class="w-full sm:w-1/2 lg:w-1/2">
           <div class="flex sm:justify-start lg:justify-start">
             <img class="h-10 w-auto" src="../assets/logo-BNCDj_dh.svg" alt="Logo" />
           </div>
           <div class="w-full mt-5">
-            <p class="text-sm sm:text-base font-normal text-gray-700">
+            <p class="text-sm sm:text-base font-normal text-gray-700 text-justify">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
               industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
               and scrambled it to make a type specimen book.
@@ -16,7 +16,7 @@
         </div>
   
         <!-- Right Section (Links) -->
-        <div class="w-full sm:w-1/2 lg:w-1/2 flex justify-between sm:flex-wrap lg:flex-nowrap flex-wrap mt-10 sm:mt-6 lg:mt-0">
+        <div class="w-full sm:w-1/2 lg:w-1/2 flex gap-40 mx-20   sm:flex-wrap lg:flex-nowrap flex-wrap mt-10 sm:mt-6 lg:mt-0">
           <!-- Company Links -->
           <div class="w-full sm:w-1/2 lg:w-1/3 mt-6 sm:mt-4 lg:mt-0">
             <h1 class="text-lg font-semibold text-black">COMPANY</h1>

@@ -67,8 +67,8 @@
         </div>
 
         <div class="pt-10">
-            <h1 class="text-center">Related Doctors</h1>
-            <p class="text-center">Simply browse through our extensive list of trusted doctors.</p>
+            <h1 class="text-center text-3xl font-medium">Related Doctors</h1>
+            <p class="text-center text-sm">Simply browse through our extensive list of trusted doctors.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full py-10">
                 <div v-for="related in allDoctors" :key="related.full_name"
                     @click="goToDoctorDetails(related.full_name, related.specialist)"
