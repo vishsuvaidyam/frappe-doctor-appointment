@@ -158,7 +158,7 @@ onMounted(fetchDoctorsData);
     <div
         class="inset-0 flex items-center justify-center bg-opacity-50 bg-gradient-to-b from-teal-200 to-white mt-10 py-10">
         <div v-for="doctor in doctorDetails" :key="doctor.doctor.full_name"
-            class="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md">
+            class="max-w-4xl w-full bg-white p-8 py-12 rounded-lg shadow-md">
             <h1 class="text-2xl font-bold text-center text-gray-800">Patient Details Form</h1>
             <p class="text-center text-gray-600 mb-6">Fill the form below and we will get back to you soon for more
                 updates and plan your appointment.</p>
@@ -194,7 +194,7 @@ onMounted(fetchDoctorsData);
                     </div>
                     <div class="flex-1">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
-                        <input type="number" v-model="patient.age" :class="{ 'border-red-500': ageError }"
+                        <input type="text" v-model="patient.age" :class="{ 'border-red-500': ageError }"
                             class="w-full px-4 py-2 border border-gray-300 rounded-md  focus:ring outline-none"
                             placeholder="Enter Your Age" @input="validateAge" />
                         <small v-if="ageError" class="text-red-500">{{ ageErrorMessage }}</small>
@@ -227,13 +227,13 @@ onMounted(fetchDoctorsData);
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Address</label>
                     <textarea v-model="patient.address" placeholder="Enter your address"
-                        class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring outline-none"
+                        class="mt-1 w-full p-2 h-20 border border-gray-300 rounded-md focus:ring outline-none"
                         :class="{ 'border-red-500': addressError }"></textarea>
                     <small v-if="addressError" class="block mt-1 text-red-500">{{ addressErrorMessage }}</small>
                 </div>
             </form>
-            <div class="flex justify-center pt-4">
-                <button type="submit" class="px-20 py-2 bg-teal-500 text-white rounded-md"
+            <div class="flex justify-center pt-8">
+                <button type="submit" class="px-20 w-full py-2 bg-teal-500 text-white rounded-md"
                     @click=" bookAppointment(doctor.doctor.full_name, doctor.doctor.specialist, doctor.doctor.experience, doctor.doctor.doctor_image, doctor.doctor.address, doctor.doctor.doctor_fee, patient.name, patient.age, patient.gender, patient.email, date)">
                     Submit
                 </button>
