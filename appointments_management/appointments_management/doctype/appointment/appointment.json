@@ -15,7 +15,8 @@
   "pataient_age",
   "gender",
   "email",
-  "datetime"
+  "datetime",
+  "status"
  ],
  "fields": [
   {
@@ -75,11 +76,16 @@
    "fieldname": "datetime",
    "fieldtype": "Data",
    "label": "DateTime"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-04 11:43:43.267823",
+ "modified": "2025-01-08 13:44:35.959151",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",
