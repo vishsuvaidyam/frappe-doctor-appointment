@@ -392,18 +392,19 @@ def accept_appointment(appointment_name, status):
 
 @frappe.whitelist()
 def reject_appointment(appointment_name, status):
-    # Fetch the appointment record by name
     appointment = frappe.get_doc("Appointment", appointment_name)
-    
-    # Update the status to "Rejected"
     appointment.status = status
-    
-    # Save the updated appointment
     appointment.save()
-    
-    # Optionally, send rejection email (or handle any other logic)
     return "success"
 
+@frappe.whitelist(allow_guest=True)
+def set_status_canceled(appointment_id):
+    # Update the status field to 'Canceled' based on the appointment_id
+    appointment = frappe.get_doc('Appointment', appointment_id)
+    appointment.status = 'Canceled'
+    appointment.save()
+
+    return _("Status updated to Canceled")
 
 # Set your Stripe secret key
 # stripe.api_key = "sk_test_51QeDoT079z0KEg54PD4xXTJ9Mmo9t42PZSoEOa0tgIxOR0m7m8j7fKLTXQ52XmFmyi9KIj47x6Mt1PRaIyQ8Ap5r00iV9GWqJv"

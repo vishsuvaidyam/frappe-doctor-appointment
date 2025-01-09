@@ -20,7 +20,7 @@
                     </span>
                 </p>
                 <p class="text-sm text-gray-600 mt-1">
-                    <span class="font-semibold">Date & Time:</span> {{doctorappointment.datetime}}
+                    <span class="font-semibold">Date & Time:</span> {{ doctorappointment.datetime }}
                 </p>
             </div>
 
@@ -28,7 +28,8 @@
                 <!-- Payment Section -->
                 <div v-if="!doctorappointment.canceled">
                     <div v-if="doctorappointment.isPaymentVisible" class="payment-section">
-                        <button class="hover:bg-gray-100 border text-black text-sm py-2 px-8 sm:px-14" @click="initiatePayment(index)">
+                        <button class="hover:bg-gray-100 border text-black text-sm py-2 px-8 sm:px-14"
+                            @click="initiatePayment(index)">
                             <img class="h-6" src="../assets/Stript.png" alt="Stripe Logo">
                         </button>
                     </div>
@@ -64,11 +65,10 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
 // Replace with your provided Stripe public key
-const stripePromise = loadStripe("pk_test_51QeDoT079z0KEg54NoLl3UrSsd2HGv7TYOuKfThvVmn4XASwpB2T6TrxRVb3B8j9aGTriJjyUvEDVtXmcBTfqLgN00iUIPr4sY");
+// const stripePromise = loadStripe("pk_test_51QeDoT079z0KEg54NoLl3UrSsd2HGv7TYOuKfThvVmn4XASwpB2T6TrxRVb3B8j9aGTriJjyUvEDVtXmcBTfqLgN00iUIPr4sY");
 
 const doctorappoint = ref([]);
 
@@ -93,8 +93,26 @@ const showPaymentOptions = (index) => {
     doctorappoint.value[index].isPaymentVisible = true;
 };
 
-const cancelAppointment = (index) => {
-    doctorappoint.value[index].canceled = true;
+const cancelAppointment = async (index) => {
+    try {
+        // Update the status in Frappe to "Canceled"
+        const appointmentId = doctorappoint.value[index].id;
+
+        const response = await axios.post("/api/method/appointments_management.controllers.api.set_status_canceled", {
+            appointment_id: appointmentId,
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.data.message) {
+            alert(response.data.message);  // Show confirmation message
+            doctorappoint.value[index].canceled = true; // Mark appointment as canceled
+        }
+    } catch (error) {
+        console.error("Error canceling appointment:", error);
+    }
 };
 
 const initiatePayment = async (index) => {
@@ -104,7 +122,7 @@ const initiatePayment = async (index) => {
 
         // Send a request to your backend to create a payment session
         const response = await axios.post("/api/method/appointments_management.controllers.api.create-payment-session", {
-            appointmentId: appointment.id, // Pass relevant appointment details
+            appointmentId: appointment.id,
         });
 
         // Redirect to Stripe Checkout
@@ -117,4 +135,3 @@ const initiatePayment = async (index) => {
 
 onMounted(fetchAppointments);
 </script>
-
