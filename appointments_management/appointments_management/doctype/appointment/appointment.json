@@ -79,13 +79,14 @@
   },
   {
    "fieldname": "status",
-   "fieldtype": "Data",
-   "label": "Status"
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Workflow"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-08 13:44:35.959151",
+ "modified": "2025-01-09 14:40:30.177857",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",

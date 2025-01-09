@@ -14,7 +14,7 @@
   "docstatus": 0,
   "doctype": "Custom HTML Block",
   "html": "\n<div class=\" mt-5 w-full\">\n  <table class=\"table table-bordered\" style=\"width: 100%;\">\n    <thead class=\"table-dark\">\n      <tr>\n        <th class=\"text-center\">Sno.</th>\n        <th>Patient</th>\n        <th class=\"text-center\">Age</th>\n        <th class=\"text-center\">Gender</th>\n        <th class=\"text-center\">Date & Time</th>\n        <th>Doctor</th>\n        <th class=\"text-center\" >Fees</th>\n        <th class=\"text-center\" >Status</th>\n        <th class=\"text-center\">Actions</th>\n      </tr>\n    </thead>\n    <tbody class=\"appointment-table-body\">\n    </tbody>\n  </table>\n <div class=\"pagination-container text-center mt-3\"></div>\n</div>",
-  "modified": "2025-01-08 14:43:13.012899",
+  "modified": "2025-01-09 18:23:03.338953",
   "name": "Appointment Report",
   "private": 0,
   "roles": [],
