@@ -27,7 +27,7 @@
             <div class="button-container flex flex-col space-y-3 py-4 sm:py-8 mt-4 sm:mt-0">
                 <!-- Payment Section -->
                 <div v-if="!doctorappointment.canceled">
-                    <div v-if="doctorappointment.isPaymentVisible" class="payment-section">
+                    <!-- <div v-if="doctorappointment.isPaymentVisible" class="payment-section">
                         <button class="hover:bg-gray-100 border text-black text-sm py-2 px-8 sm:px-14"
                             @click="initiatePayment(index)">
                             <img class="h-6" src="../assets/Stript.png" alt="Stripe Logo">
@@ -37,7 +37,7 @@
                         <button class="hover:bg-gray-100 border text-black text-sm py-2 px-6 sm:px-9">
                             <img class="h-5" src="../assets/Razopay.png" alt="Razorpay Logo">
                         </button>
-                    </div>
+                    </div> -->
                     <button v-if="!doctorappointment.isPaymentVisible"
                         class="border text-black text-sm py-2 px-12 sm:px-16 hover:bg-blue-600 hover:text-white"
                         @click="showPaymentOptions(index)">

@@ -13,6 +13,7 @@ import NotFound from "../views/NotFound.vue";
 import Doctor_appointment from "../views/Doctor_appointment.vue";
 import Patient_details from "../components/Patient_details.vue";
 import Payment from "../components/Payment.vue";
+import Otheracount from "../components/Otheracount.vue";
 
 const routes = [
   { path: '/register', 
@@ -69,6 +70,11 @@ const routes = [
     path: "/payment",
     name: "Payment",
     component: Payment,
+  },
+  {
+    path: "/otheracount",
+    name: "Otheraount",
+    component: Otheracount,
   },
   {
     path: "/:pathMatch(.*)*",
