@@ -43,12 +43,20 @@
             </svg>
           </div>
         </div>
-        <button type="submit" :disabled="isSubmitting"
+        <!-- <button type="submit" :disabled="isSubmitting"
           class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
           <span v-if="isSubmitting" class="mr-2 spinner-border spinner-border-sm" role="status"
-          aria-hidden="true"></span>
+            aria-hidden="true"></span>
           Login
+        </button> -->
+        <button type="submit" :disabled="isSubmitting"
+          class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800 flex items-center justify-center">
+          <template v-if="isSubmitting">
+            <span class="mr-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          </template>
+          <span v-else>Login</span>
         </button>
+
         <p class="text-sm font-medium pt-2 text-gray-600">
           Create a new account?
           <router-link to="/register" class="cursor-pointer text-blue-500">Click here</router-link>
@@ -81,7 +89,7 @@ const email = ref("");
 const password = ref("");
 const toast = useToast();
 const showPassword = ref(false);
-const isSubmitting=ref(false)
+const isSubmitting = ref(false)
 
 const togglePassword = () => {
   showPassword.value = !showPassword.value;
@@ -92,33 +100,35 @@ const handleLogin = async () => {
     toast.error("Please fill in all fields.");
     isSubmitting.value = false;
     return;
-  }
+  } else {
+    try {
+      const response = await axios.post("/api/method/appointments_management.controllers.api.login_user", {
+        email: email.value,
+        password: password.value,
+      });
 
-  try {
-    const response = await axios.post("/api/method/appointments_management.controllers.api.login_user", {
-      email: email.value,
-      password: password.value,
-    });
+      const result = response.data;
 
-    const result = response.data;
-
-    if (result.message.code === 200) {
-      login(result.message.user);
-      toast.success("Login successful!");
-      router.push("/");
-    } else if (result.message.code === 401) {
-      toast.error("Invalid password");
-    } else if (result.message.code === 404) {
-      toast.error("User not found");
-    } else {
-      toast.error(result.message || "Login failed. Please try again.");
+      if (result.message.code === 200) {
+        login(result.message.user);
+        toast.success("Login successful!");
+        router.push("/");
+      } else if (result.message.code === 401) {
+        toast.error("Invalid password");
+      } else if (result.message.code === 404) {
+        toast.error("User not found");
+      } else {
+        toast.error(result.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred during login. Please try again later.");
+      console.error("Login error:", error);
+    } finally {
+      isSubmitting.value = false;
     }
-  } catch (error) {
-    toast.error("An error occurred during login. Please try again later.");
-    console.error("Login error:", error);
-  }finally {
-        isSubmitting.value = false;
   }
+
+
 };
 </script>
 <style>
@@ -129,14 +139,18 @@ const handleLogin = async () => {
   vertical-align: middle;
   border: 2px solid transparent;
   border-top-color: white;
-  border-bottom-color:red ;
+  border-bottom-color: red;
   border-radius: 50%;
   animation: spin 0.75s linear infinite;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+  from {
+    transform: rotate(0deg);
+  }
 
+  to {
+    transform: rotate(360deg);
+  }
+}
 </style>
