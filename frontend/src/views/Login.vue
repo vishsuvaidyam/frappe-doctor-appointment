@@ -43,8 +43,10 @@
             </svg>
           </div>
         </div>
-        <button type="submit"
+        <button type="submit" :disabled="isSubmitting"
           class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
+          <span v-if="isSubmitting" class="mr-2 spinner-border spinner-border-sm" role="status"
+          aria-hidden="true"></span>
           Login
         </button>
         <p class="text-sm font-medium pt-2 text-gray-600">
@@ -79,13 +81,16 @@ const email = ref("");
 const password = ref("");
 const toast = useToast();
 const showPassword = ref(false);
+const isSubmitting=ref(false)
 
 const togglePassword = () => {
   showPassword.value = !showPassword.value;
 };
 const handleLogin = async () => {
+  isSubmitting.value = true;
   if (!email.value || !password.value) {
     toast.error("Please fill in all fields.");
+    isSubmitting.value = false;
     return;
   }
 
@@ -111,6 +116,27 @@ const handleLogin = async () => {
   } catch (error) {
     toast.error("An error occurred during login. Please try again later.");
     console.error("Login error:", error);
+  }finally {
+        isSubmitting.value = false;
   }
 };
 </script>
+<style>
+.spinner-border {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-bottom-color:red ;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+</style>

@@ -22,7 +22,8 @@
                 </div>
                 <div class="mb-4">
                     <div class="relative">
-                        <i class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i
+                            class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input v-model="email" type="email"
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
                             placeholder="Email" />
@@ -30,7 +31,8 @@
                 </div>
                 <div class="mb-4">
                     <div class="relative">
-                        <i class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <i
+                            class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <!-- Password Input -->
                         <input v-model="password" :type="showPassword ? 'text' : 'password'"
                             class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none"
@@ -60,8 +62,10 @@
                     <a href="#" class="text-sm text-blue-500 hover:underline ">Forgot password?</a>
                 </div>
 
-                <button type="submit"
+                <button type="submit" :disabled="isSubmitting"
                     class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
+                    <span v-if="isSubmitting" class="mr-2 spinner-border spinner-border-sm" role="status"
+                        aria-hidden="true"></span>
                     Create Account
                 </button>
 
@@ -86,12 +90,14 @@ const full_name = ref("");
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false)
+const isSubmitting = ref(false);
 
 const togglePassword = () => {
     showPassword.value = !showPassword.value
 }
 
 const register = async () => {
+    isSubmitting.value = true;
     try {
         const res = await axios.post("/api/method/appointments_management.controllers.api.register_user", {
             email: email.value,
@@ -113,7 +119,30 @@ const register = async () => {
     } catch (error) {
         console.error(error);
         toast.error("An error occurred while registering the user. Please try again.");
+    } finally {
+        isSubmitting.value = false;
     }
 
 }
 </script>
+<style>
+.spinner-border {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-bottom-color:red ;
+  /* border-left-color:white ;
+  border-right-color:red ; */
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+</style>
