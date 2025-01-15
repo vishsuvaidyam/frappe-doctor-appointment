@@ -38,7 +38,7 @@
                             <img class="h-5" src="../assets/Razopay.png" alt="Razorpay Logo">
                         </button>
                     </div> -->
-                    <button v-if="!doctorappointment.isPaymentVisible"
+                    <button  
                         class="border text-black text-sm py-2 px-12 sm:px-16 hover:bg-blue-600 hover:text-white"
                         @click="showPaymentOptions(index)">
                         Pay Online
@@ -65,11 +65,13 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import {useRouter} from "vue-router";
 import axios from "axios";
+
 
 // Replace with your provided Stripe public key
 // const stripePromise = loadStripe("pk_test_51QeDoT079z0KEg54NoLl3UrSsd2HGv7TYOuKfThvVmn4XASwpB2T6TrxRVb3B8j9aGTriJjyUvEDVtXmcBTfqLgN00iUIPr4sY");
-
+const router = useRouter();
 const doctorappoint = ref([]);
 
 const fetchAppointments = async () => {
@@ -90,7 +92,8 @@ const fetchAppointments = async () => {
 };
 
 const showPaymentOptions = (index) => {
-    doctorappoint.value[index].isPaymentVisible = true;
+    // doctorappoint.value[index].isPaymentVisible = true;
+    router.push("/otheracount")
 };
 
 const cancelAppointment = async (index) => {
