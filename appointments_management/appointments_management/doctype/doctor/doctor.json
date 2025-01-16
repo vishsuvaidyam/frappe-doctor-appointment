@@ -98,6 +98,7 @@
   {
    "fieldname": "doctor_fee",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Doctor Fee",
    "reqd": 1
   },
@@ -129,7 +130,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-04 14:33:44.415642",
+ "modified": "2025-01-16 13:11:59.583106",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
