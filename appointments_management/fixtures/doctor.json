@@ -108,6 +108,24 @@
   "status": "Available"
  },
  {
+  "address": "this",
+  "description": "This",
+  "docstatus": 0,
+  "doctor_fee": 6000.0,
+  "doctor_image": null,
+  "doctype": "Doctor",
+  "experience": "4",
+  "first_name": "Sujeet",
+  "full_name": "Sujeet",
+  "last_name": null,
+  "modified": "2025-01-16 13:11:37.254454",
+  "name": "Sujeet",
+  "qulifications": "MBBS",
+  "shift": [],
+  "specialist": "Dermatologist",
+  "status": "Available"
+ },
+ {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
   "description": "Dr. Ava Mitchell has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.\n\n",
   "docstatus": 0,

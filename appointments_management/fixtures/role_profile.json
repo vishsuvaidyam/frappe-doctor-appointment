@@ -22,5 +22,17 @@
     "role": "Primary"
    }
   ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-16 11:00:55.314923",
+  "name": "Doctor",
+  "role_profile": "Doctor",
+  "roles": [
+   {
+    "role": "Doctor"
+   }
+  ]
  }
 ]

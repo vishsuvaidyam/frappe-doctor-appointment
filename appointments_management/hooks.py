@@ -147,6 +147,7 @@ fixtures=[
     'Role',
     'Role Profile',
     'Custom HTML Block',
+    'Email Account',
     ]
 # Scheduled Tasks
 # ---------------
