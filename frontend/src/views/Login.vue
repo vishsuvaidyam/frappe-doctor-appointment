@@ -9,7 +9,7 @@
           <label class="block text-sm font-medium mb-1">Email</label>
           <div class="relative">
             <i class="fa-solid fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-            <input v-model="email" type="email"
+            <input v-model="email" type="email" required
               class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none" placeholder="Email" />
           </div>
         </div>
@@ -20,7 +20,7 @@
             <i class="fa-solid fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
 
             <!-- Password Input -->
-            <input v-model="password" :type="showPassword ? 'text' : 'password'"
+            <input v-model="password" :type="showPassword ? 'text' : 'password'" required
               class="w-full border border-gray-300 rounded-lg pl-10 py-2 focus:outline-none" placeholder="*******" />
 
             <!-- Eye Icon for Toggle -->
