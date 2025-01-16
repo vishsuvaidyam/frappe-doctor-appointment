@@ -98,13 +98,11 @@ const user = {
 
 <template>
 
-  <div class="bg-gray-100">
+  <div class="bg-gray-100 h-screen">
     <div class="text-sm text-gray-500 mb-4">
       <a href="#" class="hover:underline">People</a> / <span>Vivek Kumar</span>
     </div>
-
     <div class="bg-gray-200 h-40"></div>
-
     <div class="flex flex-col items-center -mt-20">
       <div
         class="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-2xl font-bold text-gray-600 border-4 border-white mt-16 mr-80">
@@ -115,7 +113,6 @@ const user = {
         Edit Profile
       </button>
     </div>
-
   </div>
 
 </template>
