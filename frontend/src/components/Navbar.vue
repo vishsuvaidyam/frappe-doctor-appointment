@@ -40,31 +40,34 @@
         Login
       </router-link>
       <div v-else class="relative inline-block text-left">
-        <button @click="isOpen = !isOpen"
-          class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white p-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          <img v-if="userImage" :src="userImage" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
-          <div v-else class="h-12 w-12 flex items-center justify-center bg-gray-200 rounded-full">
-            <span class="text-lg font-semibold text-gray-700">{{ full_name[0]}}</span>
+        <Dropdown :options="[
+          {
+            label: 'Profile',
+            onClick: () => {
+              router.push('/profile')
+             },
+          },
+          {
+            label: 'My Appointment',
+            onClick: () => { 
+              router.push('/my-appointment')
+            }
+          },
+          {
+            label: 'Log Out',
+            onClick: () => { 
+              handleLogout()
+            },
+          },
+        ]">
+          <div  class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white p-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            <img v-if="userImage" :src="userImage" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
+            <div v-else class="h-12 w-12 flex items-center justify-center bg-gray-200 rounded-full">
+              <span class="text-lg font-semibold text-gray-700">{{ full_name[0] }}</span>
+            </div>
           </div>
-        </button>
-        <div v-if="isOpen"
-          class="absolute right-0 mt-2 w-52 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div class="p-4 bg-gray-100 text-gray-700 space-y-2">
-            <router-link to="/profile"
-              class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
-              <i class="fas fa-user mr-2"></i> Profile
-            </router-link>
-            <router-link to="/my-appointment"
-              class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-gray-200 transition">
-              <i class="fas fa-calendar-alt mr-2"></i> My Appointment
-            </router-link>
-            <button
-              class="flex items-center w-full px-3 py-2 text-left text-black rounded-md hover:bg-red-100 hover:text-red-600 transition"
-              @click="handleLogout">
-              <i class="fas fa-sign-out-alt mr-2"></i> Logout
-            </button>
-          </div>
-        </div>
+        </Dropdown>
+
       </div>
     </div>
     <button @click="toggleMobileMenu" class="lg:hidden text-gray-700" aria-label="Toggle Mobile Menu">
@@ -73,8 +76,7 @@
           d="M200 136a8 8 0 0 1-8 8H64a8 8 0 0 1 0-16h128a8 8 0 0 1 8 8m32-56H24a8 8 0 0 0 0 16h208a8 8 0 0 0 0-16m-80 96h-48a8 8 0 0 0 0 16h48a8 8 0 0 0 0-16" />
       </svg>
     </button>
-    <div v-if="isMobileMenu"
-      class="fixed top-20 left-0 w-full h-screen flex  justify-end">
+    <div v-if="isMobileMenu" class="fixed top-20 left-0 w-full h-screen flex  justify-end">
       <div class="bg-white p-6 w-11/12 h-screen max-w-md  shadow-lg" @click.stop>
         <ul class="space-y-2 text-gray-700">
           <li>
@@ -83,14 +85,12 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/about" class="block py-2 px-4 hover:bg-gray-100 rounded"
-              @click="isMobileMenu = false">
+            <router-link to="/about" class="block py-2 px-4 hover:bg-gray-100 rounded" @click="isMobileMenu = false">
               About
             </router-link>
           </li>
           <li>
-            <router-link to="/contact" class="block py-2 px-4 hover:bg-gray-100 rounded"
-              @click="isMobileMenu = false">
+            <router-link to="/contact" class="block py-2 px-4 hover:bg-gray-100 rounded" @click="isMobileMenu = false">
               Contact
             </router-link>
           </li>
@@ -102,13 +102,14 @@
 </template>
 
 <script setup>
-import { onMounted, ref,watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { isLoggedIn, logout } from "../auth";
+import { Dropdown } from 'frappe-ui'
 
 const isOpen = ref(false);
-const isMobileMenu=ref(false)
-const isMobileMenuOpen = ref(false);  
+const isMobileMenu = ref(false)
+const isMobileMenuOpen = ref(false);
 const router = useRouter();
 const route = useRoute();
 const userImage = ref(null);
@@ -130,9 +131,9 @@ const handleLogout = () => {
   router.push("/");
 };
 
-watch(() => route.fullPath, () => {
-  isOpen.value = false;
-});
+// watch(() => route.fullPath, () => {
+//   isOpen.value = false;
+// });
 
 const isActive = (path) => route.path === path;
 
