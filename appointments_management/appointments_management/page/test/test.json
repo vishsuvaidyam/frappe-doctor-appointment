@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2025-01-18 16:45:04.056405",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2025-01-18 17:43:33.690513",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "test",
+ "owner": "Administrator",
+ "page_name": "test",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Test"
+}

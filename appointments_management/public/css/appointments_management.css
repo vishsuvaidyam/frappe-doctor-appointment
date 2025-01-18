@@ -1,3 +1,11 @@
 .layout-main{
     max-width: none !important;
 }
+
+/* This is client script to target to list status text
+.custom-status-open {
+    color: #3498db;  
+}
+.custom-status-in-progress {
+    color: #e67e22;  
+} */

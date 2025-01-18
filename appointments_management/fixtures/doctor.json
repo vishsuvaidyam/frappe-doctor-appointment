@@ -15,7 +15,8 @@
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "Dermatologist",
-  "status": "Available"
+  "status": "Available",
+  "test": 0
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -33,7 +34,8 @@
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "Gynecologist",
-  "status": "Available"
+  "status": "Available",
+  "test": 0
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -51,7 +53,8 @@
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "Neurologist",
-  "status": "Not Available"
+  "status": "Not Available",
+  "test": 0
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -69,7 +72,8 @@
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "General physician",
-  "status": "Available"
+  "status": "Available",
+  "test": 0
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -87,25 +91,8 @@
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "Pediatricians",
-  "status": "Available"
- },
- {
-  "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
-  "description": "Dr. Timothy White has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
-  "docstatus": 0,
-  "doctor_fee": 500.0,
-  "doctor_image": "/private/files/Timothy38719f.png",
-  "doctype": "Doctor",
-  "experience": "4 years",
-  "first_name": "Dr. Timothy White",
-  "full_name": "Dr. Timothy White",
-  "last_name": " ",
-  "modified": "2025-01-04 14:49:08.285010",
-  "name": "Dr. Timothy White",
-  "qulifications": "MBBS",
-  "shift": [],
-  "specialist": "Pediatricians",
-  "status": "Available"
+  "status": "Available",
+  "test": 0
  },
  {
   "address": "this",
@@ -123,7 +110,27 @@
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "Dermatologist",
-  "status": "Available"
+  "status": "Available",
+  "test": 0
+ },
+ {
+  "address": "degr",
+  "description": "ehdgwf",
+  "docstatus": 0,
+  "doctor_fee": 3443.0,
+  "doctor_image": null,
+  "doctype": "Doctor",
+  "experience": "3",
+  "first_name": "Test",
+  "full_name": "Test",
+  "last_name": null,
+  "modified": "2025-01-18 14:59:10.339513",
+  "name": "Test",
+  "qulifications": "kjdrwhj",
+  "shift": [],
+  "specialist": "Dermatologist",
+  "status": "Available",
+  "test": 1
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -136,11 +143,31 @@
   "first_name": " Dr. Ava Mitchell",
   "full_name": "Dr. Ava Mitchell",
   "last_name": " ",
-  "modified": "2025-01-04 14:48:52.217644",
+  "modified": "2025-01-18 15:01:56.231641",
   "name": "Dr. Ava Mitchell",
   "qulifications": "MBBS",
   "shift": [],
   "specialist": "Dermatologist",
-  "status": "Not Available"
+  "status": "Not Available",
+  "test": 0
+ },
+ {
+  "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
+  "description": "Dr. Timothy White has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+  "docstatus": 0,
+  "doctor_fee": 500.0,
+  "doctor_image": "/private/files/Timothy38719f.png",
+  "doctype": "Doctor",
+  "experience": "4 years",
+  "first_name": "Dr. Timothy White",
+  "full_name": "Dr. Timothy White",
+  "last_name": " ",
+  "modified": "2025-01-04 14:49:08.285010",
+  "name": "Dr. Timothy White",
+  "qulifications": "MBBS",
+  "shift": [],
+  "specialist": "Pediatricians",
+  "status": "Available",
+  "test": 0
  }
 ]
