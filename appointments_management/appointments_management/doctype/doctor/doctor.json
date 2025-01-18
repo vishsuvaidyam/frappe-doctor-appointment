@@ -17,6 +17,7 @@
   "qulifications",
   "status",
   "doctor_fee",
+  "test",
   "doctor_shift_section",
   "shift",
   "section_break_hjom",
@@ -74,6 +75,7 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "\nAvailable\nNot Available",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -126,11 +128,17 @@
    "fieldtype": "Table",
    "label": "Shift",
    "options": "Doctor Shift"
+  },
+  {
+   "default": "0",
+   "fieldname": "test",
+   "fieldtype": "Check",
+   "label": "Test"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-16 13:11:59.583106",
+ "modified": "2025-01-18 15:01:01.612359",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",
