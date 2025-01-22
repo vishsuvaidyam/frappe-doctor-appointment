@@ -61,10 +61,11 @@
           },
         ]">
           <div  class="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white p-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-            <img v-if="userImage" :src="userImage" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
+            <img v-if="user_image" :src="user_image" alt="Profile" class="h-12 w-12 object-cover rounded-full" />
             <div v-else class="h-12 w-12 flex items-center justify-center bg-gray-200 rounded-full">
-              <span class="text-lg font-semibold text-gray-700">{{ full_name[0] }}</span>
+              <span class="text-lg font-semibold text-gray-700"> {{ name ? name[0].toUpperCase() : "?" }}</span>
             </div>
+         
           </div>
         </Dropdown>
 
@@ -102,10 +103,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import {  ref,onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { isLoggedIn, logout } from "../auth";
-import { Dropdown } from 'frappe-ui'
+import { isLoggedIn,logout } from "../auth";
+import { Dropdown, } from 'frappe-ui'
 import axios from "axios";
 
 const isOpen = ref(false);
@@ -113,18 +114,27 @@ const isMobileMenu = ref(false)
 const isMobileMenuOpen = ref(false);
 const router = useRouter();
 const route = useRoute();
-const userImage = ref(null);
-const full_name = ref('')
+const name = ref(null);
+const user_image = ref(null);
 
 
-onMounted(() => {
-  const storedData = sessionStorage.getItem("user");
-  if (storedData) {
-    const userData = JSON.parse(storedData);
-    userImage.value = userData?.user_image;
-    full_name.value = userData?.full_name;
+ const fetchUserProfile = async () => {
+  try {
+    const response = await axios.get("/api/method/appointments_management.controllers.api.profile");
+    
+    if (response.data.message.code === 200) {
+      const user = response.data.message.user;
+      // console.log(user);
+      user_image.value = user.user_image;   
+      name.value = user.name;        
+      
+    } else {
+      console.error("Failed to fetch profile:", response.data.message);
+    }
+  } catch (error) {
+    console.error("Error fetching profile:", error);
   }
-});
+};
 
 const handleLogout = async () => {
   try {
@@ -141,10 +151,6 @@ const handleLogout = async () => {
   router.push("/");
 };
 
-// watch(() => route.fullPath, () => {
-//   isOpen.value = false;
-// });
-
 const isActive = (path) => route.path === path;
 
 // Method to toggle mobile menu
@@ -152,6 +158,7 @@ const toggleMobileMenu = () => {
   isMobileMenu.value = !isMobileMenu.value;
 };
 
+onMounted(fetchUserProfile);
 </script>
 
 <style>

@@ -57,13 +57,13 @@ def login_user(email, password):
         frappe.local.login_manager.user = user.name
         frappe.local.login_manager.post_login()
 
+        session_user = frappe.get_doc("User", frappe.session.user)
         return {
             "code": 200,
             "message": "Login successful",
             "user": {
-                "name": user.name,
-                "user_image": user.user_image,
-                "full_name": user.full_name,
+                "name": session_user.full_name or session_user.name,
+                "user_image": session_user.user_image,
             },
         }
     except Exception as e:
@@ -92,6 +92,28 @@ def set_new_password(email, new_password):
         frappe.log_error(message=str(e), title="Password Reset Error")
         return {"code": 500, "message": f"An error occurred: {str(e)}"}
     
+
+@frappe.whitelist(allow_guest=True)
+def profile():
+    try:
+        # Fetch the session user
+        session_user = frappe.get_doc("User", frappe.session.user)
+
+        return {
+            "code": 200,
+            "user": {
+                "name": session_user.full_name or session_user.name,
+                "user_image": session_user.user_image,
+                "email": session_user.email,
+            },
+        }
+    except Exception as e:
+        frappe.log_error(message=str(e), title="Fetch Profile Error")
+        return {
+            "code": 500,
+            "message": "An error occurred while fetching the profile data.",
+        }
+
 
 @frappe.whitelist(allow_guest=True)
 def logout():

@@ -114,7 +114,6 @@ const handleLogin = async () => {
       });
 
       const result = response.data;
-
       if (result.message.code === 200) {
         login(result.message.user);
         toast.success("Login successful!");

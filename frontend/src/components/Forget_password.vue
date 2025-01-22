@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {ref } from "vue";
 import { useToast } from "vue-toastification";
 import axios from "axios";
 import { useRouter } from "vue-router";
@@ -33,7 +33,7 @@ import { useRouter } from "vue-router";
 const router=useRouter();
 const email = ref("");
 const password_new = ref("");
-const toast = useToast();
+const toast=useToast();
 
 const reset_password = async () => {
     if (!email.value || !password_new.value) {
@@ -51,7 +51,7 @@ const reset_password = async () => {
         );
         const result = response.data;
             console.log(result);
-            
+
         if (result.message.code  === 200) {
             toast.success(result.message.message);
             router.push("/login");
