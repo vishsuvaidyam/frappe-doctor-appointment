@@ -152,23 +152,26 @@ fixtures=[
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"appointments_management.tasks.all"
-# 	],
-# 	"daily": [
-# 		"appointments_management.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"appointments_management.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"appointments_management.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"appointments_management.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"hourly": [
+		"appointments_management.controllers.api.send_email"
+	],
+      "daily": [
+        "appointments_management.controllers.api.send_email"
+    ]
+	# "all": [
+	# 	# "appointments_management.tasks.all"
+	# ],
+	# "daily": [
+	# 	"appointments_management.tasks.daily"
+	# ],
+	# "weekly": [
+	# 	"appointments_management.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"appointments_management.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------

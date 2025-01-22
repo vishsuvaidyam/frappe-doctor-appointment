@@ -14,6 +14,7 @@ import Doctor_appointment from "../views/Doctor_appointment.vue";
 import Patient_details from "../components/Patient_details.vue";
 import Payment from "../components/Payment.vue";
 import Otheracount from "../components/Otheracount.vue";
+import Forget_password from "../components/Forget_password.vue";
 
 const routes = [
   { path: '/register', 
@@ -86,13 +87,17 @@ const routes = [
     name: "Doctor_appointment",
     component: Doctor_appointment,
   },
-
+  {
+    path:"/forget-password",
+    name:"Forget_password",
+    component:Forget_password,
+  },
   ...authRoutes,
 ];
 
 const router = createRouter({
   base: "/frontend/",
-  history: createWebHistory(),
+  history: createWebHistory("/frontend"),
   routes,
 });
 
