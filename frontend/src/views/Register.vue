@@ -58,10 +58,6 @@
                         </svg>
                     </div>
                 </div>
-                <div class="flex justify-end items-center mb-4">
-                    <a href="#" class="text-sm text-blue-500 hover:underline ">Forgot password?</a>
-                </div>
-
                 <button type="submit" :disabled="isSubmitting"
                     class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
                     <span v-if="isSubmitting" class="mr-2 spinner-border spinner-border-sm" role="status"
@@ -84,6 +80,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
+// import { Button, Dialog } from "frappe-ui";
 
 const toast = useToast();
 const full_name = ref("");
@@ -91,6 +88,11 @@ const email = ref("");
 const password = ref("");
 const showPassword = ref(false)
 const isSubmitting = ref(false);
+// const dialog = ref("");
+// const form = ref({
+//   email: '',
+//   password: '',
+// });
 
 const togglePassword = () => {
     showPassword.value = !showPassword.value
@@ -127,22 +129,26 @@ const register = async () => {
 </script>
 <style>
 .spinner-border {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  border: 2px solid transparent;
-  border-top-color: white;
-  border-bottom-color:red ;
-  /* border-left-color:white ;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    border: 2px solid transparent;
+    border-top-color: white;
+    border-bottom-color: red;
+    /* border-left-color:white ;
   border-right-color:red ; */
-  border-radius: 50%;
-  animation: spin 0.75s linear infinite;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    from {
+        transform: rotate(0deg);
+    }
 
+    to {
+        transform: rotate(360deg);
+    }
+}
 </style>

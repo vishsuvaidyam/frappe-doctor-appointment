@@ -106,6 +106,7 @@ import { onMounted, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { isLoggedIn, logout } from "../auth";
 import { Dropdown } from 'frappe-ui'
+import axios from "axios";
 
 const isOpen = ref(false);
 const isMobileMenu = ref(false)
@@ -125,7 +126,16 @@ onMounted(() => {
   }
 });
 
-const handleLogout = () => {
+const handleLogout = async () => {
+  try {
+    const response= await axios.get(
+      "/api/method/appointments_management.controllers.api.logout"
+    );
+    const result = response.data;
+    console.log(result);
+  } catch (error) {
+    
+  }
   logout();
   isOpen.value = false;
   router.push("/");

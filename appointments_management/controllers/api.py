@@ -6,7 +6,6 @@ from frappe.utils.password import check_password
 from frappe.core.doctype.communication.email import make
 from frappe.utils import get_url
 
-
 @frappe.whitelist(allow_guest=True)
 def register_user(email, password, first_name):
     if frappe.db.exists("User", email):
@@ -40,7 +39,6 @@ def register_user(email, password, first_name):
 @frappe.whitelist(allow_guest=True)
 def login_user(email, password):
     try:
-        # Fetch user details
         user = frappe.db.get_value(
             "User", {"email": email}, ["name", "enabled", "user_image", "full_name"], as_dict=True
         )
@@ -74,33 +72,31 @@ def login_user(email, password):
             "code": 500,
             "message": "An error occurred during login. Please try again later.",
         }
+    
+@frappe.whitelist(allow_guest=True)
+def set_new_password(email, new_password):
+    try:
+        # Fetch the user by email
+        user = frappe.db.get_value("User", {"email": email}, ["name", "email"], as_dict=True)
+        if not user:
+            return {"code": 404, "message": "User not found"}
 
+        # Update the password using Frappe's function
+        frappe.utils.password.update_password(user["name"], new_password)
 
-# def send_registration_email(email, password, first_name):
-#     """Send a registration email with user credentials."""
-#     subject = "Welcome to Our Platform"
-#     message = f"""
-#     Hi {first_name},
+        return {"code": 200, "message": "Password updated successfully"}
+    except frappe.AuthenticationError as e:
+        frappe.log_error(message=str(e), title="Password Reset Error")
+        return {"code": 400, "message": "Unable to update password. Please try again later."}
+    except Exception as e:
+        frappe.log_error(message=str(e), title="Password Reset Error")
+        return {"code": 500, "message": f"An error occurred: {str(e)}"}
+    
 
-#     Welcome to our platform! Your account has been successfully created.
-
-#     Here are your login details:
-#     - Email: {email}
-#     - Password: {password}
-
-#     Please log in and change your password for security reasons.
-
-#     Regards,
-#     The Team
-#     """
-#     try:
-#         frappe.sendmail(
-#             recipients=email,
-#             subject=subject,
-#             message=message,
-#         )
-#     except Exception as e:
-#         frappe.log_error(message=str(e), title="Email Sending Error")
+@frappe.whitelist(allow_guest=True)
+def logout():
+    frappe.local.login_manager.logout()
+    frappe.db.commit()
 
 
 @frappe.whitelist(allow_guest=True)
@@ -442,3 +438,32 @@ def set_status_canceled(appointment_id):
 #         frappe.log_error(message=str(e), title="Stripe Payment Error")
 #         raise frappe.ValidationError(_("Error creating payment session"))
 
+@frappe.whitelist(allow_guest=True)
+def send_email(recipients):
+    frappe.log_error("Send email function executed", "Scheduler Test")
+    try:
+        subject = "Appointment Scheduler test"
+        message_content = frappe.render_template("appointments_management/templates/pages/email.html")
+#         message_content = f"""
+#     <div class="bg-red-200 bg-info">
+#     <p>Dear {name},</p>
+#     <p>If you have any questions, please contact our support team.</p>
+#     <p>Thank you for your understanding.</p>
+#     <p>Regards,</p>
+#     <p>Appointments Management Team</p>
+#     </div>
+# """
+
+
+        # Sending the email
+        frappe.sendmail(
+            recipients=[recipients],
+            subject=subject,
+            message=message_content,
+        )
+
+        return "success"
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Reject Email Error")
+        frappe.throw("Unable to send rejection email. Please check the logs.")

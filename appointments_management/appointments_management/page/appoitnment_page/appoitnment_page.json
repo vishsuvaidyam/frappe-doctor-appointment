@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2025-01-20 17:20:35.935685",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2025-01-20 17:21:25.534299",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "appoitnment-page",
+ "owner": "Administrator",
+ "page_name": "appoitnment-page",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Appointment"
+}

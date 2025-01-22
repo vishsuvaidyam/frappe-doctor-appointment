@@ -42,6 +42,12 @@
                 d="M12 8.25q.178 0 .351.016c.197.019.268.254.129.394l-1.213 1.212a2.26 2.26 0 0 0-1.395 1.395L8.66 12.48c-.14.14-.375.068-.394-.129A3.75 3.75 0 0 1 12 8.25" />
             </svg>
           </div>
+          <div class="flex justify-end items-center my-4">
+                    <!-- <a href="#" class="text-sm text-blue-500 hover:underline "></a> -->
+                    <router-link to="/forget-password" class="text-sm text-blue-500 hover:underline ">
+                        Forgot password?
+                    </router-link>
+                </div>
         </div>
         <!-- <button type="submit" :disabled="isSubmitting"
           class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800">
