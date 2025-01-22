@@ -1,8 +1,8 @@
 // src/auth.js
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+// import { useRouter } from "vue-router";
 
-const router=useRouter();
+// const router=useRouter();
 export const isLoggedIn = ref(!!sessionStorage.getItem("user") || !!localStorage.getItem("user"));
 
 export const login = (userData) => {
