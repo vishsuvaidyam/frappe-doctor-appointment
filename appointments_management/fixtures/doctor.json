@@ -16,7 +16,8 @@
   "shift": [],
   "specialist": "Dermatologist",
   "status": "Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -35,7 +36,8 @@
   "shift": [],
   "specialist": "Gynecologist",
   "status": "Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -54,7 +56,8 @@
   "shift": [],
   "specialist": "Neurologist",
   "status": "Not Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -73,7 +76,8 @@
   "shift": [],
   "specialist": "General physician",
   "status": "Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -92,26 +96,8 @@
   "shift": [],
   "specialist": "Pediatricians",
   "status": "Available",
-  "test": 0
- },
- {
-  "address": "this",
-  "description": "This",
-  "docstatus": 0,
-  "doctor_fee": 6000.0,
-  "doctor_image": null,
-  "doctype": "Doctor",
-  "experience": "4",
-  "first_name": "Sujeet",
-  "full_name": "Sujeet",
-  "last_name": null,
-  "modified": "2025-01-16 13:11:37.254454",
-  "name": "Sujeet",
-  "qulifications": "MBBS",
-  "shift": [],
-  "specialist": "Dermatologist",
-  "status": "Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
  },
  {
   "address": "degr",
@@ -130,7 +116,8 @@
   "shift": [],
   "specialist": "Dermatologist",
   "status": "Available",
-  "test": 1
+  "test": 1,
+  "workflow_state": null
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -149,7 +136,8 @@
   "shift": [],
   "specialist": "Dermatologist",
   "status": "Not Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
  },
  {
   "address": "97th Cross, Richmond\n\nCircle, Ring Road, London",
@@ -168,6 +156,27 @@
   "shift": [],
   "specialist": "Pediatricians",
   "status": "Available",
-  "test": 0
+  "test": 0,
+  "workflow_state": null
+ },
+ {
+  "address": "this",
+  "description": "This",
+  "docstatus": 0,
+  "doctor_fee": 6000.0,
+  "doctor_image": null,
+  "doctype": "Doctor",
+  "experience": "4",
+  "first_name": "Sujeet",
+  "full_name": "Sujeet",
+  "last_name": null,
+  "modified": "2025-01-16 13:11:37.254454",
+  "name": "Sujeet",
+  "qulifications": "MBBS",
+  "shift": [],
+  "specialist": "Dermatologist",
+  "status": "Available",
+  "test": 0,
+  "workflow_state": null
  }
 ]
