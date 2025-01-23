@@ -64,29 +64,29 @@ frappe.pages['test'].on_page_load = function (wrapper) {
     page.add_menu_item('Send Email', () => open_email_dialog());
 
     // Add custom HTML with inline styling
-    $(page.body).append(`
-        <div style="padding: 20px; font-family: Arial, sans-serif;">
-            <h2 style="color: #333; font-weight: bold;">Welcome to the Custom Page</h2>
-            <p style="color: #555;">This is a dynamically added HTML section for additional content.</p>
-            <div style="border: 1px solid #ddd; padding: 15px; border-radius: 5px; margin-top: 10px;">
-                <h3 style="color: #007bff;">Card Title</h3>
-                <p style="color: #666;">Card content goes here. Add more details as needed.</p>
-                <button style="background-color: #007bff; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
-                    Click Me
-                </button>
-            </div>
-            <div style="display: flex; margin-top: 20px;">
-                <div style="flex: 1; padding-right: 10px;">
-                    <h4 style="color: #333;">Left Section</h4>
-                    <p style="color: #555;">Content for the left column.</p>
-                </div>
-                <div style="flex: 1; padding-left: 10px;">
-                    <h4 style="color: #333;">Right Section</h4>
-                    <p style="color: #555;">Content for the right column.</p>
-                </div>
-            </div>
-        </div>
-    `);
+    // $(page.body).append(`
+    //     <div style="padding: 20px; font-family: Arial, sans-serif;">
+    //         <h2 style="color: #333; font-weight: bold;">Welcome to the Custom Page</h2>
+    //         <p style="color: #555;">This is a dynamically added HTML section for additional content.</p>
+    //         <div style="border: 1px solid #ddd; padding: 15px; border-radius: 5px; margin-top: 10px;">
+    //             <h3 style="color: #007bff;">Card Title</h3>
+    //             <p style="color: #666;">Card content goes here. Add more details as needed.</p>
+    //             <button style="background-color: #007bff; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+    //                 Click Me
+    //             </button>
+    //         </div>
+    //         <div style="display: flex; margin-top: 20px;">
+    //             <div style="flex: 1; padding-right: 10px;">
+    //                 <h4 style="color: #333;">Left Section</h4>
+    //                 <p style="color: #555;">Content for the left column.</p>
+    //             </div>
+    //             <div style="flex: 1; padding-left: 10px;">
+    //                 <h4 style="color: #333;">Right Section</h4>
+    //                 <p style="color: #555;">Content for the right column.</p>
+    //             </div>
+    //         </div>
+    //     </div>
+    // `);
 
     // Example: Handle custom button click
     // $('button').on('click', () => {
@@ -112,41 +112,23 @@ function open_email_dialog() {
             content: "This is a test email sent from the custom page in Frappe.",
             send_email: true
         },
-        callback: function(response) {
-            console.log("Response:", response); // Log the response
-
-            if (!response.exc) {
-                if (response.message) {
-                    const { name, emails_not_sent_to } = response.message;
-                    if (emails_not_sent_to) {
-                        frappe.msgprint({
-                            title: 'Partial Success',
-                            message: `The email was queued, but it failed to send to: ${emails_not_sent_to}`,
-                            indicator: 'orange'
-                        });
-                    } else {
-                        frappe.msgprint({
-                            title: 'Email Sent',
-                            message: `The email has been successfully queued for sending. Communication ID: ${name}`,
-                            indicator: 'green'
-                        });
-                    }
-                } else {
-                    frappe.msgprint({
-                        title: 'Email Error',
-                        message: 'Unexpected response from the server.',
-                        indicator: 'red'
-                    });
-                }
+        callback: function (response) {
+            console.log("Response:", response);
+            if (response.message) {
+                frappe.msgprint({
+                    title: 'Partial Success',
+                    message: `The email send has been successfully `,
+                    indicator: 'green'
+                });
             } else {
                 frappe.msgprint({
-                    title: 'Email Failed',
-                    message: `There was an issue sending the email. Details: ${response.exc}`,
+                    title: 'Email Error',
+                    message: 'Unexpected response from the server.',
                     indicator: 'red'
                 });
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.error("Error:", error);
             frappe.msgprint({
                 title: 'Email Error',

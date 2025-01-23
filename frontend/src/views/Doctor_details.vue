@@ -92,7 +92,7 @@
 
 <script setup>
 import axios from 'axios';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
@@ -180,6 +180,15 @@ const bookAppointment = (full_name, specialist, formattedDateTime) => {
         params: { full_name, specialist, formattedDateTime },
     });
 };
+
+watch( () => route.params.full_name, (newVal, oldVal) => {
+    if(newVal!=oldVal){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  },
+  { immediate: true }
+);
+
 
 onMounted(fetchDoctors);
 </script>

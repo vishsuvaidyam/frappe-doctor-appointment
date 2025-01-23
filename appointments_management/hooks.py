@@ -143,22 +143,22 @@ fixtures=[
     'Doctor',
     'Specialist',
     'Doctors_details',
-    'User',
+    'User', 
     'Role',
     'Role Profile',
     'Custom HTML Block',
-    'Email Account',
     ]
 # Scheduled Tasks
 # ---------------
 
 scheduler_events = {
-	"hourly": [
-		"appointments_management.controllers.api.send_email"
-	],
-      "daily": [
+   "cron": {
+    "* * * * *": [
         "appointments_management.controllers.api.send_email"
     ]
+}
+}
+
 	# "all": [
 	# 	# "appointments_management.tasks.all"
 	# ],
@@ -171,7 +171,7 @@ scheduler_events = {
 	# "monthly": [
 	# 	"appointments_management.tasks.monthly"
 	# ],
-}
+# }
 
 # Testing
 # -------

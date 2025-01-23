@@ -97,7 +97,7 @@ const routes = [
 
 const router = createRouter({
   base: "/frontend/",
-  history: createWebHistory("/frontend"),
+  history: createWebHistory(),
   routes,
 });
 
