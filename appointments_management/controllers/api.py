@@ -4,6 +4,7 @@ from frappe import _
 from frappe.utils.password import update_password
 from frappe.utils.password import check_password
 from frappe.core.doctype.communication.email import make
+from frappe.utils.email import sendmail
 from frappe.utils import get_url
 
 
@@ -276,24 +277,33 @@ def my_appointment():
     )
     return appointment
 
+
+
+
 @frappe.whitelist(allow_guest=True)
-def delete_appointment(appointmentName):
+def delete_appointment(name):
     try:
-        appointment_id = frappe.form_dict.get(appointmentName)  
-        if not appointment_id:
-            frappe.throw("Appointment ID is required.")
-        appointment = frappe.get_doc("Appointment", appointment_id)
+        if not name:
+            frappe.throw("Appointment Name is required.")
+        
+        # Fetch the appointment by name
+        appointment = frappe.get_doc("Appointment", {"name": name})  
+        
+        # Ensure appointment exists
+        if not appointment:
+            frappe.throw("Appointment not found.")
+        
         appointment.delete()
         frappe.db.commit()
-        
+
         return {"status": "success", "message": "Appointment deleted successfully."}
+    
     except frappe.DoesNotExistError:
-        frappe.log_error(f"Appointment not found: {appointment_id}", "Delete Appointment")
+        frappe.log_error(f"Appointment not found: {name}", "Delete Appointment")
         return {"status": "error", "message": "Appointment not found."}
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "Delete Appointment Error")
         return {"status": "error", "message": str(e)}
-
 
 # accept to send email message
 @frappe.whitelist()
@@ -315,7 +325,7 @@ def send_appointment_email(recipient_email, patient, doctor_name, datetime):
 def approve_appointment(appointment_name, status):
     try:
         appointment_doc = frappe.get_doc('Appointment', appointment_name)
-        appointment_doc.workflow_state = status  # Update workflow state to 'Approved'
+        appointment_doc.workflow_state = status   
         appointment_doc.save()
         return "success"
     except Exception as e:
@@ -336,18 +346,29 @@ def reject_appointment(appointment_name, status):
 @frappe.whitelist()
 def review_action(appointment_name, status):
     doc = frappe.get_doc('Appointment', appointment_name)  # Fetching the Appointment record
-    # Check if the status exists in the workflow_state field options
-    if not doc.meta.get_field("workflow_state").options or status not in doc.meta.get_field("workflow_state").options:
-        frappe.throw(_("Could not find Workflow State: {0}".format(status)))
+    workflow_field = doc.meta.get_field("workflow_state")
+    
+    # Get the options (valid workflow states) as a list
+    available_states = workflow_field.options.split('\n') if workflow_field.options else []
 
+    # Check if the status exists in the workflow_state field options
+    if status not in available_states:
+        frappe.throw(_("Invalid Workflow State: {0}".format(status)))
+
+    # Set the workflow state to the requested status
     doc.workflow_state = status
     
     try:
         doc.save()
         return {'message': 'success'}
     except frappe.exceptions.LinkValidationError as e:
-        frappe.msgprint(f"Could not find {doc.workflow_state}. Please check the field or values.")
+        frappe.msgprint(f"Link validation error: Could not save {doc.workflow_state}. Please check the field or values.")
         return {'message': 'failure'}
+    except Exception as e:
+        # Catch other exceptions and provide a useful message
+        frappe.msgprint(f"An error occurred: {str(e)}")
+        return {'message': 'failure'}
+
 
 @frappe.whitelist(allow_guest=True)
 def set_status_canceled(appointment_id):
@@ -414,3 +435,24 @@ def send_email(recipients):
 
 
 
+@frappe.whitelist()
+def on_workflow_approval(appointment):
+    # Ensure the workflow state is 'Approved'
+    if appointment.workflow_state == "Approved":
+        # Send approval email
+        send_approval_email(appointment)
+        return {"status": "success", "message": f"Appointment {appointment.name} has been approved and email sent."}
+    else:
+        return {"status": "failed", "message": "Appointment not approved."}
+
+# Function to send approval email
+def send_approval_email(appointment):
+    subject = f"Appointment {appointment.name} Approved"
+    message = f"Your appointment {appointment.name} has been approved."
+    recipient = appointment.email  # Assuming you have a 'customer_email' field
+    
+    sendmail(
+        recipients=recipient,
+        subject=subject,
+        message=message
+    )

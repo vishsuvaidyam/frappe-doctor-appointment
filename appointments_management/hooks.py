@@ -158,6 +158,11 @@ scheduler_events = {
     ]
 }
 }
+doc_events = {
+    "Appointment": {
+        "on_workflow_action": "appointments_management.controllers.api.on_workflow_approval"
+    }
+}
 
 	# "all": [
 	# 	# "appointments_management.tasks.all"

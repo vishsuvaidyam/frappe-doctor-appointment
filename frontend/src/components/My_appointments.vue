@@ -80,6 +80,8 @@ const fetchAppointments = async () => {
             "/api/method/appointments_management.controllers.api.my_appointment"
         );
         if (response.data.message) {
+            console.log(response.data.message);
+            
             doctorappoint.value = response.data.message.map(appointment => ({
                 ...appointment,
                 canceled: false,
