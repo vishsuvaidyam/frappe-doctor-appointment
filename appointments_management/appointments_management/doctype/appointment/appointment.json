@@ -1,22 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:patient",
  "creation": "2024-12-31 11:17:58.921064",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "patient",
   "doctor_name",
+  "pataient_age",
+  "gender",
+  "doctor_fees",
+  "status",
+  "doctor_image",
+  "column_break_flbb",
   "specialist",
   "experience",
   "address",
-  "doctor_image",
-  "doctor_fees",
-  "patient",
-  "pataient_age",
-  "gender",
   "email",
-  "datetime",
-  "status"
+  "datetime"
  ],
  "fields": [
   {
@@ -29,7 +31,8 @@
    "fieldname": "patient",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Patient"
+   "label": "Patient",
+   "unique": 1
   },
   {
    "fieldname": "specialist",
@@ -60,11 +63,13 @@
   {
    "fieldname": "pataient_age",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Pataient age"
   },
   {
    "fieldname": "gender",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Gender"
   },
   {
@@ -75,21 +80,28 @@
   {
    "fieldname": "datetime",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "DateTime"
   },
   {
    "fieldname": "status",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Status",
    "options": "Workflow"
+  },
+  {
+   "fieldname": "column_break_flbb",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-09 14:40:30.177857",
+ "modified": "2025-01-25 17:55:30.009655",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -107,5 +119,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "patient"
 }

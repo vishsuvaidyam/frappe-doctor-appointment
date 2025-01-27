@@ -2,12 +2,12 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-12-30 17:12:23.845435",
-  "name": "user",
-  "role_profile": "user",
+  "modified": "2025-01-16 11:00:55.314923",
+  "name": "Doctor",
+  "role_profile": "Doctor",
   "roles": [
    {
-    "role": "user"
+    "role": "Doctor"
    }
   ]
  },
@@ -26,12 +26,12 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2025-01-16 11:00:55.314923",
-  "name": "Doctor",
-  "role_profile": "Doctor",
+  "modified": "2024-12-30 17:12:23.845435",
+  "name": "user",
+  "role_profile": "user",
   "roles": [
    {
-    "role": "Doctor"
+    "role": "user"
    }
   ]
  }
