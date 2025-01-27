@@ -1,0 +1,58 @@
+{
+ "app": "frappe",
+ "charts": [
+  {
+   "chart_name": "Apppointment",
+   "label": "Apppointment"
+  },
+  {
+   "chart_name": "Doctors",
+   "label": "Doctors"
+  },
+  {
+   "chart_name": "Doctors Avilable",
+   "label": "Doctors Avilable"
+  }
+ ],
+ "content": "[{\"id\":\"9qulLS2GLW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Approved\",\"col\":4}},{\"id\":\"LnL2s-T5_R\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Appointment By Pending\",\"col\":4}},{\"id\":\"EFf6rnxr6o\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Appointment By Reject\",\"col\":4}},{\"id\":\"ifplb5d4kR\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Apppointment\",\"col\":12}},{\"id\":\"w9gm4-bJ09\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Doctors\",\"col\":6}},{\"id\":\"mAz1V7KkDQ\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Doctors Avilable\",\"col\":6}}]",
+ "creation": "2025-01-27 16:02:35.794011",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "dashboard-list",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "AP-Dashboard",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-01-27 16:04:44.783796",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "AP-Dashboard",
+ "number_cards": [
+  {
+   "label": "Approved",
+   "number_card_name": "Approved"
+  },
+  {
+   "label": "Appointment By Pending",
+   "number_card_name": "Appointment By Pending"
+  },
+  {
+   "label": "Appointment By Reject",
+   "number_card_name": "Appointment By Reject"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [],
+ "title": "AP-Dashboard",
+ "type": "Workspace"
+}

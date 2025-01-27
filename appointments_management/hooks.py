@@ -160,9 +160,16 @@ scheduler_events = {
 }
 doc_events = {
     "Appointment": {
-        "on_workflow_action": "appointments_management.controllers.api.on_workflow_approval"
+        "on_update": "appointments_management.controllers.api.send_email_if_approved"
     }
 }
+doc_events = {
+    "Appointment": {
+        "on_update": "appointments_management.controllers.api.send_email_if_rejected"
+    }
+}
+
+
 
 	# "all": [
 	# 	# "appointments_management.tasks.all"
