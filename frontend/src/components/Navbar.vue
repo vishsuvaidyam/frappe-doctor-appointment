@@ -4,7 +4,7 @@
     <!-- Logo Section -->
     <div class="flex items-center">
       <router-link to="/" class="text-2xl font-bold">
-        <img class="w-32 md:w-40 h-12 md:h-[52px]" src="../assets/logo-BNCDj_dh.svg" alt="Logo" />
+        <img class="w-32 md:w-40 h-12 md:h-[52px]" src="../assets/askapollo-logo.png" alt="Logo" />
       </router-link>
     </div>
     <div :class="{
@@ -12,19 +12,19 @@
       'flex flex-col bg-white fixed top-20 left-0 w-full h-screen p-8 space-y-4': isMobileMenuOpen,
     }" class="justify-center items-center space-x-8 text-sm font-medium">
       <router-link to="/" class="text-sm font-medium"
-        :class="{ 'border-b-2 border-blue-500 text-center': isActive('/') }">
+        :class="{ 'border-b-2 border-[#367892] text-center': isActive('/') }">
         HOME
       </router-link>
       <router-link to="/doctors" class="text-sm font-medium"
-        :class="{ 'border-b-2 border-blue-500': isActive('/doctors') }">
+        :class="{ 'border-b-2 border-[#367892]': isActive('/doctors') }">
         ALL DOCTORS
       </router-link>
       <router-link to="/about" class="text-sm font-medium"
-        :class="{ 'border-b-2 border-blue-500': isActive('/about') }">
+        :class="{ 'border-b-2 border-[#367892]': isActive('/about') }">
         ABOUT
       </router-link>
       <router-link to="/contact" class="text-sm font-medium"
-        :class="{ 'border-b-2 border-blue-500': isActive('/contact') }">
+        :class="{ 'border-b-2 border-[#367892]': isActive('/contact') }">
         CONTACT
       </router-link>
       <a href="#" class="border rounded-3xl py-1 px-4">Admin Panel</a>
@@ -35,10 +35,18 @@
       <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-medium text-black md:block">
         Register
       </router-link>
-      <router-link v-if="!isLoggedIn" to="/login"
-        class="px-6 py-2 text-sm font-normal text-white bg-blue-500 hover:bg-blue-600 md:block rounded text-center">
-        Login
-      </router-link>
+
+      <router-link 
+  v-if="!isLoggedIn" 
+  to="/login" 
+  class="flex items-center gap-2 px-4 py-2 border border-teal-700 text-teal-700 text-sm font-medium rounded-lg hover:bg-teal-50 transition-all duration-200">
+  <span>Login</span>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15.75c2.425 0 4.703.574 6.879 1.595M15 10a3 3 0 11-6 0 3 3 0 016 0zM12 14.25c-2.925 0-5.564.929-7.879 2.554A8.999 8.999 0 1012 3a8.999 8.999 0 000 18z" />
+  </svg>
+</router-link>
+
+      
       <div v-else class="relative inline-block text-left">
         <Dropdown :options="[
           {

@@ -15,8 +15,8 @@
   "column_break_boab",
   "last_name",
   "qulifications",
-  "status",
   "doctor_fee",
+  "status",
   "test",
   "doctor_shift_section",
   "shift",
@@ -70,18 +70,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "\nAvailable\nNot Available",
-   "read_only": 1,
-   "reqd": 1
-  },
-  {
    "fieldname": "doctor_image",
    "fieldtype": "Attach Image",
-   "label": "Doctor Image"
+   "label": "Doctor Image",
+   "reqd": 1
   },
   {
    "fetch_from": "details.experience",
@@ -133,12 +125,21 @@
    "default": "0",
    "fieldname": "test",
    "fieldtype": "Check",
-   "label": "Test"
+   "label": "Status"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nAvailable\nNot Available",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-18 15:01:01.612359",
+ "modified": "2025-01-27 11:30:15.662785",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

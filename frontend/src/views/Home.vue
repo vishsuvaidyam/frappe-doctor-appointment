@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <!-- Hero Section -->
-    <div class="bg-blue-500 h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
+    <div class="bg-[#367892] h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
       <div class="container mx-auto px-4 sm:px-6 md:px-8 py-6">
         <div class="flex flex-col lg:flex-row items-center">
           <div class="lg:w-1/2 text-center lg:text-left pb-8 lg:pb-0">

@@ -4,7 +4,6 @@ from frappe import _
 from frappe.utils.password import update_password
 from frappe.utils.password import check_password
 from frappe.core.doctype.communication.email import make
-from frappe.utils.email import sendmail
 from frappe.utils import get_url
 
 
@@ -436,23 +435,59 @@ def send_email(recipients):
 
 
 @frappe.whitelist()
-def on_workflow_approval(appointment):
-    # Ensure the workflow state is 'Approved'
-    if appointment.workflow_state == "Approved":
-        # Send approval email
-        send_approval_email(appointment)
-        return {"status": "success", "message": f"Appointment {appointment.name} has been approved and email sent."}
-    else:
-        return {"status": "failed", "message": "Appointment not approved."}
+def send_email_if_approved(doc, method=None):
+   
+    if doc.workflow_state == "Approved":
+        recipient_email = doc.get("email")  
+        if recipient_email:
+            subject = f"Appointment Approved: {doc.name}"
+            message = f"""
+            Hello,
 
-# Function to send approval email
-def send_approval_email(appointment):
-    subject = f"Appointment {appointment.name} Approved"
-    message = f"Your appointment {appointment.name} has been approved."
-    recipient = appointment.email  # Assuming you have a 'customer_email' field
-    
-    sendmail(
-        recipients=recipient,
-        subject=subject,
-        message=message
-    )
+            Your appointment has been approved.
+
+            Details:
+            - Appointment ID: {doc.name}
+            - Date: {doc.get('datetime')}  
+            """
+            # message_content = frappe.render_template("appointments_management/templates/pages/email.html")
+            # Send the email
+            frappe.sendmail(
+                recipients=[recipient_email],
+                subject=subject,
+                message=message
+            )
+        else:
+            frappe.log_error(
+                title="Email Not Sent",
+                message=f"No email address found for Appointment {doc.name}"
+            )
+ 
+@frappe.whitelist()
+def send_email_if_rejected(doc, method=None):
+    if doc.workflow_state == "Rejected":
+        recipient_email = doc.get("email")  
+        if recipient_email:
+            subject = f"Appointment Rejected: {doc.name}"
+            message = f"""
+            Hello,
+
+            Your appointment has been Rejected.
+
+            Details:
+            - Appointment patient name: {doc.name}
+            - Date: {doc.get('datetime')}  
+            """
+            # message_content = frappe.render_template("appointments_management/templates/pages/email.html")
+            # Send the email
+            frappe.sendmail(
+                recipients=[recipient_email],
+                subject=subject,
+                message=message
+            )
+        else:
+            frappe.log_error(
+                title="Email Not Sent",
+                message=f"No email address found for Appointment {doc.name}"
+            )
+ 

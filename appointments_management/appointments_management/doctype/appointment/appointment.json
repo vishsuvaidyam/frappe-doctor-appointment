@@ -30,8 +30,9 @@
   {
    "fieldname": "patient",
    "fieldtype": "Data",
+   "in_filter": 1,
    "in_list_view": 1,
-   "label": "Patient",
+   "label": "Patient Name",
    "unique": 1
   },
   {
@@ -97,7 +98,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-25 17:55:30.009655",
+ "modified": "2025-01-27 12:49:26.674113",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Appointment",
