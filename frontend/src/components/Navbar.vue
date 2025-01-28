@@ -11,19 +11,19 @@
       'hidden lg:flex': !isMobileMenuOpen,
       'flex flex-col bg-white fixed top-20 left-0 w-full h-screen p-8 space-y-4': isMobileMenuOpen,
     }" class="justify-center items-center space-x-8 text-sm font-medium">
-      <router-link to="/" class="text-sm font-medium"
-        :class="{ 'border-b-2 border-[#367892] text-center': isActive('/') }">
+      <router-link to="/" class="text-sm font-medium text-[#224855]"
+        :class="{ 'border-b-2 border-[#367892] text-center hover:text-yellow-500': isActive('/') }">
         HOME
       </router-link>
-      <router-link to="/doctors" class="text-sm font-medium"
+      <router-link to="/doctors" class="text-sm font-medium hover:text-yellow-500 text-[#224855]"
         :class="{ 'border-b-2 border-[#367892]': isActive('/doctors') }">
         ALL DOCTORS
       </router-link>
-      <router-link to="/about" class="text-sm font-medium"
+      <router-link to="/about" class="text-sm font-medium hover:text-yellow-500 text-[#224855]"
         :class="{ 'border-b-2 border-[#367892]': isActive('/about') }">
         ABOUT
       </router-link>
-      <router-link to="/contact" class="text-sm font-medium"
+      <router-link to="/contact" class="text-sm font-medium hover:text-yellow-500 text-[#224855]"
         :class="{ 'border-b-2 border-[#367892]': isActive('/contact') }">
         CONTACT
       </router-link>
@@ -32,7 +32,7 @@
 
     <!-- Action Buttons -->
     <div class="flex justify-end items-center space-x-4">
-      <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-medium text-black md:block">
+      <router-link v-if="!isLoggedIn" to="/register" class="hidden px-2 py-3 text-sm font-medium text-[#224855] hover:text-yellow-500 md:block">
         Register
       </router-link>
 

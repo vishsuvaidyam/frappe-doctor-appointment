@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import authRoutes from './auth';
-import Doctors from "../views/Doctors.vue";
+import Doctors from "../views/All_doctors.vue";
 import About from "../views/About.vue";
 import Contact from "../views/Contact.vue";
 import Doctor_details from "../views/Doctor_details.vue";

@@ -65,15 +65,9 @@
           </div>
         </div>
       </div>
-  
-      <!-- Footer Section -->
-      <div class="mt-20">
-        <Footer />
-      </div>
     </div>
   </template>
   
   <script setup>
-  import Footer from '../components/Footer.vue';
   </script>
   
