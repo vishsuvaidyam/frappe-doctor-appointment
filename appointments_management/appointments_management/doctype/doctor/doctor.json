@@ -12,8 +12,10 @@
   "full_name",
   "specialist",
   "experience",
+  "language",
   "column_break_boab",
   "last_name",
+  "gender",
   "qulifications",
   "doctor_fee",
   "status",
@@ -135,11 +137,23 @@
    "label": "Status",
    "options": "\nAvailable\nNot Available",
    "read_only": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": " Gender",
+   "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Language",
+   "options": "Languages"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-27 11:30:15.662785",
+ "modified": "2025-01-28 18:15:20.675662",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

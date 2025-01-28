@@ -125,9 +125,16 @@ def logout():
 @frappe.whitelist(allow_guest=True)
 def doctors_data():
     doctors = frappe.get_all(
-        "Doctor", fields=["full_name", "specialist", "status", "doctor_image"]
+        "Doctor", 
+        fields=["*"]  # Get all fields from the Doctor DocType
     )
-    # print(doctors, "==========================================")
+    
+    for doctor in doctors:
+        # Fetch the full document to include child table data
+        doctor_doc = frappe.get_doc("Doctor", doctor.name)
+        # Fetch child table data (shift field points to Doctor Shift child table)
+        doctor["shifts"] = doctor_doc.get("shift", [])
+    
     return doctors
 
 

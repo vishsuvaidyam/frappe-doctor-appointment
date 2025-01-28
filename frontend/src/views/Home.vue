@@ -1,7 +1,6 @@
 <template>
-  <div class="w-full">
-    <!-- Hero Section -->
-    <div class="bg-[#367892] h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
+  <!-- <div class="w-full  py-10 bg">
+    <div class="bg-[#367892] h-auto flex flex-col lg:flex-row items-center rounded-lg  mx-4 sm:mx-6 md:mx-10 lg:mx-20">
       <div class="container mx-auto px-4 sm:px-6 md:px-8 py-6">
         <div class="flex flex-col lg:flex-row items-center">
           <div class="lg:w-1/2 text-center lg:text-left pb-8 lg:pb-0">
@@ -35,12 +34,10 @@
       </div>
     </div>
 
-    <!-- Speciality Section -->
     <div>
       <Speciality />
     </div>
 
-    <!-- Top Doctors Section -->
     <div class="mx-4 sm:mx-6 md:mx-10 lg:mx-20 pt-10">
       <div class="text-center">
         <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Top Doctors to Book</h2>
@@ -56,8 +53,7 @@
       </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="bg-blue-500 h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 sm:mx-6 lg:mx-20 p-6">
+    <div class="bg-[#367892]  h-auto flex flex-col lg:flex-row items-center rounded-lg mt-10 mx-4 sm:mx-6 lg:mx-20 p-6">
       <div class="lg:w-1/2 text-center lg:text-left mb-6 lg:mb-0 px-4">
         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white pb-4">
           Book Appointment <br> With 100+ Trusted Doctors
@@ -73,15 +69,70 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="mt-20">
       <Footer />
     </div>
   </div>
+</div> -->
+  <div class="bg-white font-sans py-20 mx-4 md:mx-16 lg:mx-60">
+
+    <!-- Search Section -->
+    <div class="bg-[#2e718e] py-6"></div>
+    <section class="bg-[#367892] bg py-20">
+      <div class="container mx-auto px-6 md:px-16 lg:px-20 text-center">
+        <h1 class="text-3xl text-white font-semibold mb-4">Best Doctors In Patna</h1>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-2">
+
+          <div class="relative w-full md:w-1/2">
+            <input type="text" placeholder="Search"
+              class="w-full px-4 py-2 pl-10 rounded-md outline-none border border-gray-300" />
+            <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2" aria-hidden="true"></i>
+          </div>
+          <div class="relative md:w-1/2">
+            <img class="w-4 h-4  absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none  " src="../assets/icons8-location-50.png" alt="" srcset="">
+            <select
+              class="w-full px-10 py-2 rounded-md text-sm outline-none text-[#224855] border border-gray-300 appearance-none">
+              <option class="text-sm text-[#224855]">Select Hospital</option>
+              <option class="text-sm text-[#224855]">Hospital 1</option>
+              <option class="text-sm text-[#224855]">Hospital 2</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <All_doctors />
+    <div class="flex justify-center items-center pb-8">
+        <router-link to="/doctors" class="px-8 py-2 rounded-3xl border bg-gray-50 text-gray-800 text-sm sm:text-base">
+          More
+        </router-link>
+      </div>
+    <!-- Floating Buttons -->
+    <div class="fixed bottom-4 right-4 space-y-4">
+      <button class="bg-[#4849bd] text-white px-8 py-3 rounded-md shadow-md flex items-center space-x-2">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        <span class="text-[10px] font-semibold">BOOK APPOINTMENT</span>
+      </button>
+      <button class="bg-[#F4A100] text-white px-10 py-3 rounded-md shadow-md flex items-center space-x-2">
+        <span class="text-[10px] font-semibold">REQUEST A CALL BACK</span>
+      </button>
+    </div>
+
+  </div>
+
 </template>
 
 <script setup>
-import Speciality from './Speciality.vue';
+// import Speciality from './Speciality.vue';
 import All_doctors from './All_doctors.vue';
-import Footer from '../components/Footer.vue';
 </script>
+<style>
+.bg {
+  background-image: url("../assets/directory-top-bg.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+</style>

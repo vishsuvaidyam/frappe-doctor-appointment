@@ -3,11 +3,11 @@
     <div class="pt-20">
       <Navbar/>
     </div>
-    <div class="mx-auto max-w-[1700px] h-full ">
+    <div class=" h-full bg-[#F8FCFF]">
       <router-view />
-      <!-- <div class="mt-20">
-        <Footer/>
-      </div> -->
+      <div class="mx-60">
+        <!-- <Footer/> -->
+      </div>
     </div>
   </div>
 </template>
@@ -19,3 +19,4 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 </script>
+<!-- mx-auto max-w-[1700px] -->
