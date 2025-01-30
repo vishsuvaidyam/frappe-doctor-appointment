@@ -1,27 +1,35 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:language_name",
- "creation": "2025-01-28 17:23:27.693839",
+ "autoname": "field:town_name",
+ "creation": "2025-01-30 11:54:35.833344",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "language_name"
+  "town_name",
+  "doctors"
  ],
  "fields": [
   {
-   "fieldname": "language_name",
+   "fieldname": "town_name",
    "fieldtype": "Data",
-   "label": "Language name",
+   "in_list_view": 1,
+   "label": "Town name",
    "unique": 1
+  },
+  {
+   "fieldname": "doctors",
+   "fieldtype": "Table MultiSelect",
+   "label": "Doctors",
+   "options": "Doctor c"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 18:37:46.197554",
+ "modified": "2025-01-30 14:21:09.707427",
  "modified_by": "Administrator",
  "module": "appointments_management",
- "name": "Languages",
+ "name": "City",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -41,5 +49,5 @@
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
- "title_field": "language_name"
+ "title_field": "town_name"
 }

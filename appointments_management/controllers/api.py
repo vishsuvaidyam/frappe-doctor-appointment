@@ -5,6 +5,8 @@ from frappe.utils.password import update_password
 from frappe.utils.password import check_password
 from frappe.core.doctype.communication.email import make
 from frappe.utils import get_url
+import json
+
 
 
 @frappe.whitelist(allow_guest=True)
@@ -126,16 +128,73 @@ def logout():
 def doctors_data():
     doctors = frappe.get_all(
         "Doctor", 
-        fields=["*"]  # Get all fields from the Doctor DocType
+        fields=["*"]   
     )
     
     for doctor in doctors:
-        # Fetch the full document to include child table data
         doctor_doc = frappe.get_doc("Doctor", doctor.name)
-        # Fetch child table data (shift field points to Doctor Shift child table)
         doctor["shifts"] = doctor_doc.get("shift", [])
     
     return doctors
+
+@frappe.whitelist(allow_guest=True)
+def Languages_data():
+    lan = frappe.get_all(
+        "Languages", 
+        fields=["*"]   
+    )
+    return lan
+
+@frappe.whitelist(allow_guest=True)
+def city_data():
+    """Fetch City data including MultiSelect 'doctors' field from child table."""
+    try:
+        cities = frappe.get_all("City", fields=["name", "town_name"])
+
+        city_list = []
+        for city in cities:
+            city_doc = frappe.get_doc("City", city["name"])
+            doctor_names = [frappe.get_value("Doctor c", doctor, "doctor") for doctor in city_doc.doctors]
+
+            city_list.append({
+                "city_name": city["town_name"],
+                "doctors": doctor_names
+            })
+
+        return city_list
+
+    except Exception as e:
+        frappe.log_error(f"Error fetching city data: {str(e)}")
+        return {"error": str(e)}
+
+
+
+@frappe.whitelist(allow_guest=True)
+def get_doctors_by_city(town_name):
+    """Fetch doctors linked to a specific City via the MultiSelect field."""
+    try:
+        city = frappe.get_all(
+            "City",
+            filters={"town_name": town_name},  
+            fields=[ "*"] 
+        )
+        city = city[0]
+        city_doc = frappe.get_doc("City", city["name"])
+        doctor_names = []
+        if city_doc.doctors:
+            for doctor in city_doc.doctors:
+                doctor_name = frappe.get_value("Doctor c", doctor, "*", as_dict=True)
+                if doctor_name:
+                    doctor_names.append(doctor_name)
+
+        return {
+            "town_name": town_name,
+            "doctors": doctor_names
+        }
+
+    except Exception as e:
+        frappe.log_error(f"Error fetching doctors for {town_name}: {str(e)}")
+        return {"error": str(e)}
 
 
 @frappe.whitelist(allow_guest=True)
@@ -144,7 +203,7 @@ def spaclist():
     return spaclist
 
 
- 
+
 
 @frappe.whitelist(allow_guest=True)
 def doctors_filter(specialist=None):

@@ -2,24 +2,24 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2025-01-16 11:00:55.314923",
-  "name": "Doctor",
-  "role_profile": "Doctor",
-  "roles": [
-   {
-    "role": "Doctor"
-   }
-  ]
- },
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
   "modified": "2024-12-24 18:19:09.405150",
   "name": "Primary",
   "role_profile": "Primary",
   "roles": [
    {
     "role": "Primary"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-01-16 11:00:55.314923",
+  "name": "Doctor",
+  "role_profile": "Doctor",
+  "roles": [
+   {
+    "role": "Doctor"
    }
   ]
  },

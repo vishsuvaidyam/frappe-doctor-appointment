@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white mx-4 md:mx-16 lg:mx-40">
+    <div class="bg-white shadow-lg mx-4 md:mx-16 lg:mx-60">
         <main class="container mx-auto px-4 py-8">
             <div class="flex flex-col gap-8 justify-center sm:flex-row sm:gap-4 md:gap-6 lg:gap-8 mb-6">
                 <!-- Filter Section -->
@@ -16,7 +16,7 @@
                         <select v-model="activeSpecialist" @change="fetchDoctors"
                             class="px-4 py-2 rounded-md text-sm border border-[#224855] text-[#224855] bg-transparent outline-none">
                             <option value="">Speciality</option>
-                            <option v-for="specialist in specialists" :key="specialist.name1" :value="specialist.name1">
+                            <option class="option-class" v-for="specialist in specialists" :key="specialist.name1" :value="specialist.name1">
                                 {{ specialist.name1 }}
                             </option>
                         </select>
@@ -91,13 +91,13 @@
                 </div>
 
                 <!-- Image Section -->
-                <div class="w-full sm:w-1/4 lg:w-1/3 h-auto relative">
+                <div class="w-full sm:w-1/4 lg:w-1/4 h-auto relative">
                     <div class="sticky border rounded-lg p-10 top-24">
                         <img class="w-full h-full object-cover" src="../assets/need-help.svg" alt="Need Help">
                     </div>
-                    <div class="absolute top-32 text-center font-bold left-1/2 transform -translate-x-1/2 pl-8">
+                    <div class="absolute top-28  text-center font-bold left-1/2 transform -translate-x-1/2 pl-8">
                         <p class="text-[#F4A100] text-sm">Need Help?</p>
-                        <p class="hover:text-[#F4A100]">1860 500 1066</p>
+                        <p class="hover:text-[#F4A100] cursor-pointer">1860 500 1066</p>
                     </div>
                 </div>
             </div>
@@ -181,3 +181,12 @@ onMounted(() => {
     fetchSpecialists();
 });
 </script>
+<style>
+.option-class {
+  /* You can adjust these if the select box allows more control in your case */
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+</style>
