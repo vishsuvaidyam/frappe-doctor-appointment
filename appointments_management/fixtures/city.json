@@ -1,0 +1,168 @@
+[
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:56:04.324865",
+  "name": "Ahmedabad",
+  "town_name": "Ahmedabad"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:56:20.707366",
+  "name": "Amritsar",
+  "town_name": "Amritsar"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:56:42.411763",
+  "name": "Aragonda",
+  "town_name": "Aragonda"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:56:57.025914",
+  "name": "Bangalore",
+  "town_name": "Bangalore"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:57:11.296414",
+  "name": "Bhopal",
+  "town_name": "Bhopal"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:57:33.227391",
+  "name": "Bhubaneswar",
+  "town_name": "Bhubaneswar"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:57:45.794053",
+  "name": "Bilaspur",
+  "town_name": "Bilaspur"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:58:04.748168",
+  "name": "Chennai",
+  "town_name": "Chennai"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:58:24.843084",
+  "name": "Cochin",
+  "town_name": "Cochin"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:58:40.571111",
+  "name": "Delhi",
+  "town_name": "Delhi"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:59:22.859960",
+  "name": "Gandhinagar",
+  "town_name": "Gandhinagar"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 11:59:38.638760",
+  "name": "Guwahati",
+  "town_name": "Guwahati"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [
+   {
+    "doctor": "Dr. Ava Mitchell",
+    "doctor_fee": null,
+    "doctor_image": null,
+    "name1": null
+   },
+   {
+    "doctor": "Dr. Christopher Lee",
+    "doctor_fee": null,
+    "doctor_image": null,
+    "name1": null
+   },
+   {
+    "doctor": "Dr. Emily  Larson",
+    "doctor_fee": null,
+    "doctor_image": null,
+    "name1": null
+   }
+  ],
+  "doctype": "City",
+  "modified": "2025-01-30 16:26:30.269014",
+  "name": "Hyderabad",
+  "town_name": "Hyderabad"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 14:00:19.579476",
+  "name": "Indore",
+  "town_name": "Indore"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [],
+  "doctype": "City",
+  "modified": "2025-01-30 14:00:06.996313",
+  "name": "Kakinada",
+  "town_name": "Kakinada"
+ },
+ {
+  "docstatus": 0,
+  "doctors": [
+   {
+    "doctor": "Dr. Christopher Lee",
+    "doctor_fee": null,
+    "doctor_image": null,
+    "name1": null
+   },
+   {
+    "doctor": "Dr. Ava Mitchell",
+    "doctor_fee": null,
+    "doctor_image": null,
+    "name1": null
+   },
+   {
+    "doctor": "Dr. Timothy White",
+    "doctor_fee": null,
+    "doctor_image": null,
+    "name1": null
+   }
+  ],
+  "doctype": "City",
+  "modified": "2025-01-30 16:26:49.104757",
+  "name": "Karaikudi",
+  "town_name": "Karaikudi"
+ }
+]

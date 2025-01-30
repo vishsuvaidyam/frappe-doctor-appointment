@@ -1,0 +1,80 @@
+[
+ {
+  "docstatus": 0,
+  "doctor": "Dr. Ava Mitchell",
+  "doctor_fee": null,
+  "doctor_image": null,
+  "doctype": "Doctor c",
+  "modified": "2025-01-30 16:26:30.269014",
+  "name": "t3l23r7s3a",
+  "name1": null,
+  "parent": "Hyderabad",
+  "parentfield": "doctors",
+  "parenttype": "City"
+ },
+ {
+  "docstatus": 0,
+  "doctor": "Dr. Christopher Lee",
+  "doctor_fee": null,
+  "doctor_image": null,
+  "doctype": "Doctor c",
+  "modified": "2025-01-30 16:26:49.104757",
+  "name": "bs0shvhobu",
+  "name1": null,
+  "parent": "Karaikudi",
+  "parentfield": "doctors",
+  "parenttype": "City"
+ },
+ {
+  "docstatus": 0,
+  "doctor": "Dr. Christopher Lee",
+  "doctor_fee": null,
+  "doctor_image": null,
+  "doctype": "Doctor c",
+  "modified": "2025-01-30 16:26:30.269014",
+  "name": "2eg06mg1f3",
+  "name1": null,
+  "parent": "Hyderabad",
+  "parentfield": "doctors",
+  "parenttype": "City"
+ },
+ {
+  "docstatus": 0,
+  "doctor": "Dr. Ava Mitchell",
+  "doctor_fee": null,
+  "doctor_image": null,
+  "doctype": "Doctor c",
+  "modified": "2025-01-30 16:26:49.104757",
+  "name": "ia9n4tt1f8",
+  "name1": null,
+  "parent": "Karaikudi",
+  "parentfield": "doctors",
+  "parenttype": "City"
+ },
+ {
+  "docstatus": 0,
+  "doctor": "Dr. Emily  Larson",
+  "doctor_fee": null,
+  "doctor_image": null,
+  "doctype": "Doctor c",
+  "modified": "2025-01-30 16:26:30.269014",
+  "name": "eorc0lfmrf",
+  "name1": null,
+  "parent": "Hyderabad",
+  "parentfield": "doctors",
+  "parenttype": "City"
+ },
+ {
+  "docstatus": 0,
+  "doctor": "Dr. Timothy White",
+  "doctor_fee": null,
+  "doctor_image": null,
+  "doctype": "Doctor c",
+  "modified": "2025-01-30 16:26:49.104757",
+  "name": "r8p7tqb9j7",
+  "name1": null,
+  "parent": "Karaikudi",
+  "parentfield": "doctors",
+  "parenttype": "City"
+ }
+]

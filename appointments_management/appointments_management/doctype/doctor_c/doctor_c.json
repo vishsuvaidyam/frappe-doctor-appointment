@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-30 14:17:43.856457",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "doctor",
+  "doctor_fee",
+  "doctor_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "doctor",
+   "fieldtype": "Link",
+   "label": "Doctor",
+   "options": "Doctor"
+  },
+  {
+   "fetch_from": "doctor.doctor_fee",
+   "fieldname": "doctor_fee",
+   "fieldtype": "Data",
+   "label": "Doctor fee"
+  },
+  {
+   "fetch_from": "doctor.doctor_image",
+   "fieldname": "doctor_image",
+   "fieldtype": "Attach Image",
+   "label": "Doctor image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-30 17:40:18.530944",
+ "modified_by": "Administrator",
+ "module": "appointments_management",
+ "name": "Doctor c",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

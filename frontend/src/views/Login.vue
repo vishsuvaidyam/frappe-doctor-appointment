@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed inset-0 bg-opacity-50  bg-gradient-to-t from-sky-200 to-white flex items-center justify-center px-4">
+    class="fixed inset-0 bg-opacity-50  bg-gradient-to-t from-[#224855] to-white flex items-center justify-center px-4">
     <div class="bg-white shadow-md rounded-lg p-8 max-w-sm w-full">
       <h2 class="text-2xl font-extrabold text-gray-600">Login</h2>
       <p class="text-sm font-normal text-gray-500 py-4">Please log in to book an appointment</p>
