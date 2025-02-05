@@ -3,7 +3,7 @@
     class="grid-cols-3 w-full fixed top-0  bg-white z-20 px-4 md:px-8 lg:px-20 h-20 flex justify-between items-center border-b shadow-sm">
     <!-- Logo Section fixed top-0 -->
     <div class="flex items-center">
-      <router-link to="/" class="text-2xl font-bold">
+      <router-link to="/:city_name" class="text-2xl font-bold">
         <img class="w-32 md:w-40 h-12 md:h-[52px]" src="../assets/askapollo-logo.png" alt="Logo" />
       </router-link>
     </div>
@@ -11,7 +11,7 @@
       'hidden lg:flex': !isMobileMenuOpen,
       'flex flex-col bg-white fixed top-20 left-0 w-full h-screen p-8 space-y-4': isMobileMenuOpen,
     }" class="justify-center items-center space-x-8 text-sm font-medium">
-      <router-link to="/" class="text-sm font-medium text-[#224855]"
+      <router-link to="/:city_name " class="text-sm font-medium text-[#224855]"
         :class="{ 'border-b-2 border-[#367892] text-center hover:text-yellow-500': isActive('/') }">
         HOME
       </router-link>
@@ -42,11 +42,11 @@
               <div v-for="(city, index) in resultcity" :key="index" class="flex flex-col items-center">
                 <div
                   class="w-24 h-20 flex justify-center items-center rounded p-4 mt-2 border-white border-2 delay-100 transition-all hover:border-[#224855] hover:border-2"
-                  :class="{ 'bg-[#fde7ac] border-yellow-500': selectedCity === city.city_name, 'bg-[#f1f7f7]': selectedCity !== city.city_name }"
+                  :class="{ 'bg-[#fde7ac] border-yellow-500': selectedCity === city.town_name, 'bg-[#f1f7f7]': selectedCity !== city.town_name }"
                   @click="selectCity(city)">
                   <img class="w-full h-full object-cover" src="../assets/ahmedabad.svg" alt="city.name[0]" />
                 </div>
-                <p class="mt-2 text-center text-[#c4c2c] text-[12px] font-semibold">{{ city.city_name }}</p>
+                <p class="mt-2 text-center text-[#c4c2c] text-[12px] font-semibold">{{ city.town_name }}</p>
               </div>
             </div>
             <div class="mt-4 flex justify-end">
@@ -217,7 +217,7 @@ const citydata = async () => {
   try {
     const response = await axios.get("/api/method/appointments_management.controllers.api.city_data");
     resultcity.value = response.data.message;
-    // console.log(resultcity.value);
+    console.log(resultcity.value);
   } catch (error) {
     console.error('Error fetching city data:', error);
   }
@@ -225,19 +225,8 @@ const citydata = async () => {
 
 
 const selectCity = async (city) => {
-  selectedCity.value = city.city_name;
-  console.log(city);
-  
-  try {
-    const response = await axios.get("/api/method/appointments_management.controllers.api.get_doctors_by_city", {
-      params: { town_name: city.city_name }   
-    });
-
-    resultcity = response.data.message;  
-    console.log(resultcity);  
-  } catch (error) {
-    console.error("Error fetching city data:", error);
-  }
+  selectedCity.value = city.town_name;
+  router.push({ name: "Home", params: { city_name: city.town_name } });
   togglecity();
 };
 
@@ -250,7 +239,6 @@ const toggleMobileMenu = () => {
 };
 
 onMounted(() => {
-  // citydata();
   fetchUserProfile();
 });
 </script>
