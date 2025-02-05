@@ -94,10 +94,10 @@
                 <div class="w-full sm:w-1/4 lg:w-1/4 h-auto relative">
                     <div class="sticky border rounded-lg p-10 top-24">
                         <img class="w-full h-full object-cover" src="../assets/need-help.svg" alt="Need Help">
-                    </div>
-                    <div class="absolute top-28  text-center font-bold left-1/2 transform -translate-x-1/2 pl-8">
-                        <p class="text-[#F4A100] text-sm">Need Help?</p>
-                        <p class="hover:text-[#F4A100] cursor-pointer">1860 500 1066</p>
+                        <div class="absolute top-28  text-center font-bold left-1/2 transform -translate-x-1/2 pl-8">
+                            <p class="text-[#F4A100] text-sm">Need Help?</p>
+                            <p class="hover:text-[#F4A100] cursor-pointer">1860 500 1066</p>
+                        </div>
                     </div>
                 </div>
             </div>

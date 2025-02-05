@@ -21,7 +21,7 @@ const routes = [
     component: RegisterPage,
   },
   {
-    path: "/",
+    path: "/:city_name",
     name: "Home",
     component: Home,
   },

@@ -80,7 +80,7 @@
     <div class="bg-[#2e718e] py-6"></div>
     <section class="bg-[#367892] bg py-20">
       <div class="container mx-auto px-6 md:px-16 lg:px-20 text-center">
-        <h1 class="text-3xl text-white font-semibold mb-4">Best Doctors In Patna</h1>
+        <div class="text-2xl text-white font-semibold mb-4">Best Doctors In {{ cityName || "sadwae" }}</div>
         <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-2">
 
           <div class="relative w-full md:w-1/2">
@@ -97,8 +97,8 @@
               <option class="text-sm text-[#224855]">Hospital 2</option>
             </select>
             <!-- <span class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-              <i class="fa fa-caret-down  h-2 text-[#224855]" aria-hidden="true"></i>
-            </span> -->
+          <i class="fa fa-caret-down  h-2 text-[#224855]" aria-hidden="true"></i>
+        </span> -->
           </div>
 
 
@@ -129,7 +129,6 @@
             <select v-if="doctors.length > 0" v-model="selectedGender" @change="fetchDoctors"
               class="px-4 py-2 rounded-md text-sm border border-[#224855] text-[#224855] bg-transparent outline-none">
               <option value="">Gender</option>
-              <!-- Loop through unique genders -->
               <option v-for="gender in uniqueGenders" :key="gender" :value="gender">{{ gender }}</option>
             </select>
 
@@ -196,17 +195,16 @@
         <div class="w-full sm:w-1/4 lg:w-1/4 h-auto relative">
           <div class="sticky border rounded-lg p-10 top-24">
             <img class="w-full h-full object-cover" src="../assets/need-help.svg" alt="Need Help">
-          </div>
-          <div class="absolute top-28 text-center font-bold left-1/2 transform -translate-x-1/2 pl-8">
-            <p class="text-[#F4A100] text-sm">Need Help?</p>
-            <p class="hover:text-[#F4A100] cursor-pointer">1860 500 1066</p>
+            <div class="absolute top-28 text-center font-bold left-1/2 transform -translate-x-1/2 pl-8">
+              <p class="text-[#F4A100] text-sm">Need Help?</p>
+              <p class="hover:text-[#F4A100] cursor-pointer">1860 500 1066</p>
+            </div>
           </div>
         </div>
       </div>
     </main>
     <div class="flex justify-center items-center pb-8">
-      <router-link to="/doctors"
-        class="px-10 py-2 font-semibold rounded-md border bg-[#125a6e] text-white text-sm sm:text-base">
+      <router-link to="/doctors" class="px-10 py-2 font-semibold rounded-md border bg-[#125a6e] text-white text-sm  ">
         VIEW ALL
       </router-link>
     </div>
@@ -226,28 +224,34 @@
 </template>
 
 <script setup>
-// import Speciality from './Speciality.vue';
-// import All_doctors from './All_doctors.vue';
-
 import axios from "axios";
-import { ref, onMounted, computed } from "vue";
-import { useRouter } from "vue-router";
+import { ref, onMounted, computed, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
+const route = useRoute();
 const router = useRouter();
 const doctors = ref([]);
 const allDoctors = ref([]);
 const specialists = ref([]);
 const activeSpecialist = ref("");
 const selectedGender = ref("");
+const cityName = ref(route.params.city_name || ""); // Empty by default
 
-// Fetch doctors data
+watch(() => route.params.city_name, (newCityName) => {
+  cityName.value = newCityName;
+  fetchDoctors(); // Apply filters when city changes
+});
+
+// Fetch all doctors data (no city filter by default)
 const fetchDoctorsData = async () => {
   try {
     const response = await axios.get(
-      "api/method/appointments_management.controllers.api.doctors_data"
+      `/api/method/appointments_management.controllers.api.doctors_data`
     );
+
     doctors.value = response.data.message || [];
     allDoctors.value = doctors.value;
+    fetchDoctors(); // Apply filters after fetching
   } catch (error) {
     console.error("Error fetching doctors data:", error);
   }
@@ -257,7 +261,7 @@ const fetchDoctorsData = async () => {
 const fetchSpecialists = async () => {
   try {
     const response = await axios.get(
-      "api/method/appointments_management.controllers.api.spaclist"
+      "/api/method/appointments_management.controllers.api.spaclist"
     );
     specialists.value = response.data.message || [];
   } catch (error) {
@@ -265,25 +269,25 @@ const fetchSpecialists = async () => {
   }
 };
 
-// Filter doctors based on specialist and gender
+// Filter doctors based on city, specialist, and gender
 const fetchDoctors = () => {
   doctors.value = allDoctors.value.filter((doctor) => {
+    const matchesCity = cityName.value ? doctor.city === cityName.value : true;
     const matchesSpecialist = activeSpecialist.value
       ? doctor.specialist === activeSpecialist.value
       : true;
-
     const matchesGender = selectedGender.value
       ? doctor.gender === selectedGender.value
-      : true; // Apply gender filter only if selectedGender is not empty
+      : true;
 
-    return matchesSpecialist && matchesGender;
+    return matchesCity && matchesSpecialist && matchesGender;
   });
 };
 
 // Extract unique genders from doctors
 const uniqueGenders = computed(() => {
   const genders = allDoctors.value.map(doctor => doctor.gender).filter(Boolean);
-  return [...new Set(genders)]; // Remove duplicates using Set
+  return [...new Set(genders)];
 });
 
 // Format time for shifts
@@ -305,6 +309,8 @@ onMounted(() => {
   fetchSpecialists();
 });
 </script>
+
+
 <style>
 .bg {
   background-image: url("../assets/directory-top-bg.svg");
