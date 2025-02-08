@@ -151,17 +151,17 @@ def city_data():
     try:
         cities = frappe.get_all("City", fields=["name", "town_name"])
 
-        city_list = []
-        for city in cities:
-            city_doc = frappe.get_doc("City", city["name"])
-            doctor_names = [frappe.get_value("Doctor c", doctor, "doctor") for doctor in city_doc.doctors]
+        # city_list = []
+        # for city in cities:
+        #     city_doc = frappe.get_doc("City", city["name"])
+        #     doctor_names = [frappe.get_value("Doctor c", doctor, "doctor") for doctor in city_doc.doctors]
 
-            city_list.append({
-                "city_name": city["town_name"],
-                "doctors": doctor_names
-            })
+        #     city_list.append({
+        #         "city_name": city["town_name"],
+        #         "doctors": doctor_names
+        #     })
 
-        return city_list
+        return cities
 
     except Exception as e:
         frappe.log_error(f"Error fetching city data: {str(e)}")
@@ -213,10 +213,11 @@ def doctors_filter(specialist=None):
 
     doctors = frappe.get_all(
         "Doctor",
-        fields=["full_name", "specialist", "status", "doctor_image"],
+        fields=["full_name", "specialist", "status", "doctor_image", "city"],
         filters=filters,
     )
     return doctors
+
 
 @frappe.whitelist(allow_guest=True)
 def doctor_details(full_name, specialist):

@@ -20,6 +20,7 @@
   "doctor_fee",
   "status",
   "test",
+  "city",
   "doctor_shift_section",
   "shift",
   "section_break_hjom",
@@ -146,14 +147,20 @@
   },
   {
    "fieldname": "language",
-   "fieldtype": "Link",
+   "fieldtype": "Table MultiSelect",
    "label": "Language",
-   "options": "Languages"
+   "options": "Languages child"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 18:15:20.675662",
+ "modified": "2025-02-04 15:16:57.791382",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "Doctor",

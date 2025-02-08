@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full px-5 sm:px-10 md:px-20 pt-10">
+    <div class="bg-white font-sans py-10 mx-4 md:mx-16 lg:mx-40">
+    <div class="w-full sm:px-10 md:px-20 py-10 bg-white ">
       <!-- About Us Section -->
       <h1 class="text-2xl font-bold text-center text-gray-400">
         ABOUT <span class="text-md text-black">US</span>
@@ -37,7 +38,7 @@
       <div class="w-full pt-10">
         <h1 class="text-lg font-semibold pb-4">WHY <span class="text-lg font-extrabold text-gray-500">CHOOSE US</span></h1>
         <div class="flex flex-col sm:flex-row justify-center gap-6">
-          <div class="w-full sm:w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 group">
+          <div class="w-full sm:w-1/3 h-56 border flex items-center justify-center transition-all delay-100 hover:bg-[#367892] group">
             <div class="px-5 sm:px-10">
               <h1 class="text-md font-bold text-slate-500 pb-4 group-hover:text-white">EFFICIENCY:</h1>
               <p class="text-sm font-normal text-slate-500 group-hover:text-white">
@@ -46,7 +47,7 @@
             </div>
           </div>
   
-          <div class="w-full sm:w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 group">
+          <div class="w-full sm:w-1/3 h-56 border flex items-center justify-center transition-all delay-100 hover:bg-[#367892] group">
             <div class="px-5 sm:px-10">
               <h1 class="text-md font-bold text-slate-500 pb-4 group-hover:text-white">CONVENIENCE:</h1>
               <p class="text-sm font-normal text-slate-500 group-hover:text-white">
@@ -55,7 +56,7 @@
             </div>
           </div>
   
-          <div class="w-full sm:w-1/3 h-56 border flex items-center justify-center hover:bg-blue-600 group">
+          <div class="w-full sm:w-1/3 h-56 border flex items-center justify-center transition-all delay-100 hover:bg-[#367892] group">
             <div class="px-5 sm:px-10">
               <h1 class="text-md font-bold text-slate-500 pb-4 group-hover:text-white">PERSONALIZATION:</h1>
               <p class="text-sm font-normal text-slate-500 group-hover:text-white">
@@ -66,6 +67,7 @@
         </div>
       </div>
     </div>
+  </div>
   </template>
   
   <script setup>

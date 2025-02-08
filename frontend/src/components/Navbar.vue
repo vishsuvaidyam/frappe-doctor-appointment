@@ -11,7 +11,7 @@
       'hidden lg:flex': !isMobileMenuOpen,
       'flex flex-col bg-white fixed top-20 left-0 w-full h-screen p-8 space-y-4': isMobileMenuOpen,
     }" class="justify-center items-center space-x-8 text-sm font-medium">
-      <router-link to="/:city_name " class="text-sm font-medium text-[#224855]"
+      <router-link to="/:city_name" class="text-sm font-medium text-[#224855]"
         :class="{ 'border-b-2 border-[#367892] text-center hover:text-yellow-500': isActive('/') }">
         HOME
       </router-link>
@@ -213,7 +213,7 @@ const handleLogout = async () => {
 };
 
 
-const citydata = async () => {
+const citydata = async () => { 
   try {
     const response = await axios.get("/api/method/appointments_management.controllers.api.city_data");
     resultcity.value = response.data.message;
@@ -227,6 +227,8 @@ const citydata = async () => {
 const selectCity = async (city) => {
   selectedCity.value = city.town_name;
   router.push({ name: "Home", params: { city_name: city.town_name } });
+  sessionStorage.setItem('city_name', city.town_name );
+
   togglecity();
 };
 

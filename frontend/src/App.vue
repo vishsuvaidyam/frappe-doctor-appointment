@@ -3,9 +3,9 @@
     <div class="pt-20">
       <Navbar/>
     </div>
-    <div class=" h-full  bg-[#F8FCFF]">
+    <div class=" h-full">
       <router-view />
-      <div class="mx-60">
+      <div class="mx-60 mb-4">
         <Footer/>
       </div>
     </div>

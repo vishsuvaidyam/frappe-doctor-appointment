@@ -44,7 +44,7 @@
           </div>
           <div class="flex justify-end items-center my-4">
                     <!-- <a href="#" class="text-sm text-blue-500 hover:underline "></a> -->
-                    <router-link to="/forget-password" class="text-sm text-blue-500 hover:underline ">
+                    <router-link to="/forget-password" class="text-sm text-[#367892] hover:underline ">
                         Forgot password?
                     </router-link>
                 </div>
@@ -65,7 +65,7 @@
 
         <p class="text-sm font-medium pt-2 text-gray-600">
           Create a new account?
-          <router-link to="/register" class="cursor-pointer text-blue-500">Click here</router-link>
+          <router-link to="/register" class="cursor-pointer text-[#367892]">Click here</router-link>
         </p>
       </form>
       <div class="flex gap-4 pt-4 w-auto justify-center">
