@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-5 sm:px-10 lg:px-20 pt-10">
+    <div class="w-full px-5 sm:px-10 lg:px-20 pt-10 bg-white pb-20">
         <h1 class="text-2xl font-normal text-center text-gray-400">
             CONTACT <span class="text-md text-gray-700 font-extrabold">US</span>
         </h1>

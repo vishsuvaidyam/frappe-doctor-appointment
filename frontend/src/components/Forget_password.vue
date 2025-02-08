@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed inset-0 flex justify-center items-center bg-white">
+    <div class="fixed inset-0 flex justify-center items-center bg-[]">
         <div class="opacity-85 fixed inset-0 bg-black bg-opacity-50"></div>
         <div class="relative z-50 bg-gray-50 opacity-85 border px-4 h-90 w-1/2 pt-5 sm:p-6 sm:pb-4">
             <div class="block justify-center gap-5 items-center"></div>
@@ -12,7 +12,7 @@
                 </div>
                 <div class="flex flex-col items-center gap-2 justify-center">
                     <button @click="reset_password"
-                        class="w-full py-2 px-8 rounded-md flex bg-[#245da2] text-white items-center justify-center gap-2">
+                        class="w-full py-2 px-8 rounded-md flex bg-[#224855]  text-white items-center justify-center gap-2">
                         Reset Password
                     </button>
                     <router-link to="/login" class="text-sm font-normal cursor-pointer text-black">

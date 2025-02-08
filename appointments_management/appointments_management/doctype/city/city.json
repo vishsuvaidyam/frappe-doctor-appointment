@@ -6,8 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "town_name",
-  "doctors"
+  "town_name"
  ],
  "fields": [
   {
@@ -16,17 +15,11 @@
    "in_list_view": 1,
    "label": "Town name",
    "unique": 1
-  },
-  {
-   "fieldname": "doctors",
-   "fieldtype": "Table MultiSelect",
-   "label": "Doctors",
-   "options": "Doctor c"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-30 14:21:09.707427",
+ "modified": "2025-02-04 15:16:13.700759",
  "modified_by": "Administrator",
  "module": "appointments_management",
  "name": "City",

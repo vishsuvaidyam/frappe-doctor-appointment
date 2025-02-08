@@ -67,7 +67,7 @@
 
                 <p class="block text-sm text-gray-600 pt-4">
                     Already have an account?
-                    <router-link to="/login" class="text-blue-500 hover:text-blue-700 decoration-black">
+                    <router-link to="/login" class="text-[#367892] hover:text-[#31a2cf] decoration-black">
                         Login here
                     </router-link>
                 </p>

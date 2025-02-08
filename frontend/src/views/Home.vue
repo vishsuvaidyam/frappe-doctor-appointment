@@ -235,14 +235,13 @@ const allDoctors = ref([]);
 const specialists = ref([]);
 const activeSpecialist = ref("");
 const selectedGender = ref("");
-const cityName = ref(route.params.city_name || ""); // Empty by default
+const cityName = ref(route.params.city_name || "");  
 
 watch(() => route.params.city_name, (newCityName) => {
   cityName.value = newCityName;
-  fetchDoctors(); // Apply filters when city changes
+  fetchDoctors();  
 });
 
-// Fetch all doctors data (no city filter by default)
 const fetchDoctorsData = async () => {
   try {
     const response = await axios.get(
@@ -251,7 +250,7 @@ const fetchDoctorsData = async () => {
 
     doctors.value = response.data.message || [];
     allDoctors.value = doctors.value;
-    fetchDoctors(); // Apply filters after fetching
+    fetchDoctors(); 
   } catch (error) {
     console.error("Error fetching doctors data:", error);
   }
